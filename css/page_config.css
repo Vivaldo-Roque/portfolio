@@ -1,0 +1,48 @@
+/* Page formatting  */
+
+html, body {
+  margin: 0;
+}
+
+body {
+  font-family: Roboto;
+}
+
+.container {
+  margin: auto;
+  position: relative;
+  min-height: 100vh;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  padding-bottom: 7rem;
+  /* Footer height */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: var(--dark-green);
+  color: var(--white);
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

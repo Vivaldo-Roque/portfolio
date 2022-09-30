@@ -1,0 +1,41 @@
+nav {
+  background-color: var(--dark-green);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--dark-green);
+  }
+  
+  ul li {
+    float: left;
+  }
+  
+  ul li a {
+    display: block;
+    color: var(--white);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    line-height: 25px;
+    transition: background-color 0.5s;
+    font-family: Poppins;
+  }
+  
+  ul li a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  ul li a.active {
+    transition: background-color 0.5s;
+    border-top: 2px solid var(--white);;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }

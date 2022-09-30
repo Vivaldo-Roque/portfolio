@@ -1,0 +1,32 @@
+header {
+ width: 100%;
+ height: 100vh;
+ background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("/img/RoadAhead.jpeg");
+ background-size: 100% 100%;
+ color: var(--white);
+}
+
+header > div {
+    height: 100%;
+}
+
+header .fa {
+    color: white;
+}
+
+header .button-rect {
+    margin-top: 5em;
+}
+
+header h2 {
+    margin: 0;
+    margin-bottom: 0.25em;
+    font-size: 4.6em;
+}
+
+header h3 {
+    margin: 0;
+    margin-bottom: 1em;
+font-size: 2em;
+font-weight: normal;
+}

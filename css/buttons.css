@@ -1,0 +1,46 @@
+.social-button-rect {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+    margin: 10px;
+}
+
+.social-button-circ {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.button-rect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.button-rect:hover {
+    background-color: var(--white);
+    color: var(--dark-green);
+    cursor: pointer;
+}
+
+.fa {
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--dark-green);
+  }
