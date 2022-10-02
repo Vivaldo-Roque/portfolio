@@ -5,6 +5,11 @@
   padding: 10px;
 }
 
+::selection {
+  color: white;
+  background: var(--dark-green);
+}
+
 .content-wrap h2 {
   color: var(--dark-green);
 }
@@ -36,10 +41,6 @@ body{
   font-size: 2.4em;
 }
 
-footer .fa {
-  border-radius: 50%;
-  color: var(--white);
-}
 #contact .social-button-circ {
   border-color: var(--dark-green);
 }
@@ -48,4 +49,35 @@ footer .fa {
   width: 30%;
     margin-left: 46%;
     margin-right: auto;
+}
+
+#about_content h2 {
+  margin-top: 0;
+}
+
+#about_content h2 {
+  margin-top: 0;
+}
+
+#about_content p {
+  text-align: justify;
+  margin-left: 4rem;
+}
+
+section {
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.banner{
+  padding: 0;
+}
+
+a {
+  color:var(--dark-green);
+}
+
+a:hover {
+  color: var(--light-green);
 }

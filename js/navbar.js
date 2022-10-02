@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
     var navbar = document.getElementById("nav");
 
     var sticky = navbar.offsetTop;
-    
+
     var headerSize = document.getElementById("home").offsetHeight;
 
     var content = document.getElementsByClassName("content-wrap")[0];
@@ -22,6 +22,20 @@ window.addEventListener("load", () => {
 
     window.addEventListener("scroll", () => {
         headerFollow();
+
+        var position = document.getElementById("about").getBoundingClientRect();
+        var scrolled = document.scrollingElement.scrollTop;
+
+        
+
+        if(scrolled >= position.top){
+            //document.getElementById("navabout").classList.add(
+              //'active');
+
+              console.log(scrolled);
+
+            }
+
     });
 
 });

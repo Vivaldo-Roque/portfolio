@@ -1,7 +1,7 @@
 header {
  width: 100%;
  height: 100vh;
- background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("/img/RoadAhead.jpeg");
+ background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), var(--headerimg);
  background-size: 100% 100%;
  color: var(--white);
 }
@@ -10,7 +10,7 @@ header > div {
     height: 100%;
 }
 
-header .fa {
+header .fa-brands {
     color: white;
 }
 

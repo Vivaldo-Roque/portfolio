@@ -24,14 +24,14 @@ window.addEventListener("load", () => {
     var txt = document.getElementById("textchanging");
 
     animation = false;
-    interval = setInterval(intervalFunction, 2500);
+    interval = setInterval(intervalFunction, 1600);
 
     document.addEventListener('scroll', function () {
         
         if(isInViewport(txt) && animation === true){
             animation = false;
-            interval = setInterval(intervalFunction, 2500);
-        } else{
+            interval = setInterval(intervalFunction, 1600);
+        } else if(!isInViewport(txt) && animation === false){
             animation = true;
             clearInterval(interval);
         }

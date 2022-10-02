@@ -37,10 +37,55 @@
     cursor: pointer;
 }
 
-.fa {
+.button-rect-highlight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid grey;
+    color: grey;;
+    padding: 10px;
+    font-size: 1em;
+}
+
+.button-rect-highlight:hover {
+    color: var(--dark-green);
+    border-color: var(--dark-green);
+    cursor: pointer;
+}
+
+.fa-brands, .fa-solid {
+    color: var(--dark-green);
+  }
+
+header .col > .row > .fa-brands {
     font-size: 30px;
     width: 50px;
     text-align: center;
     text-decoration: none;
-    color: var(--dark-green);
+}
+
+footer > .row > .fa-brands {
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+footer .fa-brands {
+    border-radius: 50%;
+    color: var(--white);
   }
+
+  footer .fa-brands:hover {
+    border-radius: 50%;
+    color: var(--dark-green);
+    background-color: white;
+  }
+
+#contact > .col-l > .row-l > .fa-solid {
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}

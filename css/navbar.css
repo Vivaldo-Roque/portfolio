@@ -1,4 +1,5 @@
 nav {
+  z-index: 99;
   background-color: var(--dark-green);
 }
 
@@ -24,14 +25,15 @@ ul {
     transition: background-color 0.5s;
     font-family: Poppins;
   }
-  
-  ul li a:hover:not(.active) {
-    background-color: #111;
+
+  ul li a:hover {
+    color: var(--white);
   }
+
   
   ul li a.active {
     transition: background-color 0.5s;
-    border-top: 2px solid var(--white);;
+    border-top: 3px solid var(--white);;
   }
 
   .sticky {
