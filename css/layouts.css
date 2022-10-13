@@ -30,11 +30,13 @@
 }
 
 .row-m {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .col-m {
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .row-s {
@@ -44,4 +46,7 @@
     justify-content:flex-start;
 }
 
-
+.m-l-r {
+    margin-left: 20px;
+    margin-right: 20px;
+}

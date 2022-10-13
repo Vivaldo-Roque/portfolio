@@ -3,7 +3,7 @@ nav {
   background-color: var(--dark-green);
 }
 
-ul {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -11,11 +11,11 @@ ul {
     background-color: var(--dark-green);
   }
   
-  ul li {
+  nav ul li {
     float: left;
   }
   
-  ul li a {
+  nav ul li a {
     display: block;
     color: var(--white);
     text-align: center;
@@ -24,16 +24,16 @@ ul {
     line-height: 25px;
     transition: background-color 0.5s;
     font-family: Poppins;
+    border-top: 3px solid transparent;
   }
 
-  ul li a:hover {
+  nav ul li a:hover {
     color: var(--white);
   }
-
   
-  ul li a.active {
+  nav ul li a.active {
     transition: background-color 0.5s;
-    border-top: 3px solid var(--white);;
+    border-top: 3px solid var(--white);
   }
 
   .sticky {

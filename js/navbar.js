@@ -10,6 +10,25 @@ window.addEventListener("load", () => {
 
     var contentPadding = content.style.paddingTop;
 
+    var positions = [
+        { offset: offset(document.getElementById("home")), nav: document.getElementById("navhome") },
+        { offset: offset(document.getElementById("about")), nav: document.getElementById("navabout") },
+        { offset: offset(document.getElementById("skills")), nav: document.getElementById("navskills") },
+        { offset: offset(document.getElementById("works")), nav: document.getElementById("navworks") },
+        { offset: offset(document.getElementById("experience")), nav: document.getElementById("navexperience") },
+        { offset: offset(document.getElementById("contact")), nav: document.getElementById("navcontact") }
+    ];
+
+    var scrolled;
+    var saveLast;
+
+    function offset(el) {
+        var rect = el.getBoundingClientRect(),
+            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft, bottom: rect.bottom + scrollTop }
+    }
+
     function headerFollow() {
         if (window.pageYOffset > sticky + headerSize) {
             navbar.classList.add("sticky");
@@ -20,22 +39,28 @@ window.addEventListener("load", () => {
         }
     }
 
-    window.addEventListener("scroll", () => {
+    window.onscroll = function (e) {
+
         headerFollow();
 
-        var position = document.getElementById("about").getBoundingClientRect();
-        var scrolled = document.scrollingElement.scrollTop;
+        positions.forEach(function (position) {
 
-        
+            scrolled = document.scrollingElement.scrollTop;
 
-        if(scrolled >= position.top){
-            //document.getElementById("navabout").classList.add(
-              //'active');
+            if (scrolled + 140 <= position.offset.bottom && scrolled + 40 >= position.offset.top) {
+                
+                if (saveLast != undefined) {
+                    saveLast.classList.remove(
+                        'active');
+                }
 
-              console.log(scrolled);
+                position.nav.classList.add(
+                    'active');
 
-            }
+                saveLast = position.nav;
+            } 
 
-    });
+        });
+    }
 
 });

@@ -6,22 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivaldo's Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/variable.css">
-    <link rel="stylesheet" href="./css/page_config.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/navbar.css">
-    <link rel="stylesheet" href="./css/topscroll.css">
-    <link rel="stylesheet" href="./css/layouts.css">
-    <link rel="stylesheet" href="./css/boxes.css">
-    <link rel="stylesheet" href="./css/buttons.css">
-    <link rel="stylesheet" href="./css/parallax_effect.css">
-    <link rel="stylesheet" href="./css/textchanging.css">
-    <link rel="stylesheet" href="./css/">
-    <script src="./js/navbar.js"></script>
-    <script src="./js/topscroll.js"></script>
-    <script src="./js/textchanging.js"></script>
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="./img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="./css/loading.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/variable.css">
+    <link rel="stylesheet" type="text/css" href="./css/page_config.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/header.css">
+    <link rel="stylesheet" type="text/css" href="./css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="./css/topscroll.css">
+    <link rel="stylesheet" type="text/css" href="./css/layouts.css">
+    <link rel="stylesheet" type="text/css" href="./css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="./css/parallax_effect.css">
+    <link rel="stylesheet" type="text/css" href="./css/textchanging.css">
+    <link rel="stylesheet" type="text/css" href="./css/timeline.css">
+    <script type="text/javascript" src="./js/loading.js"></script>
+    <script type="text/javascript" src="./js/navbar.js"></script>
+    <script type="text/javascript" src="./js/topscroll.js"></script>
+    <script type="text/javascript" src="./js/textchanging.js"></script>
 </head>
 
 <body>
@@ -47,17 +53,17 @@
             </h3>
 
             <div class="row">
-                <a class="fa-brands fa-twitter social-button-rect" href="">
+                <a class="fa-brands fa-twitter social-button-rect" href="https://twitter.com/vivaldo_roque">
                 </a>
-                <a class="fa-brands fa-github social-button-rect" href="">
+                <a class="fa-brands fa-github social-button-rect" href="https://github.com/Vivaldo-Roque/">
                 </a>
-                <a class="fa-brands fa-linkedin social-button-rect" href="">
+                <a class="fa-brands fa-linkedin social-button-rect" href="https://www.linkedin.com/in/vivaldo-roque-953837179/">
                 </a>
             </div>
 
-            <div class="button-rect" onclick="location.href='#works';">
+            <a class="button-rect" onclick="location.href='#works';">
                 PORTFOLIO
-            </div>
+            </a>
         </div>
 
     </header>
@@ -68,6 +74,7 @@
                 <ul>
                     <li><a id="navhome" class="active" href="#home">HOME</a></li>
                     <li><a id="navabout" href="#about">ABOUT</a></li>
+                    <li><a id="navskills" href="#skills">SKILLS</a></li>
                     <li><a id="navworks" href="#works">PORTFOLIO</a></li>
                     <li><a id="navexperience" href="#experience">RESUME</a></li>
                     <li><a id="navcontact" href="#contact">CONTACT</a></li>
@@ -81,8 +88,8 @@
                     <div class="row-s row-m" style="width: 80%;">
 
                         <div
-                            style="height: 400px; width: 400px; background-color: var(--dark-green); border: 3.5px solid var(--dark-green); border-radius: 50%; z-index: 2;">
-                            <img src="./img/me.jpg" height="400px" width="400px" alt="" style="border-radius: 50%;">
+                            style="height: 400px; width: 400px; background-color: #8bf1cc; border: 3.5px solid #8bf1cc; border-radius: 50%; z-index: 2;">
+                            <img src="./img/me.jpg" height="400px" width="400px" alt="me" style="border-radius: 50%;">
                         </div>
 
                         <div id="about_content" style="height: 100%;">
@@ -90,24 +97,20 @@
                             <h2>ABOUT ME</h2>
 
                             <p class="lead">
-                                I am Artur Meyster, a full-stack software engineer based in San Francisco.
+                                I am Vivaldo Roque, a full-stack software engineer based in Luanda, Angola.
                             </p>
 
                             <p>
-                                I fell in love with technology when I build my first website with HTML and CSS at the
-                                age of
-                                12
-                                and hosted it on Geocities! Since then I've been passionate about building applications
-                                that
-                                solve real world problems by applying new and exciting technologies.
+                                I fell in love with technology when I wanted to build my own tools! Since then, I've
+                                been passionate about creating apps that solve real-world problems by applying new and
+                                exciting technologies.
                             </p>
 
-                            <p>My latest experience has been focused on building single-page applications with
-                                JavaScript,
-                                Angular, Backbone, Ionic, HTML/CSS, jQuery, Node.js, MySQL and MongoDB.</p>
+                            <p>My latest experience has been focused on building applications with
+                                Flutter, Dart, Java and Sqlite.</p>
                             <div class="row" style="width: 33%; justify-content: space-between; margin-left: 4rem;">
-                                <div class="button-rect-highlight">CONTACT ME</div>
-                                <div class="button-rect-highlight">SEE PORTFOLIO</div>
+                                <a href="#contact" class="button-rect-highlight">CONTACT ME</a>
+                                <a href="#works" class="button-rect-highlight">SEE PORTFOLIO</a>
                             </div>
                         </div>
 
@@ -115,48 +118,333 @@
 
                 </section>
 
+                <section id="skills">
+
+                    <h2>My skills and levels</h2>
+
+                    <div class="col col-m">
+
+                        <h3>Web development</h3>
+
+                        <div class="row row-m">
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="css3"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="html5"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="javascript"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+                        </div>
+
+                        <h3>General purpose programming language</h3>
+
+                        <div class="row row-m">
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="c"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="cplusplus"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>beginner</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="csharp"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>beginner</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="dart"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="java"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="python"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+                        </div>
+
+                        <h3>Data Base Management System (DBMS)</h3>
+
+                        <div class="row row-m">
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="mysql"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="sqlite"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+                        </div>
+
+                        <h3>Game engines</h3>
+
+                        <div class="row row-m">
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="unity"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>beginner</strong></p>
+                            </div>
+                        </div>
+
+                        <h3>Cross-platform frameworks</h3>
+
+                        <div class="row row-m">
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="flutter"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+                        </div>
+
+                        <h3>Operating systems</h3>
+
+                        <div class="row row-m">
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="android"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>intermediate</strong></p>
+                            </div>
+
+                            <div class="col m-l-r">
+                                <div class="skills"><img alt="windows"
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" />
+                                </div>
+                                <p><span>Level:</span><br><strong>beginner</strong></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
                 <section id="works">
 
                     <h2>RECENT PROJECTS</h2>
 
-                    <div class="row-s row-m" style="width: 80%;">
+                    <div class="row-s row-m works" style="width: 80%;">
 
-                        <img src="./img/me.jpg" height="500px" width="500px" alt="" style="border-radius: 8%;">
+                        <img src="./img/works/cfoptrainer.png" height="500px" width="500px" alt="demo_cfoptrainer">
 
                         <div id="about_content" style="height: 100%;">
 
                             <div class="row">
-                                <h2 style="margin: 0; margin-left: 10px; margin-right: 10px;">App name</h2>
+                                <h2 style="margin: 0; margin-left: 10px; margin-right: 10px; color: black;">CFOP Trainer
+                                </h2>
 
-                                <a href="" target="_blank" style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i class="fa-brands fa-github"></i> Github</a>
-
-                                <a href="" target="_blank" style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i class="fa-solid fa-external-link"></i> Live Site</a>
-
-                                <a
-                                    href='https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' style="margin-left: 10px; margin-right: 10px;">
+                                <a href='https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
+                                    style="margin-left: 10px; margin-right: 10px;">
                                     <img height="60" width="150" alt='Get it on Google Play'
                                         src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'>
                                 </a>
                             </div>
 
-
-
-                            <p class="lead">
-                                I am Artur Meyster, a full-stack software engineer based in San Francisco.
+                            <p style="font-weight: 500;">
+                                CFOP TRAINER, A TOOL TO HELP YOU LEANING AND TRAIN CFOP.
                             </p>
 
-                            <p>
-                                I fell in love with technology when I build my first website with HTML and CSS at the
-                                age of
-                                12
-                                and hosted it on Geocities! Since then I've been passionate about building applications
-                                that
-                                solve real world problems by applying new and exciting technologies.
+                            <p style="font-weight: bold;">FEATURES:</p>
+
+                            <ul class="list">
+                                <li>
+                                    Reference table for: the 41 F2Ls, 57 OLLs, 21 PLLs, 41 COLLs and 27
+                                        WVs;<br><br>
+                                </li>
+                                <li>
+                                    F2L, OLL, PLL, COLL and WV Trainer;<br><br>
+                                </li>
+                                <li>
+                                    2-sides PLL recognition;<br><br>
+                                </li>
+                                <li>
+                                    Statistics.<br><br>
+                                </li>
+                            </ul>
+
+                            <p style="font-weight: bold;">TOOLS:</p>
+
+                            <ul class="list">
+                                <li>
+                                    Flutter;<br><br>
+                                </li>
+                                <li>
+                                    Dart;<br><br>
+                                </li>
+                                <li>
+                                    Sqlite;<br><br>
+                                </li>
+                                <li>
+                                    HTML;<br><br>
+                                </li>
+                                <li>
+                                    CSS;<br><br>
+                                </li>
+                                <li>
+                                    JAVASCRIPT.<br><br>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row-s row-m works" style="width: 80%;">
+
+                        <img src="./img/works/tictactoe.png" height="400px" width="500px" alt="demo_tictactoe">
+
+                        <div id="about_content" style="height: 100%;">
+
+                            <div class="row expand-row">
+                                <h2 style="margin: 0; margin-left: 10px; margin-right: 10px; color: black;">Tic-Tac-Toe
+                                </h2>
+
+                                <a href="https://github.com/Vivaldo-Roque/TicTacToe" target="_blank"
+                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                        class="fa-brands fa-github"></i> Github</a>
+
+                                <a href="https://vivaldo-roque.github.io/TicTacToe" target="_blank"
+                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                        class="fa-solid fa-external-link"></i> Live Site</a>
+
+                            </div>
+
+                            <p style="font-weight: 500;">
+                                TICTACTOE GAME WITH AI USING JAVASCRIPT.
                             </p>
 
-                            <p>My latest experience has been focused on building single-page applications with
-                                JavaScript,
-                                Angular, Backbone, Ionic, HTML/CSS, jQuery, Node.js, MySQL and MongoDB.</p>
+                            <p style="font-weight: bold;">FEATURES:</p>
+
+                            <ul class="list">
+                                <li>
+                                    PWA (Progressive Web App) support;<br><br>
+                                </li>
+                                <li>
+                                    Invincible AI;<br><br>
+                                </li>
+                                <li>
+                                    Multilanguage (EN, PT);<br><br>
+                                </li>
+                                <li>
+                                    Game levels.<br><br>
+                                </li>
+                            </ul>
+
+                            <p style="font-weight: bold;">TOOLS:</p>
+
+                            <ul class="list">
+                                <li>
+                                    CSS;<br><br>
+                                </li>
+                                <li>
+                                    HTML;<br><br>
+                                </li>
+                                <li>
+                                    JAVASCRIPT.<br><br>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="row-s row-m works" style="width: 80%;">
+
+                        <div style="width: 500px; display: flex; justify-content: center; align-items: center;">
+                            <img src="./img/works/vivacubesolver.jpg" height="500px" width="500px"
+                                alt="demo_vivacubesolver" style="object-fit: contain;">
+                        </div>
+
+                        <div id="about_content" style="height: 100%;">
+
+                            <div class="row">
+                                <h2 style="margin: 0; margin-left: 10px; margin-right: 10px; color: black;">
+                                    VivaCubeSolver</h2>
+
+                                <a href="https://github.com/Vivaldo-Roque/VivaCubeSolver" target="_blank"
+                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                        class="fa-brands fa-github"></i> Github</a>
+
+                                <a href="https://github.com/Vivaldo-Roque/VivaCubeSolver/blob/master/app/release/app-release.apk"
+                                    target="_blank"
+                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                        class="fa-solid fa-download"></i> Download APK</a>
+
+                            </div>
+
+
+
+                            <p style="font-weight: 500;">
+                                APPLICATION CAPABLE OF SOLVING THE MAGIC CUBE FROM IMAGES CAPTURED BY THE CAMERA.
+                            </p>
+
+                            <p style="font-weight: bold;">FEATURES:</p>
+
+                            <ul class="list">
+                                <li>
+                                    Reference table for: the 41 F2Ls, 57 OLLs, 21 PLLs, 41 COLLs and 27
+                                        WVs.<br><br>
+                                </li>
+                                <li>
+                                    F2L, OLL, PLL, COLL and WV Trainer.<br><br>
+                                </li>
+                                <li>
+                                    2-sides PLL recognition.<br><br>
+                                </li>
+                                <li>
+                                    Statistics.<br><br>
+                                </li>
+                            </ul>
+
+                            <p style="font-weight: bold;">TOOLS:</p>
+
+                            <ul class="list">
+                                <li>
+                                    Android;<br><br>
+                                </li>
+                                <li>
+                                    Java;<br><br>
+                                </li>
+                                <li>
+                                    python.<br><br>
+                                </li>
+                            </ul>
                         </div>
 
                     </div>
@@ -167,63 +455,67 @@
 
                     <h2>EXPERIENCE</h2>
 
-                    <div class="col">
-                        <p>ttt</p>
+                    <div class="row row-m" style="width: 80%;">
+                        <div class="timeline">
+                            <div class="timeline-container">
+                                <div class="timeline-date">
+                                    <p>0-0</p>
+                                </div>
+                                <div class="timeline-icon">
+                                    <i class="time-icon fa-solid fa-briefcase"></i>
+                                </div>
+                                <div class="timeline-body">
+    
+                                    <h3>No experience</h3>
+                                    <h4>No job</h4>
+                                    <ul>
+                                        <li>
+                                            No experience
+                                        </li>
+                                    </ul>
+                                
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <h2>EDUCATION</h2>
 
-                    <div class="col">
-
-                        <div class="row-s">
-
-                            <div class="row" style="align-self: flex-start;">
-                                <p>2015</p>
-
-                                <i class="time-icon fa-solid fa-briefcase fa-2x"></i>
-                            </div>
-
-                            <div class="box arrow-left">
-                                <h3>HACK REACTOR</h3>
-                                <h4>ADVANCED SOFTWARE ENGINEERING IMMERSIVE</h4>
-                                <p>12-week full-stack development program with over 800 hours of instruction, projects,
-                                    and hands-on work</p>
-                            </div>
-                        </div>
-
-                        <div class="row-s">
-
-                            <div class="row" style="align-self: flex-start;">
-                                <p>2012</p>
-
-                                <i class="time-icon fa-solid fa-briefcase fa-2x"></i>
-                            </div>
-
-                            <div class="box arrow-left">
-                                <h3>EMORY UNIVERSITY</h3>
-                                <h4>BA FINANCE</h4>
-                                <p>Cumulative GPA: 3.7</p>
-
-                                <p>Honors: Dean's List Recipient</p>
+                    <div class="row row-m" style="width: 80%;">
+                        <div class="timeline">
+                            <div class="timeline-container">
+                                <div class="timeline-date">
+                                    <p>2019-2023</p>
+                                </div>
+                                <div class="timeline-icon">
+                                    <i class="time-icon fa-solid fa-briefcase"></i>
+                                </div>
+                                <div class="timeline-body">
+                                    
+                                    <h3>ISKA - Instituto Superior Kangonjo de Angola</h3>
+                                    <h4>Computer engineering</h4>
+                                    <p><strong>Cumulative GPA:</strong> 0.0</p>
+                                    
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
-                </section>
-
-                <section class="banner" style="height: 20em;">
-                    <div class="parallax">
-
-                        <div class="col">
-                            <h2>YOU CAN TAKE A CLOSER LOOK AT MY WORK</h2>
-                            <div class="button-rect"> ON GITHUB</div>
-                        </div>
-
-                    </div>
                 </section>
 
                 <section id="contact">
+
+                    <div id="banner">
+                        <div class="parallax" style="height: 20em;">
+    
+                            <div class="col">
+                                <h2>YOU CAN TAKE A CLOSER LOOK AT MY WORK</h2>
+                                <a href="https://github.com/Vivaldo-Roque/" class="button-rect"> ON GITHUB</a>
+                            </div>
+    
+                        </div>
+
+                    </div>   
 
                     <h2>
                         CONTACT
@@ -231,22 +523,22 @@
 
                     <div class="col-l">
                         <div class="row-l">
-                            <a class="fa-solid fa-map-marker" href="">
-                            </a>
+                            <i class="fa-solid fa-map-marker" href="">
+                            </i>
                             <p>
                                 Angola, Luanda, Cacuaco, Sequele
                             </p>
                         </div>
                         <div class="row-l">
-                            <a class="fa-solid fa-envelope" href="">
+                            <a class="fa-solid fa-envelope" href="mailto:2001vivaldo@gmail.com">
                             </a>
-                            <p>
+                            <a href="mailto:2001vivaldo@gmail.com" style="text-decoration: none;">
                                 2001vivaldo@gmail.com
-                            </p>
+                            </a>
                         </div>
                         <div class="row-l">
-                            <a class="fa-solid fa-phone" href="">
-                            </a>
+                            <i class="fa-solid fa-phone" href="">
+                            </i>
                             <p>
                                 (+244) 928 994 233
                             </p>
@@ -259,15 +551,17 @@
         </div>
         <footer>
             <div class="row">
-                <a class="fa-brands fa-twitter social-button-circ" href="">
+                <a class="fa-brands fa-twitter social-button-circ" href="https://twitter.com/vivaldo_roque">
                 </a>
-                <a class="fa-brands fa-github social-button-circ" href="">
+                <a class="fa-brands fa-github social-button-circ" href="https://github.com/Vivaldo-Roque/">
                 </a>
-                <a class="fa-brands fa-linkedin social-button-circ" href="">
+                <a class="fa-brands fa-linkedin social-button-circ" href="https://www.linkedin.com/in/vivaldo-roque-953837179/">
                 </a>
             </div>
         </footer>
     </div>
 </body>
+
+<div class="se-pre-con"></div>
 
 </html>
