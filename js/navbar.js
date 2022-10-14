@@ -1,3 +1,13 @@
+// for scrolling
+document.addEventListener("DOMContentLoaded", function (event) {
+    var scrollpos = localStorage.getItem('scrollpos');
+    window.scrollTo(0, scrollpos);
+});
+
+window.addEventListener("beforeunload", function (e) {
+    this.localStorage.setItem('scrollpos', window.scrollY);
+});
+
 window.addEventListener("load", () => {
 
     var navbar = document.getElementById("nav");
@@ -9,6 +19,20 @@ window.addEventListener("load", () => {
     var content = document.getElementsByClassName("content-wrap")[0];
 
     var contentPadding = content.style.paddingTop;
+
+    var mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenu.addEventListener('click', function () {
+
+        var x = document.getElementById("navLinks");
+        
+      
+        if (x.style.maxHeight) {
+            x.style.maxHeight = null;
+        } else {
+            x.style.maxHeight = x.scrollHeight + "px";
+        }
+    });
 
     var positions = [
         { offset: offset(document.getElementById("home")), nav: document.getElementById("navhome") },
@@ -22,6 +46,9 @@ window.addEventListener("load", () => {
     var scrolled;
     var saveLast;
 
+    navFollow();
+    navCurrentActive();
+
     function offset(el) {
         var rect = el.getBoundingClientRect(),
             scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
@@ -29,7 +56,7 @@ window.addEventListener("load", () => {
         return { top: rect.top + scrollTop, left: rect.left + scrollLeft, bottom: rect.bottom + scrollTop }
     }
 
-    function headerFollow() {
+    function navFollow() {
         if (window.pageYOffset > sticky + headerSize) {
             navbar.classList.add("sticky");
             content.style.paddingTop = `${navbar.offsetHeight}px`;
@@ -39,16 +66,13 @@ window.addEventListener("load", () => {
         }
     }
 
-    window.onscroll = function (e) {
-
-        headerFollow();
-
+    function navCurrentActive() {
         positions.forEach(function (position) {
 
             scrolled = document.scrollingElement.scrollTop;
 
             if (scrolled + 140 <= position.offset.bottom && scrolled + 40 >= position.offset.top) {
-                
+
                 if (saveLast != undefined) {
                     saveLast.classList.remove(
                         'active');
@@ -58,9 +82,16 @@ window.addEventListener("load", () => {
                     'active');
 
                 saveLast = position.nav;
-            } 
+            }
 
         });
+    }
+
+    window.onscroll = function (e) {
+
+        navFollow();
+        navCurrentActive();
+
     }
 
 });

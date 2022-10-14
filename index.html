@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="./css/parallax_effect.css">
     <link rel="stylesheet" type="text/css" href="./css/textchanging.css">
     <link rel="stylesheet" type="text/css" href="./css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="./css/mediaqueries.css">
     <script type="text/javascript" src="./js/loading.js"></script>
     <script type="text/javascript" src="./js/navbar.js"></script>
     <script type="text/javascript" src="./js/topscroll.js"></script>
@@ -48,7 +49,7 @@
                 VIVALDO ROQUE
             </h2>
 
-            <h3 id="textchanging">
+            <h3 id="textchanging" style="margin-bottom: 2rem; margin-top: 2rem;">
                 SOFTWARE ENGINEER
             </h3>
 
@@ -70,27 +71,31 @@
 
     <div class="container">
         <nav id="nav">
-            <div class="row">
-                <ul>
-                    <li><a id="navhome" class="active" href="#home">HOME</a></li>
-                    <li><a id="navabout" href="#about">ABOUT</a></li>
-                    <li><a id="navskills" href="#skills">SKILLS</a></li>
-                    <li><a id="navworks" href="#works">PORTFOLIO</a></li>
-                    <li><a id="navexperience" href="#experience">RESUME</a></li>
-                    <li><a id="navcontact" href="#contact">CONTACT</a></li>
-                </ul>
+            <div class="col">
+                <div class="row" style="align-items:flex-end; justify-content: end; width: 100%;">
+                    <button id="mobileMenu" class="icon">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+                <div id="wrapper" class="row">
+                    <ul id="navLinks">
+                        <li><a id="navhome" href="#home">HOME</a></li>
+                        <li><a id="navabout" href="#about">ABOUT</a></li>
+                        <li><a id="navskills" href="#skills">SKILLS</a></li>
+                        <li><a id="navworks" href="#works">PORTFOLIO</a></li>
+                        <li><a id="navexperience" href="#experience">RESUME</a></li>
+                        <li><a id="navcontact" href="#contact">CONTACT</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class="content-wrap">
             <main>
                 <section id="about" style="padding-top: 60px;">
 
-                    <div class="row-s row-m" style="width: 80%;">
+                    <div class="col-s row-m" style="width: 80%;">
 
-                        <div
-                            style="height: 400px; width: 400px; background-color: #8bf1cc; border: 3.5px solid #8bf1cc; border-radius: 50%; z-index: 2;">
-                            <img src="./img/me.jpg" height="400px" width="400px" alt="me" style="border-radius: 50%;">
-                        </div>
+                        <img src="./img/me.jpg" height="500px" width="400px" alt="me">
 
                         <div id="about_content" style="height: 100%;">
 
@@ -337,11 +342,11 @@
                                 </h2>
 
                                 <a href="https://github.com/Vivaldo-Roque/TicTacToe" target="_blank"
-                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                    style="font-size:1.5rem; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
                                         class="fa-brands fa-github"></i> Github</a>
 
                                 <a href="https://vivaldo-roque.github.io/TicTacToe" target="_blank"
-                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                    style="font-size:1.5rem; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
                                         class="fa-solid fa-external-link"></i> Live Site</a>
 
                             </div>
@@ -398,12 +403,12 @@
                                     VivaCubeSolver</h2>
 
                                 <a href="https://github.com/Vivaldo-Roque/VivaCubeSolver" target="_blank"
-                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                    style="font-size:1.5rem; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
                                         class="fa-brands fa-github"></i> Github</a>
 
                                 <a href="https://github.com/Vivaldo-Roque/VivaCubeSolver/blob/master/app/release/app-release.apk"
                                     target="_blank"
-                                    style="font-size:1.5em; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
+                                    style="font-size:1.5rem; text-decoration: none; margin-left: 10px; margin-right: 10px;"><i
                                         class="fa-solid fa-download"></i> Download APK</a>
 
                             </div>
@@ -506,7 +511,7 @@
                 <section id="contact">
 
                     <div id="banner">
-                        <div class="parallax" style="height: 20em;">
+                        <div class="parallax" style="height: 20rem;">
     
                             <div class="col">
                                 <h2>YOU CAN TAKE A CLOSER LOOK AT MY WORK</h2>
@@ -521,7 +526,7 @@
                         CONTACT
                     </h2>
 
-                    <div class="col-l">
+                    <div class="col-l" style="justify-content: space-between; height: 15rem;">
                         <div class="row-l">
                             <i class="fa-solid fa-map-marker" href="">
                             </i>

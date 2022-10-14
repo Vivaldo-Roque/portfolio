@@ -1,6 +1,27 @@
 nav {
   z-index: 99;
+  width: 100%;
+  min-height: 40px;
+}
+
+nav * {
   background-color: var(--dark-green);
+}
+
+#mobileMenu {
+  display: none;
+  float: right;
+  color: white;
+  border: none;
+  background-color: transparent;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#navLinks{
+  max-height: 0;
+  transition: max-height 0.5s;
 }
 
 nav ul {
@@ -8,11 +29,10 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: var(--dark-green);
   }
   
   nav ul li {
-    float: left;
+   display: inline-block;
   }
   
   nav ul li a {
@@ -23,7 +43,6 @@ nav ul {
     text-decoration: none;
     line-height: 25px;
     transition: background-color 0.5s;
-    font-family: Poppins;
     border-top: 3px solid transparent;
   }
 

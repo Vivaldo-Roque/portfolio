@@ -12,7 +12,7 @@ window.addEventListener("load", function() {
     // Animate loader off screen
     setTimeout(function (){
       fadeOut(document.getElementsByClassName("se-pre-con")[0]);
-    }, 5000);
+    }, 2500);
 });
 
 function fadeOut(el){

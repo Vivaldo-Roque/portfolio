@@ -15,12 +15,12 @@
 }
 
 .lead {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: #585757;
 }
 
-body{
-  font-size: 15px;
+body {
+  font-size: 100%;
 }
 
 #banner , #banner h2{
@@ -32,13 +32,13 @@ body{
 }
 
 #banner > .parallax > .col .button-rect {
-  margin-top: 3em;
-  font-size: 1.33em;
+  margin-top: 3rem;
+  font-size: 1.33rem;
 }
 
 #banner h2{
   margin: 0;
-  font-size: 2.4em;
+  font-size: 2.4rem;
 }
 
 #contact .social-button-circ {
