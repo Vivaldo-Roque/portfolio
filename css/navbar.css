@@ -20,7 +20,6 @@ nav * {
 }
 
 #navLinks{
-  max-height: 0;
   transition: max-height 0.5s;
 }
 

@@ -1,34 +1,77 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    #mobileMenu{
-        display: block;
-    }
-    
-    nav ul li {
-        display: block;
-    }
 
-    header h2 {
-        font-size: 3rem;
-    }
-}
+  #mobileMenu {
+    display: block;
+  }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+  #navLinks {
+    max-height: 0;
+  }
 
-}
+  nav ul li {
+    display: block;
+  }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+  header h2 {
+    font-size: 3rem;
+  }
 
-}
+  #about_content p {
+    margin-left: 0;
+  }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+  #about-buttons {
+    margin-left: 0;
+  }
 
-}
+  .showcase {
+    height: 400px;
+    width: 400px;
+  }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+  #about_content {
+    width: 95%;
+  }
+
+  #about>div,
+  #works>div,
+  #about_content>div {
+    flex-direction: column;
+  }
+
+  #about_content>div {
+    flex-direction: column;
+  }
+
+  #about div #about_content div {
+    flex-direction: row;
+  }
+
+  #skills div.col.col-m>div {
+    flex-direction: column;
+  }
+
+  #about-buttons {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timeline,
+  .timeline::before {
+    all: unset;
+  }
+
+  .timeline-date {
+    display: none;
+  }
+
+  .timeline-icon {
+    display: none;
+  }
+
+  .timeline .timeline-container .timeline-body:before {
+    all: unset;
+  }
 
 }

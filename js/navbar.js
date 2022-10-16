@@ -1,7 +1,18 @@
+var sticky;
+
 // for scrolling
 document.addEventListener("DOMContentLoaded", function (event) {
     var scrollpos = localStorage.getItem('scrollpos');
-    window.scrollTo(0, scrollpos);
+    window.scrollTo(0, scrollpos ?? 0);
+    var navPos = localStorage.getItem('navpos');
+    if (navPos === null) {
+        localStorage.setItem('navpos', window.document.getElementById("nav").getBoundingClientRect().top);
+        sticky = window.document.getElementById("nav").getBoundingClientRect().top;
+    }
+    else {
+        sticky = navPos;
+    }
+
 });
 
 window.addEventListener("beforeunload", function (e) {
@@ -12,10 +23,6 @@ window.addEventListener("load", () => {
 
     var navbar = document.getElementById("nav");
 
-    var sticky = navbar.offsetTop;
-
-    var headerSize = document.getElementById("home").offsetHeight;
-
     var content = document.getElementsByClassName("content-wrap")[0];
 
     var contentPadding = content.style.paddingTop;
@@ -25,8 +32,8 @@ window.addEventListener("load", () => {
     mobileMenu.addEventListener('click', function () {
 
         var x = document.getElementById("navLinks");
-        
-      
+
+
         if (x.style.maxHeight) {
             x.style.maxHeight = null;
         } else {
@@ -57,7 +64,8 @@ window.addEventListener("load", () => {
     }
 
     function navFollow() {
-        if (window.pageYOffset > sticky + headerSize) {
+
+        if (window.pageYOffset > sticky) {
             navbar.classList.add("sticky");
             content.style.paddingTop = `${navbar.offsetHeight}px`;
         } else {
