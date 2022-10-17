@@ -71,6 +71,7 @@ body {
 
 #about_content p {
   text-align: justify;
+  text-justify: distribute-all-lines;
   margin-left: 4rem;
 }
 
@@ -113,6 +114,14 @@ a:hover {
   margin-left: 40px;
 }
 
+.list li {
+  word-wrap: break-word;
+}
+
 #about > div{
   width: 80%;
+}
+
+div.row.row-m.works:first-child {
+  width: 400px; display: flex; justify-content: center; align-items: center;
 }
