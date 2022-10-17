@@ -2,6 +2,7 @@ window.addEventListener("load", () => {
 
     var interval;
     var animation = true;
+    
     var texts = [
         "WEB DEVELOPER",
         "SOFTWARE ENGINEER",
