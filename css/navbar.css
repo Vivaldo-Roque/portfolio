@@ -1,5 +1,5 @@
 nav {
-  z-index: 99;
+  z-index: 3;
   width: 100%;
   min-height: 40px;
 }
@@ -33,6 +33,17 @@ nav ul {
   nav ul li {
    display: inline-block;
   }
+
+  nav ul li#fleft {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+   }
+
+   nav ul li#fleft a{
+    background-color: var(--light-green);
+   }
   
   nav ul li a {
     display: block;

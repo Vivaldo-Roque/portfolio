@@ -1,22 +1,37 @@
 var sticky;
 
+function offset(el) {
+    var rect = el.getBoundingClientRect(),
+        scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+        scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return { top: rect.top + scrollTop, left: rect.left + scrollLeft, bottom: rect.bottom + scrollTop }
+}
+
+document.addEventListener("onresize", function(){
+    sticky = offset(document.getElementById("nav")).top;
+    document.getElementById("nav").classList.remove("sticky");
+});
+
+
 // for scrolling
 document.addEventListener("DOMContentLoaded", function (event) {
+
     var scrollpos = localStorage.getItem('scrollpos');
-    window.scrollTo(0, scrollpos ?? 0);
-    var navPos = localStorage.getItem('navpos');
-    if (navPos === null) {
-        localStorage.setItem('navpos', window.document.getElementById("nav").getBoundingClientRect().top);
-        sticky = window.document.getElementById("nav").getBoundingClientRect().top;
-    }
-    else {
-        sticky = navPos;
-    }
+
+    if(scrollpos != null){
+        window.scrollTo(0, scrollpos);
+    } 
+
+    sticky = offset(document.getElementById("nav")).top;
+
+    document.getElementById("listLanguages").style.top = document.getElementById("nav").offsetHeight + "px";
 
 });
 
 window.addEventListener("beforeunload", function (e) {
     this.localStorage.setItem('scrollpos', window.scrollY);
+    localStorage.remove('navpos');
+    document.getElementById("nav").classList.remove("sticky");
 });
 
 window.addEventListener("load", () => {
@@ -55,13 +70,6 @@ window.addEventListener("load", () => {
 
     navFollow();
     navCurrentActive();
-
-    function offset(el) {
-        var rect = el.getBoundingClientRect(),
-            scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-            scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        return { top: rect.top + scrollTop, left: rect.left + scrollLeft, bottom: rect.bottom + scrollTop }
-    }
 
     function navFollow() {
 

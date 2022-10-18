@@ -130,5 +130,14 @@ font-size: 1rem;
   div.row.row-m.works:first-child {
     width: 200px;
   }
+  
+  nav ul li#fleft {
+    position: static;
+   }
+
+   nav ul li#fleft a{
+    width: 100vw;
+    box-sizing: border-box;
+   }
 
 }
