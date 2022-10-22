@@ -1,8 +1,8 @@
 window.addEventListener("DOMContentLoaded", () => {
 
   var xmlhttp = new XMLHttpRequest();
-  var url = "http://127.0.0.1:5500/languages.json";
-  // var url = "https://Vivaldo-Roque.github.io/Portfolio/languages.json";
+  //var url = "http://127.0.0.1:5500/languages.json";
+  var url = "https://Vivaldo-Roque.github.io/Portfolio/languages.json";
 
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
