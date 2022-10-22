@@ -22,7 +22,7 @@
         "skills_levels_subtitle5": "Cross-platform frameworks",
         "skills_levels_subtitle6": "Operating systems",
         "level": "Level:",
-        "skillname":"Name:",
+        "skillname": "Name:",
         "beginner_level": "Beginner",
         "intermediate_level": "Intermediate",
         "works_titles": "RECENT PROJECTS",
@@ -58,7 +58,10 @@
         "education_title": "EDUCATION",
         "banner_text": "YOU CAN TAKE A CLOSER LOOK AT MY WORK",
         "banner_btn_text": "ON GITHUB",
-        "banner_contact": "CONTACT"
+        "banner_contact": "CONTACT",
+        "text_changing1": "WEB DEVELOPER",
+        "text_changing2": "SOFTWARE ENGINEER",
+        "text_changing3": "TECHNOLOGY GEEK"
     },
     "pt": {
         "langdesc": "Português 🇵🇹",
@@ -83,7 +86,7 @@
         "skills_levels_subtitle5": "Estruturas de plataforma cruzada",
         "skills_levels_subtitle6": "Sistemas operacionais",
         "level": "Nível:",
-        "skillname":"Nome:",
+        "skillname": "Nome:",
         "beginner_level": "Iniciante",
         "intermediate_level": "Intermediário",
         "works_titles": "PROJETOS RECENTES",
@@ -119,6 +122,9 @@
         "education_title": "EDUCAÇÃO",
         "banner_text": "VOCÊ PODE VER MEU TRABALHO MAIS DE PERTO",
         "banner_btn_text": "NO GITHUB",
-        "banner_contact": "CONTATO"
+        "banner_contact": "CONTATO",
+        "text_changing1": "Desenvolvedor WEB",
+        "text_changing2": "ENGENHEIRO DE SOFTWARE",
+        "text_changing3": "GEEK DA TECNOLOGIA"
     }
 }

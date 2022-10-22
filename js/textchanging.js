@@ -2,12 +2,6 @@ window.addEventListener("load", () => {
 
     var interval;
     var animation = true;
-    
-    var texts = [
-        "WEB DEVELOPER",
-        "SOFTWARE ENGINEER",
-        "TECHNOLOGY GEEK"
-    ];
 
     var count = 0;
 
@@ -45,11 +39,11 @@ window.addEventListener("load", () => {
     function intervalFunction() {
         if(txt.style.opacity === '0'){
 
-            txt.innerText = texts[count];
+            txt.innerText = window.textChangingTexts[count];
 
             count++;
 
-            if(count === texts.length){
+            if(count === window.textChangingTexts.length){
                 count = 0;
             }
 

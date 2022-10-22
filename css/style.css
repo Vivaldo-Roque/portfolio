@@ -1,6 +1,6 @@
-.text{
+.text {
   text-indent: 25px;
-  text-align: justify; 
+  text-align: justify;
   text-justify: distribute-all-lines;
   padding: 10px;
 }
@@ -23,20 +23,21 @@ body {
   font-size: 100%;
 }
 
-#banner , #banner h2{
+#banner,
+#banner h2 {
   color: var(--white);
 }
 
-#banner > .parallax > .col{
+#banner>.parallax>.col {
   height: 100%;
 }
 
-#banner > .parallax > .col .button-rect {
+#banner>.parallax>.col .button-rect {
   margin-top: 3rem;
   font-size: 1.33rem;
 }
 
-#banner h2{
+#banner h2 {
   margin: 0;
   font-size: 2.4rem;
 }
@@ -75,7 +76,7 @@ body {
   margin-left: 4rem;
 }
 
-#about-buttons{
+#about-buttons {
   margin-left: 4rem;
 }
 
@@ -86,25 +87,25 @@ section {
   padding-bottom: 50px;
 }
 
-#banner{
+#banner {
   padding: 0;
 }
 
 a {
-  color:var(--dark-green);
+  color: var(--dark-green);
 }
 
 a:hover {
   color: var(--light-green);
 }
 
-.works{
+.works {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
 
-.skills{
+.skills {
   height: 80px;
   width: 80px;
 }
@@ -118,10 +119,24 @@ a:hover {
   word-wrap: break-word;
 }
 
-#about > div{
+#about>div {
   width: 80%;
 }
 
 div.row.row-m.works:first-child {
-  width: 400px; display: flex; justify-content: center; align-items: center;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#about_content>div.row>h2 {
+  color: black;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#experience{
+  background-color: #F7F8F8;
 }

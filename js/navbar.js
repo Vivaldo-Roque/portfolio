@@ -1,4 +1,5 @@
 var sticky;
+var selectBox;
 
 function offset(el) {
     var rect = el.getBoundingClientRect(),
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     sticky = offset(document.getElementById("nav")).top;
 
     document.getElementById("listLanguages").style.top = document.getElementById("nav").offsetHeight + "px";
+    selectBox = document.getElementById("listLanguages").style.top;
 
 });
 
@@ -48,12 +50,15 @@ window.addEventListener("load", () => {
 
         var x = document.getElementById("navLinks");
 
-
         if (x.style.maxHeight) {
             x.style.maxHeight = null;
+            document.getElementById("listLanguages").style.top = "40px";
         } else {
             x.style.maxHeight = x.scrollHeight + "px";
+            document.getElementById("listLanguages").style.top = "433px";
+            
         }
+
     });
 
     var positions = [
