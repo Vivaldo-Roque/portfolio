@@ -1,5 +1,4 @@
 var sticky;
-var selectBox;
 
 function offset(el) {
     var rect = el.getBoundingClientRect(),
@@ -24,9 +23,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     } 
 
     sticky = offset(document.getElementById("nav")).top;
-
-    document.getElementById("listLanguages").style.top = document.getElementById("nav").offsetHeight + "px";
-    selectBox = document.getElementById("listLanguages").style.top;
+    document.getElementById("listLanguages").style.top = `${document.getElementById("home").scrollHeight + document.getElementById("nav").offsetHeight}px`;
 
 });
 
@@ -52,12 +49,12 @@ window.addEventListener("load", () => {
 
         if (x.style.maxHeight) {
             x.style.maxHeight = null;
-            document.getElementById("listLanguages").style.top = "40px";
+            document.getElementById("nav").style.height = `${0}px`;
         } else {
-            x.style.maxHeight = x.scrollHeight + "px";
-            document.getElementById("listLanguages").style.top = "433px";
-            
-        }
+            document.getElementById("nav").style.height = x.style.maxHeight = x.scrollHeight + 40 + "px";
+        }   
+        
+        navFollow();
 
     });
 
@@ -80,9 +77,13 @@ window.addEventListener("load", () => {
 
         if (window.pageYOffset > sticky) {
             navbar.classList.add("sticky");
+            document.getElementById("listLanguages").style.position = "fixed";
+            document.getElementById("listLanguages").style.top = `${navbar.offsetHeight}px`;
             content.style.paddingTop = `${navbar.offsetHeight}px`;
         } else {
             navbar.classList.remove("sticky");
+            document.getElementById("listLanguages").style.position = "absolute";
+            document.getElementById("listLanguages").style.top = `${document.getElementById("home").scrollHeight + document.getElementById("nav").offsetHeight}px`;
             content.style.paddingTop = contentPadding;
         }
     }
