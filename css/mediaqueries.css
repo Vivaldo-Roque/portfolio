@@ -1,5 +1,72 @@
+@media only screen and (orientation:portrait){
+
+  header{
+    height: 65vw;
+    background-size: 100% auto;
+   }
+
+   nav{
+    font-size: x-small;
+   }
+
+  #works>div,
+  #skills div.col.col-m>div {
+    flex-direction: column;
+  }
+
+  .timeline,
+  .timeline::before {
+    all: unset;
+  }
+
+  .timeline{
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .timeline .timeline-container .timeline-date {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -15%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    font-size: 1rem;
+    color: #575454;
+  }
+
+  .timeline .timeline-container .timeline-date p {
+    color: black;
+  }
+
+  .timeline .timeline-container .timeline-icon {
+    display: none;
+  }
+
+  .timeline .timeline-container .timeline-body:before {
+    all: unset;
+  }
+
+  #experience div{
+    align-items: center;
+    justify-content: center;
+   }
+
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+
+  header{
+    height: 100vh;
+    background-size: auto;
+   }
+
+   nav{
+    font-size: 100%;
+   }
 
   #mobileMenu {
     display: block;
