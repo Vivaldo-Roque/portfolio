@@ -1,0 +1,1 @@
+Inspired by http://www.arturmeyster.me/
