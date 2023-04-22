@@ -140,3 +140,8 @@ div.row.row-m.works:first-child {
 #experience{
   background-color: #F7F8F8;
 }
+
+#about-img{
+  transition: opacity 0.4s ease-in;
+  opacity: 1;
+}

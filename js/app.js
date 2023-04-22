@@ -1,3 +1,5 @@
+window.screenwidth = window.innerWidth;
+
 window.addEventListener("DOMContentLoaded", () => {
 
   var xmlhttp = new XMLHttpRequest();
@@ -153,7 +155,11 @@ function refreshLabels() {
 }
 
 window.onresize = function () { 
-  location.reload();
+  // Check if the screen width has changed
+  if (window.screenwidth !== window.innerWidth) {
+    // Reload the page
+    location.reload();
+  }
  }
 
 window.onorientationchange = function () {
