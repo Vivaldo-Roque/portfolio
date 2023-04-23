@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
     me.addEventListener("mouseover", () => {
         me.style.transition = "opacity 0s";
         me.style.opacity = 0;
-        me.src = "../img/me/me3.jpg";
+        me.src = "../Portfolio/img/me/me3.jpg";
       
         setTimeout(function(){
             me.style.transition = "opacity 2s";
@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
     me.addEventListener("mouseleave", () => {
         me.style.transition = "opacity 0s";
         me.style.opacity = 0;
-        me.src = "../img/me/me2.jpg";
+        me.src = "../Portfolio/img/me/me2.jpg";
        
         setTimeout(function(){
             me.style.transition = "opacity 2s";
