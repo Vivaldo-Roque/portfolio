@@ -1,4 +1,5 @@
-window.screenwidth = window.innerWidth;
+window.previousWidth
+window.previousHeight
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -154,13 +155,25 @@ function refreshLabels() {
 
 }
 
-window.onresize = function () { 
-  // Check if the screen width has changed
-  if (window.screenwidth !== window.innerWidth) {
+window.addEventListener('resize', function () {
+
+  // Get the current window size
+  var currentWidth = window.innerWidth;
+  var currentHeight = window.innerHeight;
+
+  // Check if the window size has changed
+  if (currentWidth !== window.previousWidth || currentHeight !== window.previousHeight) {
+    // Do something when the window size changes
     // Reload the page
-    location.reload();
+    if (deviceType() == 'desktop') {
+      location.reload();
+    }
   }
- }
+
+  // Save the current window size
+  window.previousWidth = currentWidth;
+  window.previousHeight = currentHeight;
+});
 
 window.onorientationchange = function () {
   var orientation = window.orientation;
@@ -170,4 +183,15 @@ window.onorientationchange = function () {
     case -90: window.location.reload();
       break;
   }
+};
+
+const deviceType = () => {
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+    return "tablet";
+  }
+  else if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+    return "mobile";
+  }
+  return "desktop";
 };

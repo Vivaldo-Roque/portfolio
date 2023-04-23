@@ -145,3 +145,13 @@ div.row.row-m.works:first-child {
   transition: opacity 0.4s ease-in;
   opacity: 1;
 }
+
+body{
+  overflow-x:hidden;
+  overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  -webkit-appearance: none;
+}
