@@ -1,4 +1,4 @@
-Inspired by http://www.arturmeyster.me/
+Inspired by https://github.com/devmeyster/devmeyster.github.io or http://www.arturmeyster.me/
 
 Not used:
 - Framework.
