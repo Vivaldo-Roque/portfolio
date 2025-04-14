@@ -1,11 +1,15 @@
 window.previousWidth
 window.previousHeight
 
+const enCvUrl = "./cv/vivaldo_roque_cv_en.pdf";
+const ptCvUrl = "./cv/vivaldo_roque_cv_pt.pdf";
+
 window.addEventListener("DOMContentLoaded", () => {
 
   var xmlhttp = new XMLHttpRequest();
-  //var url = "http://127.0.0.1:5500/languages.json";
-  var url = "https://Vivaldo-Roque.github.io/portfolio/languages.json";
+  // var testRoot = "http://127.0.0.1:5500";
+  var root = "https://Vivaldo-Roque.github.io/portfolio";
+  var languageFileUrl = root + "/languages.json";
 
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -20,14 +24,14 @@ window.addEventListener("DOMContentLoaded", () => {
       var downloadButton = document.getElementById("navcv");
 
       if (window.selectedLanguage == "en") {
-        downloadButton.href = "./cv/vivaldo_roque_cv_en.pdf";
+        downloadButton.href = enCvUrl;
       } else if (window.selectedLanguage == "pt") {
-        downloadButton.href = "./cv/vivaldo_roque_cv_pt.pdf";
+        downloadButton.href = ptCvUrl;
       }
     }
   };
 
-  xmlhttp.open("GET", url, true);
+  xmlhttp.open("GET", languageFileUrl, true);
   xmlhttp.send();
 
 });
@@ -91,9 +95,9 @@ function langSelectChange(value) {
   var downloadButton = document.getElementById("navcv");
 
   if (window.selectedLanguage == "en") {
-    downloadButton.href = "./cv/vivaldo_roque_cv_en.pdf";
+    downloadButton.href = enCvUrl;
   } else if (window.selectedLanguage == "pt") {
-    downloadButton.href = "./cv/vivaldo_roque_cv_pt.pdf";
+    downloadButton.href = ptCvUrl;
   }
 }
 
@@ -140,6 +144,7 @@ function refreshLabels() {
   for (var i = 0, max = allnodes.length; i < max; i++) {
     // get id current elements
     var idname = allnodes[i].id;
+
     // if id exists, set get id current elements
     if (idname != '' && getLanguage(idname) != null) {
       allnodes[i].textContent = getLanguage(idname);

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="https://vivaldo-roque.github.io/portfolio/img/preview.jpg" property="og:image"  />
+    <meta content="https://vivaldo-roque.github.io/portfolio/img/preview.jpg" property="og:image" />
     <meta content="Vivaldo's Portfolio" property="og:title" />
-    <meta content="Vivaldo Roque's portfolio, skills, experiences, and much more." property = "og:description" />
+    <meta content="Vivaldo Roque's portfolio, skills, experiences, and much more." property="og:description" />
     <title>Vivaldo's Portfolio</title>
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="./img/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon_io/favicon-32x32.png">
@@ -30,13 +30,7 @@
     <link rel="stylesheet" type="text/css" href="./css/timeline.css">
     <link rel="stylesheet" type="text/css" href="./css/mediaqueries.css">
     <!-- <link rel="stylesheet" type="text/css" href="./css/theme.css"> -->
-    <script type="text/javascript" src="./js/app.js"></script>
-    <script type="text/javascript" src="./js/loading.js"></script>
-    <script type="text/javascript" src="./js/header.js"></script>
-    <script type="text/javascript" src="./js/navbar.js"></script>
-    <script type="text/javascript" src="./js/topscroll.js"></script>
-    <script type="text/javascript" src="./js/textchanging.js"></script>
-    <script type="text/javascript" src="./js/avatarimgchange.js"></script>
+
 </head>
 
 <body>
@@ -51,7 +45,17 @@
 
     <header id="home">
 
-        <div id = "header_caption"><caption >Serra da Leba, Angola</caption></div>
+        <div id="bird-container"></div>
+
+        <!-- Música de fundo -->
+        <audio id="background-music" preload="none" loop>
+            <source src="./audio/ruy_mingas-minha_terra.mp3" type="audio/mpeg" />
+            Your browser does not support audio.
+        </audio>
+
+        <div id="header_caption">
+            <caption>Serra da Leba, Angola</caption>
+        </div>
 
         <div class="col">
 
@@ -64,15 +68,18 @@
             </h3>
 
             <div class="row">
-                <a class="fa-brands fa-twitter social-button-rect" target="_blank" href="https://twitter.com/vivaldo_roque">
+                <a class="fa-brands fa-twitter social-button-rect" target="_blank"
+                    href="https://twitter.com/vivaldo_roque">
                 </a>
-                <a class="fa-brands fa-github social-button-rect" target="_blank" href="https://github.com/Vivaldo-Roque/">
+                <a class="fa-brands fa-github social-button-rect" target="_blank"
+                    href="https://github.com/Vivaldo-Roque/">
                 </a>
-                <a class="fa-brands fa-linkedin social-button-rect" target="_blank" href="https://www.linkedin.com/in/vivaldo-roque-953837179/">
+                <a class="fa-brands fa-linkedin social-button-rect" target="_blank"
+                    href="https://www.linkedin.com/in/vivaldoroque/">
                 </a>
             </div>
 
-            <a id="portfolio" class="button-rect"  onclick="location.href='#works';">
+            <a id="portfolio" class="button-rect" onclick="location.href='#works';">
                 PORTFOLIO
             </a>
         </div>
@@ -108,7 +115,7 @@
 
                     <div class="row row-m">
 
-                        <img id="about-img" src="./img/me/me2.jpg" height="400px" width="300px" alt="me">
+                        <img id="about-img" src="./img/me/me1.jpg" height="400px" width="300px" alt="me">
 
                         <div id="about_content" style="height: 100%;">
 
@@ -118,17 +125,44 @@
                                 I am Vivaldo Roque, a full-stack software engineer based in Luanda, Angola.
                             </p>
 
-                            <p id="about_me_p2">
-                                I fell in love with technology when I wanted to build my own tools! Since then, I've
-                                been passionate about creating apps that solve real-world problems by applying new and
-                                exciting technologies.
+                            <p id="about_me_p2" style="white-space: pre-line;">
+                                I am currently in the final stage of the Computer Engineering course at the Kangonjo
+                                Polytechnic Institute, where I have been consolidating my knowledge of systems, networks
+                                and software development. My journey began in high school at School Nº 4073 – Padre
+                                Inácio Tambu (graduated between 2016 and 2018, with emphasis on Physical and Biological
+                                Sciences), and since then I have been seeking to continually expand my education.
+
+                                At the ITEL Training Center, I carried out practical training such as:
+
+                                • CCNA: Introduction to Network;
+                                • CCNA: SRWE.
+
+                                Additionally, I completed the “Introduction to Computer Science” course through Harvard
+                                Online, which solidified my foundation in computer science. I also had an enriching
+                                experience participating in the 42Luanda pool, which encouraged me to think in an
+                                innovative and collaborative way.
+
+                                Currently, I have developed a great interest in creating web applications using the
+                                Django framework in conjunction with the Python language and in developing mobile
+                                solutions for Android with Flutter rm in conjunction with the Dart language. I am
+                                looking for opportunities and projects that allow me to combine my skills in networking,
+                                development and systems analysis to create complete technological solutions.
+
+                                Objective:
+                                Specialize and grow in the development area, applying my knowledge in Computer
+                                Engineering and complementary training in an integrated manner, with the aim of
+                                contributing to innovative projects in the technology market.
+
+                                I invite you to learn about my projects and connect with us to exchange experiences and
+                                ideas.
                             </p>
 
                             <p id="about_me_p3">My latest experience has been focused on building applications with
                                 Flutter, Dart, Java and Sqlite.</p>
 
                             <div id="about-buttons" class="row-s">
-                                <a id="btn_contact_me" href="#contact" class="button-rect-highlight" style="margin-right: 1.5rem;">CONTACT ME</a>
+                                <a id="btn_contact_me" href="#contact" class="button-rect-highlight"
+                                    style="margin-right: 1.5rem;">CONTACT ME</a>
                                 <a id="btn_see_portfolio" href="#works" class="button-rect-highlight">SEE PORTFOLIO</a>
                             </div>
                         </div>
@@ -151,7 +185,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
                                 </div>
                                 <strong>CSS3</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
 
                             <div class="col m-l-r">
@@ -159,7 +194,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
                                 </div>
                                 <strong>HTML5</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
 
                             <div class="col m-l-r">
@@ -167,7 +203,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
                                 </div>
                                 <strong>Javascript</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
                         </div>
 
@@ -179,7 +216,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
                                 </div>
                                 <strong>C</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
 
                             <div class="col m-l-r">
@@ -203,7 +241,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" />
                                 </div>
                                 <strong>Dart</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
 
                             <div class="col m-l-r">
@@ -211,7 +250,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
                                 </div>
                                 <strong>Java</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
 
                             <div class="col m-l-r">
@@ -219,7 +259,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
                                 </div>
                                 <strong>Python</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
                         </div>
 
@@ -231,7 +272,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
                                 </div>
                                 <strong>Mysql</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
 
                             <div class="col m-l-r">
@@ -239,7 +281,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" />
                                 </div>
                                 <strong>Sqlite</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
                         </div>
 
@@ -263,7 +306,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
                                 </div>
                                 <strong>Flutter</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
                         </div>
 
@@ -275,7 +319,8 @@
                                         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" />
                                 </div>
                                 <strong>Android SDK</strong>
-                                <p><span id="level">Level:</span><br><strong id="intermediate_level">intermediate</strong></p>
+                                <p><span id="level">Level:</span><br><strong
+                                        id="intermediate_level">intermediate</strong></p>
                             </div>
 
                             <div class="col m-l-r">
@@ -296,7 +341,8 @@
 
                     <div class="row row-m works" style="width: 80%;">
 
-                        <img class="showcase" src="./img/works/cfoptrainer.png" height="500px" width="500px" alt="demo_cfoptrainer">
+                        <img class="showcase" src="./img/works/cfoptrainer.png" height="500px" width="500px"
+                            alt="demo_cfoptrainer">
 
                         <div id="about_content" style="height: 100%;">
 
@@ -304,7 +350,8 @@
                                 <h2>CFOP Trainer
                                 </h2>
 
-                                <a target="_blank" href='https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
+                                <a target="_blank"
+                                    href='https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
                                     style="margin-left: 10px; margin-right: 10px;">
                                     <img height="60" width="150" alt='Get it on Google Play'
                                         src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'>
@@ -320,7 +367,7 @@
                             <ul class="list">
                                 <li id="works1_features1">
                                     Reference table for: the 41 F2Ls, 57 OLLs, 21 PLLs, 41 COLLs and 27
-                                        WVs;<br><br>
+                                    WVs;<br><br>
                                 </li>
                                 <li id="works1_features2">
                                     F2L, OLL, PLL, COLL and WV Trainer;<br><br>
@@ -362,7 +409,8 @@
 
                     <div class="row row-m works" style="width: 80%;">
 
-                        <img class="showcase" src="./img/works/tictactoe.png" height="400px" width="500px" alt="demo_tictactoe">
+                        <img class="showcase" src="./img/works/tictactoe.png" height="400px" width="500px"
+                            alt="demo_tictactoe">
 
                         <div id="about_content" style="height: 100%;">
 
@@ -504,7 +552,8 @@
 
 
                             <p id="works4_desc" style="font-weight: 500;">
-                                APPLICATION CAPABLE OF EXTRACTING STUDENT DATA FROM ISKA'S ONLINE DESK USING STUDENT CREDENTIALS.
+                                APPLICATION CAPABLE OF EXTRACTING STUDENT DATA FROM ISKA'S ONLINE DESK USING STUDENT
+                                CREDENTIALS.
                             </p>
 
                             <p id="features" style="font-weight: bold;">FEATURES:</p>
@@ -560,7 +609,7 @@
                                     <i class="time-icon fa-solid fa-briefcase"></i>
                                 </div>
                                 <div class="timeline-body">
-    
+
                                     <h3>No experience</h3>
                                     <h4>No job</h4>
                                     <ul>
@@ -568,7 +617,7 @@
                                             No experience
                                         </li>
                                     </ul>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -586,11 +635,11 @@
                                     <i class="time-icon fa-solid fa-briefcase"></i>
                                 </div>
                                 <div class="timeline-body">
-                                    
+
                                     <h3>ISKA - Instituto Superior Kangonjo de Angola</h3>
-                                    <h4 >Computer engineering</h4>
+                                    <h4>Computer engineering</h4>
                                     <p><strong>Cumulative GPA:</strong> 0.0</p>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -602,15 +651,16 @@
 
                     <div id="banner">
                         <div class="parallax">
-    
+
                             <div class="col">
                                 <h2 id="banner_text">YOU CAN TAKE A CLOSER LOOK AT MY WORK</h2>
-                                <a target="_blank" id="banner_btn_text" href="https://github.com/Vivaldo-Roque/" class="button-rect">ON GITHUB</a>
+                                <a target="_blank" id="banner_btn_text" href="https://github.com/Vivaldo-Roque/"
+                                    class="button-rect">ON GITHUB</a>
                             </div>
-    
+
                         </div>
 
-                    </div>   
+                    </div>
 
                     <h2 id="banner_contact">
                         CONTACT
@@ -645,18 +695,39 @@
             </main>
         </div>
         <footer>
+            <!-- Social media buttons -->
             <div class="row">
-                <a class="fa-brands fa-twitter social-button-circ" target="_blank" href="https://twitter.com/vivaldo_roque">
+                <a class="fa-brands fa-twitter social-button-circ" target="_blank"
+                    href="https://twitter.com/vivaldo_roque">
                 </a>
-                <a class="fa-brands fa-github social-button-circ" target="_blank" href="https://github.com/Vivaldo-Roque/">
+                <a class="fa-brands fa-github social-button-circ" target="_blank"
+                    href="https://github.com/Vivaldo-Roque/">
                 </a>
-                <a class="fa-brands fa-linkedin social-button-circ" target="_blank" href="https://www.linkedin.com/in/vivaldo-roque-953837179/">
+                <a class="fa-brands fa-linkedin social-button-circ" target="_blank"
+                    href="https://www.linkedin.com/in/vivaldo-roque-953837179/">
                 </a>
             </div>
         </footer>
+
+        <div id="bird_container"></div>
+
     </div>
 </body>
 
+<!-- Loading gif from loading screen -->
 <div class="se-pre-con"></div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="./js/app.js"></script>
+<script type="text/javascript" src="./js/loading.js"></script>
+<script type="text/javascript" src="./js/header.js"></script>
+<script type="text/javascript" src="./js/navbar.js"></script>
+<script type="text/javascript" src="./js/topscroll.js"></script>
+<script type="text/javascript" src="./js/textchanging.js"></script>
+<!-- bird animation using three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/51/three.min.js"></script>
+<script src="./js/bird_animation/Bird.js"></script>
+<script src="./js/bird_animation/Boid.js"></script>
+<script src="./js/bird_animation/main.js"></script>
 
 </html>

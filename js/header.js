@@ -14,6 +14,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     header.addEventListener('click', (event) => {
 
+        const music = document.getElementById('background-music');
+        if (music.paused) {
+            music.volume = 0.3; // Volume inicial
+            music.play();
+        } else {
+            music.pause();
+        }
+
         clearTimeout(myTimeout);
 
         var x = event.offsetX - 70;
@@ -24,55 +32,55 @@ window.addEventListener("DOMContentLoaded", () => {
 
         var out = isOutside(header, caption);
 
-        if((centerX < x) && (y < centerY)){
+        if ((centerX < x) && (y < centerY)) {
             //Direita cima
             console.log("Direita cima")
-            if(out.right){
+            if (out.right) {
                 caption.style.right = `0px`
                 caption.style.left = `auto`
             }
 
-            if(out.top){
+            if (out.top) {
                 caption.style.top = `0px`
                 caption.style.bottom = `auto`
             }
-        } else if((centerX < x) && (y > centerY)){
+        } else if ((centerX < x) && (y > centerY)) {
             // Direita baixo
             console.log("Direita baixo")
-            if(out.right){
-                 caption.style.right = `0px`
-                 caption.style.left = `auto`
+            if (out.right) {
+                caption.style.right = `0px`
+                caption.style.left = `auto`
             }
 
-            if(out.bottom){
+            if (out.bottom) {
                 caption.style.bottom = `0px`
                 caption.style.top = `auto`
             }
-        } else if((x < centerX) && (y < centerY)){
+        } else if ((x < centerX) && (y < centerY)) {
             // Esquerda cima
             console.log("Esquerda cima")
-            if(out.left){
+            if (out.left) {
                 caption.style.left = `0px`
                 caption.style.right = `auto`
             }
 
-            if(out.top){
+            if (out.top) {
                 caption.style.top = `0px`
                 caption.style.bottom = `auto`
             }
-        } else if((x < centerX) && (y > centerY)){
+        } else if ((x < centerX) && (y > centerY)) {
             // Esquerda baixo
             console.log("Esquerda baixo")
-            if(out.left){
+            if (out.left) {
                 caption.style.left = `0px`
                 caption.style.right = `auto`
             }
 
-            if(out.bottom){
+            if (out.bottom) {
                 caption.style.bottom = `0px`
                 caption.style.top = `auto`
             }
-        }    
+        }
 
         caption.style.opacity = 0.8;
         myTimeOut = setTimeout(function () {
@@ -92,24 +100,24 @@ function isOutside(parent, child) {
         left: false,
         right: false
     };
-  
+
     if (box2coords.top < box1coords.top) {
 
         outside.top = true;
     }
 
-    if(box2coords.right > box1coords.right){
+    if (box2coords.right > box1coords.right) {
         outside.right = true;
     }
 
-    if(box2coords.bottom > box1coords.bottom){
+    if (box2coords.bottom > box1coords.bottom) {
         outside.bottom = true;
     }
 
-    if(box2coords.left < box1coords.left){
+    if (box2coords.left < box1coords.left) {
         outside.left = true;
     }
-    
+
     return outside;
 
-  }
+}
