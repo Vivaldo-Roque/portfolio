@@ -1,4 +1,3 @@
-Inspired by https://github.com/devmeyster/devmeyster.github.io or http://www.arturmeyster.me/
 # 🌐 Personal Portfolio
 
 Inspired by [devmeyster](https://github.com/devmeyster/devmeyster.github.io), this is my **personal website** and **current portfolio**, where I showcase my projects, experiments, and creative work.
