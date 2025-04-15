@@ -83,8 +83,6 @@ body {
 section {
   width: 100%;
   margin: 0;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 #banner {
@@ -98,12 +96,6 @@ a {
 a:hover {
   color: var(--light-green);
 }
-
-.works {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
 
 .skills {
   height: 40px;
@@ -154,4 +146,17 @@ body{
 ::-webkit-scrollbar {
   display: none;
   -webkit-appearance: none;
+}
+
+.card {
+  background-color: #f9f9f9; /* Light gray to contrast with white page */
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  margin: 20px auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }

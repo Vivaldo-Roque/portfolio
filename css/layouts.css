@@ -50,3 +50,35 @@
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.pt-50 {
+    padding-top: 50px;
+}
+
+.pb-50 {
+    padding-bottom: 50px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+.mt-200 {
+    margin-top: 200px;
+}
+
+.mb-200 {
+    margin-bottom: 200px;
+}
