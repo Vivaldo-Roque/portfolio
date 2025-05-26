@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="./css/parallax_effect.css">
     <link rel="stylesheet" type="text/css" href="./css/textchanging.css">
     <link rel="stylesheet" type="text/css" href="./css/timeline.css">
+    <link rel="stylesheet" type="text/css" href="./css/m_player.css">
     <link rel="stylesheet" type="text/css" href="./css/mediaqueries.css">
     <!-- <link rel="stylesheet" type="text/css" href="./css/theme.css"> -->
 
@@ -46,12 +47,6 @@
     <header id="home">
 
         <div id="bird-container"></div>
-
-        <!-- Música de fundo -->
-        <audio id="background-music" preload="none" loop>
-            <source src="./audio/ruy_mingas-minha_terra.mp3" type="audio/mpeg" />
-            Your browser does not support audio.
-        </audio>
 
         <div id="header_caption">
             <caption>Serra da Leba, Angola</caption>
@@ -772,6 +767,40 @@
         <div id="bird_container"></div>
 
     </div>
+
+    <!-- Start music player -->
+    <div class="player-container hidden">
+        <div class="player">
+            <div class="wrapper">
+                <div class="details">
+                    <div class="track-name">Track Name</div>
+                    <div class="track-artist">Track Artist</div>
+                </div>
+
+                <div class="slider_container">
+                    <div class="current-time">00:00</div>
+                    <input type="range" min="1" max="100" value="0" class="seek_slider" oninput="seekTo()">
+                    <div class="total-duration">00:00</div>
+                </div>
+
+                <div class="slider_container">
+                    <i class="fa fa-volume-down"></i>
+                    <input type="range" min="0" max="100" value="10" class="volume_slider" oninput="setVolume()">
+                    <i class="fa fa-volume-up"></i>
+                    <div><span id="volume_value">100</span>%</div>
+                </div>
+
+
+                <div class="buttons">
+                    <div class="playpause-track" onclick="playpauseTrack()">
+                        <i class="fa fa-play-circle fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End music player -->
+
 </body>
 
 <!-- Loading gif from loading screen -->
@@ -784,6 +813,7 @@
 <script type="text/javascript" src="./js/navbar.js"></script>
 <script type="text/javascript" src="./js/topscroll.js"></script>
 <script type="text/javascript" src="./js/textchanging.js"></script>
+<script type="text/javascript" src="./js/m_player.js"></script>
 <!-- bird animation using three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/51/three.min.js"></script>
 <script src="./js/bird_animation/Bird.js"></script>

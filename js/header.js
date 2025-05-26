@@ -14,14 +14,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     header.addEventListener('click', (event) => {
 
-        const music = document.getElementById('background-music');
-        if (music.paused) {
-            music.volume = 0.3; // Volume inicial
-            music.play();
-        } else {
-            music.pause();
-        }
-
         clearTimeout(myTimeout);
 
         var x = event.offsetX - 70;

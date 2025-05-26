@@ -1,0 +1,109 @@
+.player-container {
+    opacity: 0.9;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.player-container.hidden {
+    transform: translateX(-103.5%);
+}
+
+.player-toggle {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 12px 6px;
+    cursor: pointer;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 14px;
+}
+
+.player {
+    background-color: #2c2c2c;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.details {
+    text-align: center;
+}
+
+.track-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.track-artist {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+.slider_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.seek_slider,
+.volume_slider {
+    flex: 1;
+    height: 4px;
+    background: var(--light-green);
+    appearance: none;
+    border-radius: 2px;
+}
+
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--dark-green);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.current-time,
+.total-duration {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.playpause-track i {
+    color: #fff;
+    font-size: 2.5rem;
+    transition: color 0.2s;
+}
+
+.playpause-track:hover i {
+    color: #1db954;
+}
+
+.volume_slider {
+    max-width: 80px;
+}
