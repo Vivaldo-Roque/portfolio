@@ -10,7 +10,8 @@
 }
 
 .player-container.hidden {
-    transform: translateX(-103.5%);
+    transform: translateX(-102%);
+    opacity: 0.5;
 }
 
 .player-toggle {
