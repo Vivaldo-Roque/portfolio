@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   var xmlhttp = new XMLHttpRequest();
   // var testRoot = "http://127.0.0.1:5500";
-  var root = "https://Vivaldo-Roque.github.io/portfolio";
+  var root = `${window.location.origin}`;
   var languageFileUrl = root + "/languages.json";
 
   xmlhttp.onreadystatechange = function () {

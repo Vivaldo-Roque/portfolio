@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 :root {
-    --headerimg: url("https://vivaldo-roque.github.io/portfolio/img/header.jpg");
-    --bannerimg: url("https://vivaldo-roque.github.io/portfolio/img/banner.jpg");
+    --headerimg: url("../img/header.jpg");
+    --bannerimg: url("../img/banner.jpg");
     --white: #ffffff;
     --grey: #333333;
     --light-green: #04AA6D;
