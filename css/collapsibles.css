@@ -1,0 +1,68 @@
+/* Aplica cursor clicável ao h3 */
+.collapsible-header {
+  cursor: pointer;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* espaço entre texto e seta */
+}
+
+/* Ícone de seta */
+.arrow {
+    color: black;
+  font-size: 0.8em;
+  transition: transform 0.3s ease;
+}
+
+.collapsible-header.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* Esconde inicialmente os grupos */
+.collapsible-group {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+/* Grupo aberto */
+.collapsible-group.open {
+  max-height: 2000px;
+}
+
+.glass-card {
+    margin-top: 4%;
+    margin-bottom: 4%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(25deg);
+  animation: shine 3s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
