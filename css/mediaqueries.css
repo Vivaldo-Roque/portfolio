@@ -1,16 +1,16 @@
-@media only screen and (orientation:portrait){
+@media only screen and (orientation:portrait) {
 
-  header{
+  header {
     height: 65vw;
     background-size: 100% auto;
-   }
+  }
 
-   nav{
+  nav {
     font-size: x-small;
-   }
+  }
 
   #works>div,
-  #skills div.col.col-m>div {
+  #skills .collapsible-group .row.col-m {
     flex-direction: column;
   }
 
@@ -19,7 +19,7 @@
     all: unset;
   }
 
-  .timeline{
+  .timeline {
     position: relative;
     margin-top: 20px;
   }
@@ -49,24 +49,24 @@
     all: unset;
   }
 
-  #experience div{
+  #experience div {
     align-items: center;
     justify-content: center;
-   }
+  }
 
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
-  header{
+  header {
     height: 100vh;
     background-size: auto;
-   }
+  }
 
-   nav{
+  nav {
     font-size: 100%;
-   }
+  }
 
   #mobileMenu {
     display: block;
@@ -92,7 +92,7 @@
     margin-left: 0;
   }
 
-  #about-img{
+  #about-img {
     height: 300px;
     width: 200px;
   }
@@ -106,11 +106,11 @@
     width: 95%;
   }
 
-  #about div{
+  #about div {
     width: 95%;
   }
 
-  .button-rect-highlight{
+  .button-rect-highlight {
     font-size: 0.7rem;
   }
 
@@ -128,7 +128,7 @@
     flex-direction: row;
   }
 
-  #skills div.col.col-m>div {
+  #skills .collapsible-group .row.col-m {
     flex-direction: column;
   }
 
@@ -142,7 +142,7 @@
     all: unset;
   }
 
-  .timeline{
+  .timeline {
     position: relative;
     margin-top: 20px;
   }
@@ -172,11 +172,11 @@
     all: unset;
   }
 
-  header h2{
+  header h2 {
     font-size: 3.6rem;
   }
 
-  header h3{
+  header h3 {
     font-size: 1.6rem;
   }
 
@@ -187,7 +187,7 @@
   }
 
   #about_content p {
-font-size: 1rem;
+    font-size: 1rem;
   }
 
   .list {
@@ -197,19 +197,19 @@ font-size: 1rem;
   div.row.row-m.works:first-child {
     width: 200px;
   }
-  
+
   nav ul li#fleft {
     position: static;
-   }
+  }
 
-   nav ul li#fleft a{
+  nav ul li#fleft a {
     width: 100vw;
     box-sizing: border-box;
-   }
+  }
 
-   #experience div{
+  #experience div {
     align-items: center;
     justify-content: center;
-   }
+  }
 
 }

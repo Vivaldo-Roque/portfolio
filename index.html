@@ -29,7 +29,9 @@
     <link rel="stylesheet" type="text/css" href="./css/textchanging.css">
     <link rel="stylesheet" type="text/css" href="./css/timeline.css">
     <link rel="stylesheet" type="text/css" href="./css/m_player.css">
+    <link rel="stylesheet" type="text/css" href="./css/collapsibles.css">
     <link rel="stylesheet" type="text/css" href="./css/mediaqueries.css">
+
     <!-- <link rel="stylesheet" type="text/css" href="./css/theme.css"> -->
 
 </head>
@@ -106,7 +108,8 @@
         </nav>
         <div class="content-wrap">
             <main>
-                
+
+                <!-- Works Section -->
                 <section id="works" class="mt-200">
 
                     <h2 id="works_titles">RECENT PROJECTS</h2>
@@ -426,170 +429,201 @@
 
                 </section>
 
+                <!-- Skills Section -->
                 <section id="skills" class="mt-200">
 
                     <h2 id="skills_levels_title">My skills and levels</h2>
 
                     <div class="col col-m">
 
-                        <h3 id="skills_levels_subtitle1" class="mt-50">Web development</h3>
+                        <h3 class="mt-50 collapsible-header open">
+                            <div id="skills_levels_subtitle1">Web development</div>
+                            <span class="arrow">⬇️</span>
+                        </h3>
 
-                        <div class="row col-m">
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="css3"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+                        <div class="collapsible-group open">
+                            <div class="row col-m">
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="css3"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+                                    </div>
+                                    <strong>CSS3</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
                                 </div>
-                                <strong>CSS3</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
+
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="html5"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+                                    </div>
+                                    <strong>HTML5</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
+                                </div>
+
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="javascript"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+                                    </div>
+                                    <strong>Javascript</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
+                                </div>
                             </div>
+                        </div>
+                        <h3 class="mt-50 collapsible-header">
+                            <div id="skills_levels_subtitle2">General purpose programming language</div>
+                            <span class="arrow">⬇️</span>
+                        </h3>
 
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="html5"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+                        <div class="collapsible-group">
+                            <div class="row col-m">
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="c"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
+                                    </div>
+                                    <strong>C</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
                                 </div>
-                                <strong>HTML5</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
-                            </div>
 
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="javascript"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="cplusplus"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" />
+                                    </div>
+                                    <strong>C++</strong>
+                                    <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
                                 </div>
-                                <strong>Javascript</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
+
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="csharp"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" />
+                                    </div>
+                                    <strong>C#</strong>
+                                    <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
+                                </div>
+
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="dart"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" />
+                                    </div>
+                                    <strong>Dart</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
+                                </div>
+
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="java"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
+                                    </div>
+                                    <strong>Java</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
+                                </div>
+
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="python"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+                                    </div>
+                                    <strong>Python</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
+                                </div>
                             </div>
                         </div>
 
-                        <h3 id="skills_levels_subtitle2" class="mt-50">General purpose programming language</h3>
+                        <h3 class="mt-50 collapsible-header">
+                            <div id="skills_levels_subtitle3">Data Base Management System (DBMS)</div>
+                            <span class="arrow">⬇️</span>
+                        </h3>
 
-                        <div class="row col-m">
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="c"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" />
+                        <div class="collapsible-group">
+                            <div class="row col-m">
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="mysql"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
+                                    </div>
+                                    <strong>Mysql</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
                                 </div>
-                                <strong>C</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
-                            </div>
 
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="cplusplus"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" />
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="sqlite"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" />
+                                    </div>
+                                    <strong>Sqlite</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
                                 </div>
-                                <strong>C++</strong>
-                                <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
-                            </div>
-
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="csharp"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" />
-                                </div>
-                                <strong>C#</strong>
-                                <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
-                            </div>
-
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="dart"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" />
-                                </div>
-                                <strong>Dart</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
-                            </div>
-
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="java"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-                                </div>
-                                <strong>Java</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
-                            </div>
-
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="python"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
-                                </div>
-                                <strong>Python</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
                             </div>
                         </div>
 
-                        <h3 id="skills_levels_subtitle3" class="mt-50">Data Base Management System (DBMS)</h3>
+                        <h3 class="mt-50 collapsible-header">
+                            <div id="skills_levels_subtitle4">Game engines</div>
+                            <span class="arrow">⬇️</span>
+                        </h3>
 
-                        <div class="row col-m">
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="mysql"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
+                        <div class="collapsible-group">
+                            <div class="row col-m">
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="unity"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" />
+                                    </div>
+                                    <strong>Unity3D</strong>
+                                    <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
                                 </div>
-                                <strong>Mysql</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
-                            </div>
-
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="sqlite"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" />
-                                </div>
-                                <strong>Sqlite</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
                             </div>
                         </div>
 
-                        <h3 id="skills_levels_subtitle4" class="mt-50">Game engines</h3>
+                        <h3 class="mt-50 collapsible-header">
+                            <div id="skills_levels_subtitle5">Cross-platform frameworks</div>
+                            <span class="arrow">⬇️</span>
+                        </h3>
 
-                        <div class="row col-m">
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="unity"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" />
+                        <div class="collapsible-group">
+                            <div class="row col-m">
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="flutter"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
+                                    </div>
+                                    <strong>Flutter</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
                                 </div>
-                                <strong>Unity3D</strong>
-                                <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
                             </div>
                         </div>
 
-                        <h3 id="skills_levels_subtitle5" class="mt-50">Cross-platform frameworks</h3>
+                        <h3 class="mt-50 collapsible-header">Operating systems
+                            <div id="skills_levels_subtitle6">Cross-platform frameworks</div>
+                            <span class="arrow">⬇️</span>
+                        </h3>
 
-                        <div class="row col-m">
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="flutter"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
+                        <div class="collapsible-group">
+                            <div class="row col-m">
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="android"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" />
+                                    </div>
+                                    <strong>Android SDK</strong>
+                                    <p><span id="level">Level:</span><br><strong
+                                            id="intermediate_level">intermediate</strong></p>
                                 </div>
-                                <strong>Flutter</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
-                            </div>
-                        </div>
 
-                        <h3 id="skills_levels_subtitle6" class="mt-50">Operating systems</h3>
-
-                        <div class="row col-m">
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="android"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" />
+                                <div class="col m-l-r glass-card">
+                                    <div class="skills"><img alt="windows"
+                                            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" />
+                                    </div>
+                                    <strong>Windows SDK</strong>
+                                    <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
                                 </div>
-                                <strong>Android SDK</strong>
-                                <p><span id="level">Level:</span><br><strong
-                                        id="intermediate_level">intermediate</strong></p>
-                            </div>
-
-                            <div class="col m-l-r">
-                                <div class="skills"><img alt="windows"
-                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" />
-                                </div>
-                                <strong>Windows SDK</strong>
-                                <p><span id="level">Level:</span><br><strong id="beginner_level">beginner</strong></p>
                             </div>
                         </div>
 
                     </div>
                 </section>
 
+                <!-- About Section -->
                 <section id="about" class="mt-200">
 
                     <div class="row row-m">
@@ -650,6 +684,7 @@
 
                 </section>
 
+                <!-- Experience Section -->
                 <section id="experience" class="mt-100 pt-50 pb-50">
 
                     <h2 id="experience_title">EXPERIENCE</h2>
@@ -702,6 +737,7 @@
 
                 </section>
 
+                <!-- Contact Section -->
                 <section id="contact">
 
                     <div id="banner">
@@ -726,7 +762,7 @@
                             <i class="fa-solid fa-map-marker" href="">
                             </i>
                             <p>
-                                Angola, Luanda, Cacuaco, Sequele
+                                Angola, Ícolo e Bengo, Sequele, Centralidade do Sequele
                             </p>
                         </div>
                         <div class="row-l">
@@ -764,6 +800,7 @@
             </div>
         </footer>
 
+        <!-- bird container -->
         <div id="bird_container"></div>
 
     </div>
@@ -814,6 +851,7 @@
 <script type="text/javascript" src="./js/topscroll.js"></script>
 <script type="text/javascript" src="./js/textchanging.js"></script>
 <script type="text/javascript" src="./js/m_player.js"></script>
+<script type="text/javascript" src="./js/collapsibles.js"></script>
 <!-- bird animation using three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/51/three.min.js"></script>
 <script src="./js/bird_animation/Bird.js"></script>
