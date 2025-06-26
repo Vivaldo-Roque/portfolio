@@ -4,12 +4,13 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 10px; /* espaço entre texto e seta */
+  gap: 10px;
+  /* espaço entre texto e seta */
 }
 
 /* Ícone de seta */
 .arrow {
-    color: black;
+  color: black;
   font-size: 0.8em;
   transition: transform 0.3s ease;
 }
@@ -31,8 +32,9 @@
 }
 
 .glass-card {
-    margin-top: 4%;
-    margin-bottom: 4%;
+  width: 130px;
+  margin-top: 4%;
+  margin-bottom: 4%;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -63,6 +65,11 @@
 }
 
 @keyframes shine {
-  0% { transform: translateX(-100%) rotate(25deg); }
-  100% { transform: translateX(100%) rotate(25deg); }
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
 }
