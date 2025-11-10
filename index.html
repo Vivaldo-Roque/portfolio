@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="./css/timeline.css">
     <link rel="stylesheet" type="text/css" href="./css/m_player.css">
     <link rel="stylesheet" type="text/css" href="./css/collapsibles.css">
+    <link rel="stylesheet" type="text/css" href="./css/portfolio_filter.css">
     <link rel="stylesheet" type="text/css" href="./css/mediaqueries.css">
 
     <!-- <link rel="stylesheet" type="text/css" href="./css/theme.css"> -->
@@ -114,7 +115,42 @@
 
                     <h2 id="works_titles">RECENT PROJECTS</h2>
 
-                    <div class="row row-m mb-100 mt-100 card" style="width: 80%;">
+                    <!-- Portfolio Filter and Search Controls -->
+                    <div class="portfolio-controls" style="width: 80%; margin: 0 auto 50px; text-align: center;">
+                        
+                        <!-- Search Bar -->
+                        <div class="search-container" style="margin-bottom: 30px; position: relative; display: inline-block; width: 100%; max-width: 400px;">
+                            <input type="text" id="project-search" placeholder="Pesquisar projetos..." 
+                                   style="padding: 12px 40px 12px 20px; border-radius: 25px; border: 2px solid var(--primary-color); 
+                                          width: 100%; font-size: 16px; outline: none;">
+                            <i class="fas fa-search" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); 
+                                                          color: var(--primary-color); pointer-events: none;"></i>
+                        </div>
+
+                        <!-- Category Filters -->
+                        <div class="filter-buttons" style="margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                            <button class="filter-btn active" data-category="all" style="padding: 8px 20px; border-radius: 20px; 
+                                    border: 2px solid var(--primary-color); background: var(--primary-color); color: white; 
+                                    cursor: pointer; transition: all 0.3s ease;">Todos</button>
+                            <button class="filter-btn" data-category="mobile" style="padding: 8px 20px; border-radius: 20px; 
+                                    border: 2px solid var(--primary-color); background: transparent; color: var(--primary-color); 
+                                    cursor: pointer; transition: all 0.3s ease;">Mobile</button>
+                            <button class="filter-btn" data-category="web" style="padding: 8px 20px; border-radius: 20px; 
+                                    border: 2px solid var(--primary-color); background: transparent; color: var(--primary-color); 
+                                    cursor: pointer; transition: all 0.3s ease;">Web</button>
+                            <button class="filter-btn" data-category="game" style="padding: 8px 20px; border-radius: 20px; 
+                                    border: 2px solid var(--primary-color); background: transparent; color: var(--primary-color); 
+                                    cursor: pointer; transition: all 0.3s ease;">Games</button>
+                        </div>
+
+                        <!-- Results Info -->
+                        <div id="results-info" style="margin-bottom: 20px; color: var(--text-color); font-size: 14px;"></div>
+                    </div>
+
+                    <!-- Projects Container -->
+                    <div id="projects-container">
+
+                    <div class="row row-m mb-100 mt-100 card project-item" data-category="mobile" data-tags="flutter dart sqlite html css javascript cfop trainer" style="width: 80%;">
 
                         <img class="showcase" src="./img/works/cfoptrainer.png" height="500px" width="500px"
                             alt="demo_cfoptrainer">
@@ -182,7 +218,7 @@
 
                     </div>
 
-                    <div class="row row-m mb-100 card" style="width: 80%;">
+                    <div class="row row-m mb-100 card project-item" data-category="web game" data-tags="javascript html css pwa ai tictactoe game multilanguage" style="width: 80%;">
 
                         <img class="showcase" src="./img/works/tictactoe.png" height="400px" width="500px"
                             alt="demo_tictactoe">
@@ -241,7 +277,7 @@
 
                     </div>
 
-                    <div class="row row-m mb-100 card" style="width: 80%;">
+                    <div class="row row-m mb-100 card project-item" data-category="mobile" data-tags="android java python opencv cube solver camera vision" style="width: 80%;">
 
                         <div>
                             <img class="showcase" src="./img/works/vivacubesolver.jpg" height="500px" width="500px"
@@ -302,7 +338,7 @@
 
                     </div>
 
-                    <div class="row row-m mb-100 card" style="width: 80%;">
+                    <div class="row row-m mb-100 card project-item" data-category="mobile" data-tags="android java jsoup apache poi html iska notas grades student" style="width: 80%;">
 
                         <div>
                             <img class="showcase" src="./img/works/iskaminhasnotas.png" height="500px" width="500px"
@@ -368,7 +404,7 @@
 
                     </div>
 
-                    <div class="row row-m card" style="width: 80%;">
+                    <div class="row row-m card project-item" data-category="web" data-tags="python django bootstrap fontawesome bank sistema bancario crud authentication" style="width: 80%;">
 
                         <img class="showcase" src="./img/works/bancoviva.png" height="400px" width="500px"
                             alt="demo_tictactoe">
@@ -425,6 +461,31 @@
                             </ul>
                         </div>
 
+                    </div>
+
+                    </div> <!-- End Projects Container -->
+
+                    <!-- Pagination Controls -->
+                    <div class="pagination-container" style="width: 80%; margin: 50px auto 0; text-align: center;">
+                        <div class="pagination" style="display: inline-flex; gap: 5px; align-items: center;">
+                            <button id="prev-page" class="page-btn" style="padding: 8px 15px; border: 2px solid var(--primary-color); 
+                                    background: transparent; color: var(--primary-color); border-radius: 5px; cursor: pointer; 
+                                    transition: all 0.3s ease;" disabled>
+                                <i class="fas fa-chevron-left"></i> Anterior
+                            </button>
+                            
+                            <div id="page-numbers" style="display: flex; gap: 5px; margin: 0 10px;"></div>
+                            
+                            <button id="next-page" class="page-btn" style="padding: 8px 15px; border: 2px solid var(--primary-color); 
+                                    background: transparent; color: var(--primary-color); border-radius: 5px; cursor: pointer; 
+                                    transition: all 0.3s ease;">
+                                Próxima <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="pagination-info" style="margin-top: 15px; color: var(--text-color); font-size: 14px;">
+                            <span id="pagination-info-text"></span>
+                        </div>
                     </div>
 
                 </section>
@@ -852,6 +913,7 @@
 <script type="text/javascript" src="./js/textchanging.js"></script>
 <script type="text/javascript" src="./js/m_player.js"></script>
 <script type="text/javascript" src="./js/collapsibles.js"></script>
+<script type="text/javascript" src="./js/search_filter.js"></script>
 <!-- bird animation using three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/51/three.min.js"></script>
 <script src="./js/bird_animation/Bird.js"></script>
