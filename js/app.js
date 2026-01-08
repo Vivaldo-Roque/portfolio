@@ -28,6 +28,18 @@ window.addEventListener("DOMContentLoaded", () => {
       } else if (window.selectedLanguage == "pt") {
         downloadButton.href = ptCvUrl;
       }
+
+      // Load projects.json
+      var xmlhttp2 = new XMLHttpRequest();
+      var projectsFileUrl = root + "/projects.json";
+      xmlhttp2.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          window.projects = JSON.parse(this.responseText);
+          populateProjects();
+        }
+      };
+      xmlhttp2.open("GET", projectsFileUrl, true);
+      xmlhttp2.send();
     }
   };
 
@@ -99,6 +111,9 @@ function langSelectChange(value) {
   } else if (window.selectedLanguage == "pt") {
     downloadButton.href = ptCvUrl;
   }
+
+  // Refresh projects with new language
+  populateProjects();
 }
 
 function initList() {
@@ -189,6 +204,138 @@ window.onorientationchange = function () {
       break;
   }
 };
+
+function populateProjects() {
+  if (!window.projects) return;
+  
+  const container = document.getElementById('projects-container');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  
+  window.projects.forEach((project, index) => {
+    const card = document.createElement('div');
+    card.className = 'row row-m mb-100 card';
+    if (index === 0) card.classList.add('mt-100');
+    card.style.width = '80%';
+    
+    // Image
+    const img = document.createElement('img');
+    img.className = 'showcase';
+    img.src = project.image;
+    img.height = 500;
+    img.width = 500;
+    img.alt = 'demo_' + project.id;
+    img.style.objectFit = 'contain';
+    card.appendChild(img);
+    
+    // Content
+    const content = document.createElement('div');
+    content.style.height = '100%';
+    
+    // Row for title and links
+    const row = document.createElement('div');
+    row.className = 'row';
+    
+    const h2 = document.createElement('h2');
+    const langKey = project.langKey || project.id;
+    const titleKey = project.id + '_title';
+    h2.textContent = getLanguage(titleKey) || project.id.replace(/_/g, ' ').toUpperCase();
+    row.appendChild(h2);
+    
+    // Links
+    project.links.forEach(link => {
+      const a = document.createElement('a');
+      a.target = '_blank';
+      a.href = link.url;
+      a.style.marginLeft = '10px';
+      a.style.marginRight = '10px';
+      
+      if (link.type === 'image') {
+        const imgLink = document.createElement('img');
+        imgLink.height = 60;
+        imgLink.width = 150;
+        imgLink.alt = link.alt;
+        imgLink.src = link.src;
+        a.appendChild(imgLink);
+      } else if (link.type === 'link') {
+        a.style.fontSize = '1.5rem';
+        a.style.textDecoration = 'none';
+        const i = document.createElement('i');
+        i.className = link.icon;
+        a.appendChild(i);
+        const linkText = getLanguage(link.textKey) || link.textKey;
+        a.appendChild(document.createTextNode(' ' + linkText));
+      }
+      
+      row.appendChild(a);
+    });
+    
+    content.appendChild(row);
+    
+    // Description
+    const pDesc = document.createElement('p');
+    pDesc.style.fontWeight = '500';
+    const descKey = langKey + '_desc';
+    pDesc.textContent = getLanguage(descKey) || '';
+    content.appendChild(pDesc);
+    
+    // Features
+    const pFeatures = document.createElement('p');
+    pFeatures.style.fontWeight = 'bold';
+    pFeatures.textContent = getLanguage('features') + ':';
+    content.appendChild(pFeatures);
+    
+    const ulFeatures = document.createElement('ul');
+    ulFeatures.className = 'list';
+    
+    let featureIndex = 1;
+    let hasFeature = true;
+    while (hasFeature) {
+      const featureKey = langKey + '_features' + featureIndex;
+      const featureText = getLanguage(featureKey);
+      if (featureText) {
+        const li = document.createElement('li');
+        li.innerHTML = featureText + '<br><br>';
+        ulFeatures.appendChild(li);
+        featureIndex++;
+      } else {
+        hasFeature = false;
+      }
+    }
+    
+    content.appendChild(ulFeatures);
+    
+    // Tools
+    const pTools = document.createElement('p');
+    pTools.style.fontWeight = 'bold';
+    pTools.textContent = getLanguage('tools') + ':';
+    content.appendChild(pTools);
+    
+    const ulTools = document.createElement('ul');
+    ulTools.className = 'list';
+    
+    let toolIndex = 1;
+    let hasTool = true;
+    while (hasTool) {
+      const toolKey = langKey + '_tools' + toolIndex;
+      const toolText = getLanguage(toolKey);
+      if (toolText) {
+        const li = document.createElement('li');
+        li.innerHTML = toolText + '<br><br>';
+        ulTools.appendChild(li);
+        toolIndex++;
+      } else {
+        hasTool = false;
+      }
+    }
+    
+    content.appendChild(ulTools);
+    
+    card.appendChild(content);
+    container.appendChild(card);
+  });
+}
 
 const deviceType = () => {
   const ua = navigator.userAgent;
