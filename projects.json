@@ -92,5 +92,33 @@
         "textKey": "live_site_link"
       }
     ]
+  },
+  {
+    "id": "ecommerce_mobile",
+    "langKey": "works6",
+    "type": "mobile",
+    "image": "./img/works/flutter_ecommerce_1.png",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-solid fa-play",
+        "url": "#",
+        "textKey": "watch_demo_link"
+      }
+    ]
+  },
+  {
+    "id": "ecommerce_web_admin",
+    "langKey": "works7",
+    "type": "web",
+    "image": "./img/works/flutter_web_ecommerce_1.png",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-solid fa-play",
+        "url": "#",
+        "textKey": "watch_demo_link"
+      }
+    ]
   }
 ]
