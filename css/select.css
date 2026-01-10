@@ -1,4 +1,4 @@
-select {
+#listLanguages {
   z-index: 4;
   background-color: #1f1f1f;
   color: white;
@@ -7,8 +7,60 @@ select {
   width: 9rem;
   opacity: 0.5;
   transition: opacity 0.5s;
+  border: none;
+  padding: 5px;
 }
 
-select:hover {
+#listLanguages:hover {
   opacity: 1;
+}
+
+/* Project Filter Specific Styles */
+#projects-filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#projectTypeFilter {
+    background-color: var(--white);
+    color: var(--dark-green);
+    padding: 10px 20px;
+    border: 2px solid var(--dark-green);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+    min-width: 150px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#projectTypeFilter:hover, #projectTypeFilter:focus {
+    background-color: var(--dark-green);
+    color: var(--white);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#projects_filter_label {
+    font-weight: bold;
+    color: var(--dark-green);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    #projects-filters {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #projectTypeFilter {
+        width: 80%;
+    }
 }

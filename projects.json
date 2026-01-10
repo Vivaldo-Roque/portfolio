@@ -1,0 +1,124 @@
+[
+  {
+    "id": "cfop_trainer",
+    "langKey": "works1",
+    "type": "mobile",
+    "image": "./img/works/cfoptrainer.png",
+    "links": [
+      {
+        "type": "image",
+        "url": "https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1",
+        "src": "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png",
+        "alt": "Get it on Google Play"
+      }
+    ]
+  },
+  {
+    "id": "tictactoe",
+    "langKey": "works2",
+    "type": "web",
+    "image": "./img/works/tictactoe.png",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-brands fa-github",
+        "url": "https://github.com/Vivaldo-Roque/TicTacToe",
+        "textKey": "github_link"
+      },
+      {
+        "type": "link",
+        "icon": "fa-solid fa-external-link",
+        "url": "https://vivaldo-roque.github.io/TicTacToe",
+        "textKey": "live_site_link"
+      }
+    ]
+  },
+  {
+    "id": "vivacubesolver",
+    "langKey": "works3",
+    "type": "mobile",
+    "image": "./img/works/vivacubesolver.jpg",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-brands fa-github",
+        "url": "https://github.com/Vivaldo-Roque/VivaCubeSolver",
+        "textKey": "github_link"
+      },
+      {
+        "type": "link",
+        "icon": "fa-solid fa-download",
+        "url": "https://github.com/Vivaldo-Roque/VivaCubeSolver/blob/master/app/release/app-release.apk",
+        "textKey": "download_apk_link"
+      }
+    ]
+  },
+  {
+    "id": "iska_minhas_notas",
+    "langKey": "works4",
+    "type": "mobile",
+    "image": "./img/works/iskaminhasnotas.png",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-brands fa-github",
+        "url": "https://github.com/Vivaldo-Roque/ISKA_Minhas_Notas",
+        "textKey": "github_link"
+      },
+      {
+        "type": "link",
+        "icon": "fa-solid fa-download",
+        "url": "https://github.com/Vivaldo-Roque/ISKA_Minhas_Notas/blob/master/app/release/app-release.apk",
+        "textKey": "download_apk_link"
+      }
+    ]
+  },
+  {
+    "id": "banco_viva",
+    "langKey": "works5",
+    "type": "web",
+    "image": "./img/works/bancoviva.png",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-brands fa-github",
+        "url": "https://github.com/Vivaldo-Roque/bancoviva",
+        "textKey": "github_link"
+      },
+      {
+        "type": "link",
+        "icon": "fa-solid fa-external-link",
+        "url": "https://bancoviva.vercel.app",
+        "textKey": "live_site_link"
+      }
+    ]
+  },
+  {
+    "id": "ecommerce_mobile",
+    "langKey": "works6",
+    "type": "mobile",
+    "image": "./img/works/flutter_ecommerce_1.png",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-solid fa-play",
+        "url": "#",
+        "textKey": "watch_demo_link"
+      }
+    ]
+  },
+  {
+    "id": "ecommerce_web_admin",
+    "langKey": "works7",
+    "type": "web",
+    "image": "./img/works/flutter_web_ecommerce_1.png",
+    "links": [
+      {
+        "type": "link",
+        "icon": "fa-solid fa-play",
+        "url": "#",
+        "textKey": "watch_demo_link"
+      }
+    ]
+  }
+]
