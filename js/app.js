@@ -22,6 +22,8 @@ window.addEventListener("DOMContentLoaded", () => {
       //refreshLabels();
       // Project filter state (default: show all)
       window.selectedProjectType = window.selectedProjectType || 'all';
+      window.currentPage = 1;
+      window.projectsPerPage = 3;
 
       document.addEventListener('input', function (event) {
         // Only run on our project type select
@@ -217,6 +219,7 @@ window.onorientationchange = function () {
 
 function setProjectType(value) {
   window.selectedProjectType = value;
+  window.currentPage = 1; // Reset to first page when filter changes
   populateProjects();
 }
 
@@ -232,9 +235,19 @@ function populateProjects() {
 
   const selectedType = window.selectedProjectType || 'all';
 
-  window.projects.forEach((project, index) => {
-    // Filter projects by selected type
-    if (selectedType !== 'all' && project.type !== selectedType) return;
+  // Filter projects first
+  const filteredProjects = window.projects.filter(project => {
+    return selectedType === 'all' || project.type === selectedType;
+  });
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProjects.length / window.projectsPerPage);
+  const startIndex = (window.currentPage - 1) * window.projectsPerPage;
+  const endIndex = startIndex + window.projectsPerPage;
+  const paginatedProjects = filteredProjects.slice(startIndex, endIndex);
+
+  // Render projects
+  paginatedProjects.forEach((project, index) => {
     const card = document.createElement('div');
     card.className = 'row row-m mb-100 card';
     if (index === 0) card.classList.add('mt-100');
@@ -356,6 +369,64 @@ function populateProjects() {
     card.appendChild(content);
     container.appendChild(card);
   });
+
+  // Update pagination controls
+  updatePaginationControls(filteredProjects.length, totalPages);
+}
+
+function updatePaginationControls(totalProjects, totalPages) {
+  const paginationControls = document.getElementById('pagination-controls');
+  const prevBtn = document.getElementById('prev-page');
+  const nextBtn = document.getElementById('next-page');
+  const pageInfo = document.getElementById('page-info');
+
+  if (!paginationControls || !prevBtn || !nextBtn || !pageInfo) return;
+
+  // Show/hide pagination based on number of projects
+  if (totalProjects <= window.projectsPerPage) {
+    paginationControls.style.display = 'none';
+    return;
+  }
+
+  paginationControls.style.display = 'flex';
+
+  // Update page info
+  const pageOfText = getLanguage('page_of') || 'Page {current} of {total}';
+  pageInfo.textContent = pageOfText.replace('{current}', window.currentPage).replace('{total}', totalPages);
+
+  // Update button states
+  prevBtn.disabled = window.currentPage === 1;
+  nextBtn.disabled = window.currentPage === totalPages;
+
+  // Remove old event listeners by cloning
+  const newPrevBtn = prevBtn.cloneNode(true);
+  const newNextBtn = nextBtn.cloneNode(true);
+  prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+  nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+
+  // Add new event listeners
+  document.getElementById('prev-page').addEventListener('click', () => {
+    if (window.currentPage > 1) {
+      window.currentPage--;
+      populateProjects();
+      scrollToProjects();
+    }
+  });
+
+  document.getElementById('next-page').addEventListener('click', () => {
+    if (window.currentPage < totalPages) {
+      window.currentPage++;
+      populateProjects();
+      scrollToProjects();
+    }
+  });
+}
+
+function scrollToProjects() {
+  const worksSection = document.getElementById('works');
+  if (worksSection) {
+    worksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 const deviceType = () => {

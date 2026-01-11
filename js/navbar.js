@@ -93,7 +93,8 @@ window.addEventListener("load", () => {
 
             scrolled = document.scrollingElement.scrollTop;
 
-            if (scrolled + 140 <= position.offset.bottom && scrolled + 40 >= position.offset.top) {
+            // Adjusted for scroll-padding-top and navbar height
+            if (scrolled + 200 <= position.offset.bottom && scrolled + 100 >= position.offset.top) {
 
                 if (saveLast != undefined) {
                     saveLast.classList.remove(
