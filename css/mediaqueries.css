@@ -14,6 +14,11 @@
     flex-direction: column;
   }
 
+  .row-s,
+  .row-m {
+    flex-direction: column !important;
+  }
+
   .timeline,
   .timeline::before {
     all: unset;
@@ -124,6 +129,22 @@
     flex-direction: column;
   }
 
+  .row-s,
+  .row-m {
+    flex-direction: column !important;
+    width: 95% !important;
+  }
+
+  #projects-container {
+    width: 100%;
+  }
+
+  #projects-container > div {
+    flex-direction: column;
+    width: 95%;
+    margin: 10px auto;
+  }
+
   #about div #about_content div {
     flex-direction: row;
   }
@@ -135,6 +156,13 @@
   #about-buttons {
     align-items: center;
     justify-content: center;
+  }
+
+  #about-buttons a {
+    margin-right: 0 !important;
+    margin-bottom: 10px;
+    width: 90%;
+    text-align: center;
   }
 
   .timeline,
