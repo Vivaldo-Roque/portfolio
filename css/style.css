@@ -117,6 +117,7 @@ a:hover {
 
 div.row.row-m.works:first-child {
   width: 400px;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,7 +141,6 @@ div.row.row-m.works:first-child {
 
 body{
   overflow-x:hidden;
-  overflow-y: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -154,6 +154,7 @@ body{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   padding: 24px;
   margin: 20px auto;
+  max-width: 100%;
   transition: box-shadow 0.3s ease;
 }
 

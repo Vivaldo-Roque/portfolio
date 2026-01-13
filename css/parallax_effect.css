@@ -6,10 +6,12 @@
     /* Set a specific height */
     height: 20rem;
     width: 100%;
+    max-width: 100vw;
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
   }

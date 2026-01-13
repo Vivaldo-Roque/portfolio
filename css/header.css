@@ -60,6 +60,8 @@ header #bird-container {
     left: 0;
     width: 100%; /* Ocupa toda a largura do container */
     height: 100%;
+    overflow: hidden;
+    max-width: 100vw;
 }
 
 header div.col {
