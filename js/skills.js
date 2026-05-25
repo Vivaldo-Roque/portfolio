@@ -1,30 +1,58 @@
 /**
  * Skills Module
  * Loads and renders skills dynamically from skills.json
+ * Includes fallback data for offline/demo purposes
  */
 
 console.log('📍 skills.js file loaded');
 
 let skillsData = [];
 
+// Fallback skills data (embedded, no network needed)
+const FALLBACK_SKILLS = [
+  {"id":"flutter","name":"Flutter","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg","level":"proficient"},
+  {"id":"dart","name":"Dart","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg","level":"proficient"},
+  {"id":"python","name":"Python","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg","level":"proficient"},
+  {"id":"javascript","name":"JavaScript","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg","level":"proficient"},
+  {"id":"django","name":"Django","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg","level":"intermediate"},
+  {"id":"java","name":"Java","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg","level":"intermediate"},
+  {"id":"firebase","name":"Firebase","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg","level":"intermediate"},
+  {"id":"html5","name":"HTML5","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg","level":"intermediate"},
+  {"id":"css3","name":"CSS3","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg","level":"intermediate"},
+  {"id":"sqlite","name":"SQLite","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg","level":"familiar"},
+  {"id":"android","name":"Android","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg","level":"familiar"},
+  {"id":"getx","name":"GetX","icon":"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg","level":"familiar"}
+];
+
 async function loadSkills() {
   try {
-    console.log('🔄 Loading skills...');
+    console.log('🔄 Loading skills from skills.json...');
     const response = await fetch('./skills.json');
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     skillsData = await response.json();
-    console.log('✅ Skills loaded:', skillsData);
-    renderSkills();
+    console.log('✅ Skills loaded from skills.json:', skillsData.length, 'items');
   } catch (error) {
-    console.error('❌ Error loading skills:', error);
+    console.warn('⚠️ Could not load skills.json, using fallback data:', error.message);
+    skillsData = FALLBACK_SKILLS;
+    console.log('✅ Using fallback skills:', skillsData.length, 'items');
   }
+  
+  renderSkills();
 }
 
 function renderSkills() {
   const container = document.getElementById('skills-container');
-  console.log('🎨 Rendering skills... Container:', container);
+  console.log('🎨 Rendering skills... Container found:', !!container);
+  
   if (!container) {
     console.error('❌ Container #skills-container not found!');
+    return;
+  }
+
+  if (!skillsData || skillsData.length === 0) {
+    console.error('❌ No skills data available!');
     return;
   }
 
@@ -51,6 +79,8 @@ function renderSkills() {
   if (window.initCollapsibles) {
     console.log('🔗 Initializing collapsibles');
     window.initCollapsibles();
+  } else {
+    console.warn('⚠️ initCollapsibles not available yet');
   }
 }
 
@@ -154,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Hook into language change - listen for the same input event that language.js uses
 document.addEventListener('input', (event) => {
   if (event.target.id === 'listLanguages') {
+    console.log('🌐 Language changed, updating skills');
     // Delay slightly to let language.js update first
     setTimeout(() => {
       updateSkillsLanguage();
