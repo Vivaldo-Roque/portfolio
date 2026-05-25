@@ -1,0 +1,86 @@
+[
+  {
+    "id": "flutter",
+    "name": "Flutter",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    "level": "proficient",
+    "category": "cross_platform_frameworks"
+  },
+  {
+    "id": "dart",
+    "name": "Dart",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+    "level": "proficient",
+    "category": "general_purpose"
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "level": "proficient",
+    "category": "general_purpose"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    "level": "proficient",
+    "category": "web_development"
+  },
+  {
+    "id": "django",
+    "name": "Django",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+    "level": "intermediate",
+    "category": "web_frameworks"
+  },
+  {
+    "id": "java",
+    "name": "Java",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "level": "intermediate",
+    "category": "general_purpose"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+    "level": "intermediate",
+    "category": "backend_services"
+  },
+  {
+    "id": "html5",
+    "name": "HTML5",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    "level": "intermediate",
+    "category": "web_development"
+  },
+  {
+    "id": "css3",
+    "name": "CSS3",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    "level": "intermediate",
+    "category": "web_development"
+  },
+  {
+    "id": "sqlite",
+    "name": "SQLite",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+    "level": "familiar",
+    "category": "database"
+  },
+  {
+    "id": "android",
+    "name": "Android",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
+    "level": "familiar",
+    "category": "operating_systems"
+  },
+  {
+    "id": "getx",
+    "name": "GetX",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    "level": "familiar",
+    "category": "state_management"
+  }
+]
