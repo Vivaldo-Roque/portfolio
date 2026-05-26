@@ -5,6 +5,9 @@
  *
  */
 
+import * as THREE from 'three';
+import { Bird } from './Bird.js';
+import { Boid } from './Boid.js';
 
 // Changed here!
 // Select the container
@@ -25,8 +28,21 @@ var camera, scene, renderer,
 
 var boid, boids;
 
-init();
-animate();
+if (isWebGLAvailable()) {
+    init();
+    animate();
+} else {
+    container.textContent = 'WebGL nao suportado no navegador.';
+}
+
+function isWebGLAvailable() {
+    try {
+        var canvas = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+    } catch (e) {
+        return false;
+    }
+}
 
 function init() {
 
@@ -51,16 +67,24 @@ function init() {
         boid.setAvoidWalls(true);
         boid.setWorldSize(500, 500, 400);
 
-        bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({ color: Math.random() * 0xffffff, side: THREE.DoubleSide }));
+        // silhouette dark tone (grayscale) — low base lightness
+        const c = new THREE.Color();
+        const hue = 0; // irrelevant when sat=0
+        const sat = 0.0; // grayscale
+        const baseL = 0.0; // absolute dark baseline
+        c.setHSL(hue, sat, baseL);
+        const mat = new THREE.MeshBasicMaterial({ color: c, side: THREE.DoubleSide });
+        bird = birds[i] = new THREE.Mesh(new Bird(), mat);
         bird.phase = Math.floor(Math.random() * 62.83);
-        bird.position = boids[i].position;
+        bird.position.copy(boids[i].position);
+        bird.userData = { baseL: baseL };
         scene.add(bird);
 
 
     }
 
-    renderer = new THREE.CanvasRenderer();
-    // renderer.autoClear = false;
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio || 1);
     renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     document.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -75,12 +99,15 @@ function init() {
 
 function onWindowResize() {
 
-    // camera.aspect = window.innerWidth / window.innerHeight;
-    camera.aspect = container.clientWidth / container.clientHeight;
+    SCREEN_WIDTH = container.clientWidth;
+    SCREEN_HEIGHT = container.clientHeight;
+    SCREEN_WIDTH_HALF = SCREEN_WIDTH / 2;
+    SCREEN_HEIGHT_HALF = SCREEN_HEIGHT / 2;
+
+    camera.aspect = SCREEN_WIDTH / SCREEN_HEIGHT;
     camera.updateProjectionMatrix();
 
-    // renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 }
 
@@ -118,19 +145,24 @@ function render() {
         boid.run(boids);
 
         bird = birds[i];
-        
-        color = bird.material.color;
-        // changed here
-        // color.r = color.g = color.b = (500 - bird.position.z) / 1000;
+        bird.position.copy(boids[i].position);
+
+        // adjust lightness slightly by depth to keep silhouette effect
         var brightness = (500 - bird.position.z) / 1000;
-        brightness = brightness * 0.3;  // Reduces brightness variation
-        color.r = color.g = color.b = brightness;
+        brightness = brightness * 0.08;  // very subtle variation
+        var baseL = bird.userData && bird.userData.baseL !== undefined ? bird.userData.baseL : 0.03;
+        var newL = Math.max(0, Math.min(1, baseL + brightness));
+        bird.material.color.setHSL(0, 0, newL);
 
         bird.rotation.y = Math.atan2(- boid.velocity.z, boid.velocity.x);
         bird.rotation.z = Math.asin(boid.velocity.y / boid.velocity.length());
 
         bird.phase = (bird.phase + (Math.max(0, bird.rotation.z) + 0.1)) % 62.83;
-        bird.geometry.vertices[5].y = bird.geometry.vertices[4].y = Math.sin(bird.phase) * 5;
+        var position = bird.geometry.getAttribute('position');
+        var wingY = Math.sin(bird.phase) * 5;
+        position.setY(4, wingY);
+        position.setY(5, wingY);
+        position.needsUpdate = true;
 
     }
 

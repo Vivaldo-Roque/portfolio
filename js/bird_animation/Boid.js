@@ -2,6 +2,8 @@
 
 // Based on http://www.openprocessing.org/visuals/?visualID=6910
 
+import * as THREE from 'three';
+
 var Boid = function () {
 
   var vector = new THREE.Vector3(),
@@ -29,7 +31,7 @@ var Boid = function () {
   this.setWorldSize = function (width, height, depth) {
 
     _width = width;
-    _height = height; vector
+    _height = height;
     _depth = depth;
 
   }
@@ -41,32 +43,32 @@ var Boid = function () {
       vector.set(- _width, this.position.y, this.position.z);
       vector = this.avoid(vector);
       vector.multiplyScalar(5);
-      _acceleration.addSelf(vector);
+      _acceleration.add(vector);
 
       vector.set(_width, this.position.y, this.position.z);
       vector = this.avoid(vector);
       vector.multiplyScalar(5);
-      _acceleration.addSelf(vector);
+      _acceleration.add(vector);
 
       vector.set(this.position.x, - _height, this.position.z);
       vector = this.avoid(vector);
       vector.multiplyScalar(5);
-      _acceleration.addSelf(vector);
+      _acceleration.add(vector);
 
       vector.set(this.position.x, _height, this.position.z);
       vector = this.avoid(vector);
       vector.multiplyScalar(5);
-      _acceleration.addSelf(vector);
+      _acceleration.add(vector);
 
       vector.set(this.position.x, this.position.y, - _depth);
       vector = this.avoid(vector);
       vector.multiplyScalar(5);
-      _acceleration.addSelf(vector);
+      _acceleration.add(vector);
 
       vector.set(this.position.x, this.position.y, _depth);
       vector = this.avoid(vector);
       vector.multiplyScalar(5);
-      _acceleration.addSelf(vector);
+      _acceleration.add(vector);
 
     }/* else {
 
@@ -89,19 +91,19 @@ var Boid = function () {
 
     if (_goal) {
 
-      _acceleration.addSelf(this.reach(_goal, 0.005));
+      _acceleration.add(this.reach(_goal, 0.005));
 
     }
 
-    _acceleration.addSelf(this.alignment(boids));
-    _acceleration.addSelf(this.cohesion(boids));
-    _acceleration.addSelf(this.separation(boids));
+    _acceleration.add(this.alignment(boids));
+    _acceleration.add(this.cohesion(boids));
+    _acceleration.add(this.separation(boids));
 
   }
 
   this.move = function () {
 
-    this.velocity.addSelf(_acceleration);
+    this.velocity.add(_acceleration);
 
     var l = this.velocity.length();
 
@@ -111,7 +113,7 @@ var Boid = function () {
 
     }
 
-    this.position.addSelf(this.velocity);
+    this.position.add(this.velocity);
     _acceleration.set(0, 0, 0);
 
   }
@@ -134,7 +136,7 @@ var Boid = function () {
     var steer = new THREE.Vector3();
 
     steer.copy(this.position);
-    steer.subSelf(target);
+    steer.sub(target);
 
     steer.multiplyScalar(1 / this.position.distanceToSquared(target));
 
@@ -150,10 +152,10 @@ var Boid = function () {
 
       var steer = new THREE.Vector3();
 
-      steer.sub(this.position, target);
+      steer.subVectors(this.position, target);
       steer.multiplyScalar(0.5 / distance);
 
-      _acceleration.addSelf(steer);
+      _acceleration.add(steer);
 
     }
 
@@ -163,7 +165,7 @@ var Boid = function () {
 
     var steer = new THREE.Vector3();
 
-    steer.sub(target, this.position);
+    steer.subVectors(target, this.position);
     steer.multiplyScalar(amount);
 
     return steer;
@@ -173,7 +175,7 @@ var Boid = function () {
   this.alignment = function (boids) {
 
     var boid, velSum = new THREE.Vector3(),
-      count = 0;
+      count = 0, distance;
 
     for (var i = 0, il = boids.length; i < il; i++) {
 
@@ -185,7 +187,7 @@ var Boid = function () {
 
       if (distance > 0 && distance <= _neighborhoodRadius) {
 
-        velSum.addSelf(boid.velocity);
+        velSum.add(boid.velocity);
         count++;
 
       }
@@ -226,7 +228,7 @@ var Boid = function () {
 
       if (distance > 0 && distance <= _neighborhoodRadius) {
 
-        posSum.addSelf(boid.position);
+        posSum.add(boid.position);
         count++;
 
       }
@@ -239,7 +241,7 @@ var Boid = function () {
 
     }
 
-    steer.sub(posSum, this.position);
+    steer.subVectors(posSum, this.position);
 
     var l = steer.length();
 
@@ -256,8 +258,7 @@ var Boid = function () {
   this.separation = function (boids) {
 
     var boid, distance,
-      posSum = new THREE.Vector3(),
-      repulse = new THREE.Vector3();
+      posSum = new THREE.Vector3();
 
     for (var i = 0, il = boids.length; i < il; i++) {
 
@@ -268,17 +269,20 @@ var Boid = function () {
 
       if (distance > 0 && distance <= _neighborhoodRadius) {
 
-        repulse.sub(this.position, boid.position);
-        repulse.normalize();
-        repulse.divideScalar(distance);
-        posSum.addSelf(repulse);
+        var steer = new THREE.Vector3();
+
+        steer.subVectors(this.position, boid.position);
+        steer.normalize();
+        steer.divideScalar(distance);
+        posSum.add(steer);
 
       }
 
     }
 
     return posSum;
-
+    
   }
-
 }
+
+export { Boid };

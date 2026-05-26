@@ -1,40 +1,33 @@
-var Bird = function () {
+import * as THREE from 'three';
 
-    var scope = this;
+class Bird extends THREE.BufferGeometry {
+    constructor() {
+        super();
 
-    THREE.Geometry.call(this);
+        var vertices = new Float32Array([
+            5, 0, 0,
+            -5, -2, 1,
+            -5, 0, 0,
+            -5, -2, -1,
+            0, 2, -6,
+            0, 2, 6,
+            2, 0, 0,
+            -3, 0, 0
+        ]);
 
-    v(5, 0, 0);
-    v(- 5, - 2, 1);
-    v(- 5, 0, 0);
-    v(- 5, - 2, - 1);
+        var indices = [
+            0, 2, 1,
+            4, 7, 6,
+            5, 6, 7
+        ];
 
-    v(0, 2, - 6);
-    v(0, 2, 6);
-    v(2, 0, 0);
-    v(- 3, 0, 0);
+        var position = new THREE.BufferAttribute(vertices, 3);
+        position.setUsage(THREE.DynamicDrawUsage);
 
-    f3(0, 2, 1);
-    // f3( 0, 3, 2 );
-
-    f3(4, 7, 6);
-    f3(5, 6, 7);
-
-    this.computeCentroids();
-    this.computeFaceNormals();
-
-    function v(x, y, z) {
-
-        scope.vertices.push(new THREE.Vector3(x, y, z));
-
+        this.setAttribute('position', position);
+        this.setIndex(indices);
+        this.computeVertexNormals();
     }
-
-    function f3(a, b, c) {
-
-        scope.faces.push(new THREE.Face3(a, b, c));
-
-    }
-
 }
 
-Bird.prototype = Object.create(THREE.Geometry.prototype);
+export { Bird };

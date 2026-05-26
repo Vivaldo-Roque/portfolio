@@ -607,9 +607,13 @@
 <script type="text/javascript" src="./js/m_player.js"></script>
 <script type="text/javascript" src="./js/collapsibles.js"></script>
 <!-- bird animation using three.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/51/three.min.js"></script>
-<script src="./js/bird_animation/Bird.js"></script>
-<script src="./js/bird_animation/Boid.js"></script>
-<script src="./js/bird_animation/main.js"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three/build/three.module.js"
+    }
+  }
+</script>
+<script type="module" src="./js/bird_animation/main.js"></script>
 
 </html>
