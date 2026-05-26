@@ -1,0 +1,121 @@
+[
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    "level": "proficient",
+    "category": "web_development"
+  },
+  {
+    "id": "flutter",
+    "name": "Flutter",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+    "level": "proficient",
+    "category": "mobile_development"
+  },
+  {
+    "id": "html5",
+    "name": "HTML5",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    "level": "proficient",
+    "category": "web_development"
+  },
+  {
+    "id": "css3",
+    "name": "CSS3",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    "level": "proficient",
+    "category": "web_development"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    "level": "proficient",
+    "category": "programming_languages"
+  },
+  {
+    "id": "angular",
+    "name": "Angular",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg",
+    "level": "intermediate",
+    "category": "web_frameworks"
+  },
+  {
+    "id": "nestjs",
+    "name": "Nest.js",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+    "level": "intermediate",
+    "category": "web_frameworks"
+  },
+  {
+    "id": "android",
+    "name": "Android",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
+    "level": "intermediate",
+    "category": "mobile_development"
+  },
+  {
+    "id": "dart",
+    "name": "Dart",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+    "level": "intermediate",
+    "category": "programming_languages"
+  },
+  {
+    "id": "mariadb",
+    "name": "MariaDB",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg",
+    "level": "familiar",
+    "category": "database"
+  },
+  {
+    "id": "python",
+    "name": "Python",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    "level": "familiar",
+    "category": "programming_languages"
+  },
+  {
+    "id": "django",
+    "name": "Django",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+    "level": "familiar",
+    "category": "web_frameworks"
+  },
+  {
+    "id": "java",
+    "name": "Java",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+    "level": "familiar",
+    "category": "programming_languages"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+    "level": "familiar",
+    "category": "backend_services"
+  },
+  {
+    "id": "sqlite",
+    "name": "SQLite",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+    "level": "familiar",
+    "category": "database"
+  },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    "level": "familiar",
+    "category": "devops"
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    "level": "familiar",
+    "category": "version_control"
+  }
+]
