@@ -57,20 +57,11 @@ window.addEventListener("load", () => {
 
     });
 
-    var positions = [
-        { offset: offset(document.getElementById("home")), nav: document.getElementById("navhome") },
-        { offset: offset(document.getElementById("about")), nav: document.getElementById("navabout") },
-        { offset: offset(document.getElementById("skills")), nav: document.getElementById("navskills") },
-        { offset: offset(document.getElementById("works")), nav: document.getElementById("navworks") },
-        { offset: offset(document.getElementById("experience")), nav: document.getElementById("navexperience") },
-        { offset: offset(document.getElementById("contact")), nav: document.getElementById("navcontact") }
-    ];
-
-    var scrolled;
-    var saveLast;
+    var sectionIds = ['home', 'about', 'skills', 'works', 'experience', 'contact'];
+    var sectionsInfo = [];
+    var currentlyActive = null;
 
     navFollow();
-    // Section active detection handled by IntersectionObserver below
 
     function navFollow() {
         // Use CSS `position: sticky` for the navbar to avoid layout thrashing.
@@ -82,53 +73,71 @@ window.addEventListener("load", () => {
         }
     }
 
-    // Use IntersectionObserver to reliably detect which section is visible
-    function initSectionObserver() {
-        var sectionIds = ['home', 'about', 'skills', 'works', 'experience', 'contact'];
+    // Compute sections' absolute centers after layout and on resize
+    function computeSectionsInfo() {
+        sectionsInfo = sectionIds.map(function (id) {
+            var el = document.getElementById(id);
+            var navEl = document.getElementById('nav' + id);
+            if (!el) return null;
+            var rect = el.getBoundingClientRect();
+            var top = rect.top + window.scrollY;
+            var bottom = rect.bottom + window.scrollY;
+            var center = top + (bottom - top) / 2;
+            return { id: id, el: el, top: top, bottom: bottom, center: center, nav: navEl };
+        }).filter(Boolean);
+    }
 
-        // Map section id -> nav element id (nav + section)
-        function navForSection(id) { return document.getElementById('nav' + id); }
+    // Choose the section whose center is closest to viewport center
+    function updateActiveByViewportCenter() {
+        if (!sectionsInfo.length) return;
+        var viewportCenter = window.scrollY + window.innerHeight / 2;
+        var best = null;
+        var bestDist = Infinity;
+        sectionsInfo.forEach(function (s) {
+            var d = Math.abs(s.center - viewportCenter);
+            if (d < bestDist) { bestDist = d; best = s; }
+        });
 
-        var currentlyActive = null;
-
-        var observer = new IntersectionObserver(function (entries) {
-            // Find the entry with greatest intersectionRatio that is intersecting
-            var best = null;
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
-                }
-            });
-
-            if (best) {
-                var id = best.target.id;
-                var navEl = navForSection(id);
-
-                if (currentlyActive && currentlyActive !== navEl) {
-                    currentlyActive.classList.remove('active');
-                }
-
-                if (navEl && !navEl.classList.contains('active')) {
-                    navEl.classList.add('active');
-                    currentlyActive = navEl;
-                }
+        if (best) {
+            var navEl = best.nav;
+            if (currentlyActive && currentlyActive !== navEl) {
+                currentlyActive.classList.remove('active');
             }
-        }, {
-            root: null,
-            threshold: [0.25, 0.5, 0.75]
-        });
-
-        sectionIds.forEach(function (id) {
-            var section = document.getElementById(id);
-            if (section) observer.observe(section);
-        });
+            if (navEl && !navEl.classList.contains('active')) {
+                navEl.classList.add('active');
+                currentlyActive = navEl;
+            }
+        }
     }
 
-    window.onscroll = function (e) {
-        navFollow();
-    }
+    // throttle scroll handling using requestAnimationFrame
+    var ticking = false;
+    window.addEventListener('scroll', function (e) {
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                navFollow();
+                updateActiveByViewportCenter();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 
-    // initialize observer after load
-    initSectionObserver();
+    // compute positions and initialize
+    computeSectionsInfo();
+    updateActiveByViewportCenter();
+
+    // recompute on resize (debounced via rAF)
+    var resizeTick = false;
+    window.addEventListener('resize', function () {
+        if (!resizeTick) {
+            window.requestAnimationFrame(function () {
+                computeSectionsInfo();
+                updateActiveByViewportCenter();
+                resizeTick = false;
+            });
+            resizeTick = true;
+        }
+    });
 
 });
