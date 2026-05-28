@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     if(scrollpos != null){
         window.scrollTo(0, scrollpos);
-    } 
+    }
 
     sticky = offset(document.getElementById("nav")).top;
     document.getElementById("listLanguages").style.top = `${document.getElementById("home").scrollHeight + document.getElementById("nav").offsetHeight}px`;
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 window.addEventListener("beforeunload", function (e) {
     this.localStorage.setItem('scrollpos', window.scrollY);
-    localStorage.remove('navpos');
+    localStorage.removeItem('navpos');
     document.getElementById("nav").classList.remove("sticky");
 });
 
@@ -52,8 +52,8 @@ window.addEventListener("load", () => {
             document.getElementById("nav").style.height = `${0}px`;
         } else {
             document.getElementById("nav").style.height = x.style.maxHeight = x.scrollHeight + 40 + "px";
-        }   
-        
+        }
+
         navFollow();
 
     });
