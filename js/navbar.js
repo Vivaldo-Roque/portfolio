@@ -39,7 +39,6 @@ window.addEventListener("load", () => {
 
     var content = document.getElementsByClassName("content-wrap")[0];
 
-    var contentPadding = content.style.paddingTop;
 
     var mobileMenu = document.getElementById("mobileMenu");
 
@@ -74,17 +73,12 @@ window.addEventListener("load", () => {
     navCurrentActive();
 
     function navFollow() {
-
+        // Use CSS `position: sticky` for the navbar to avoid layout thrashing.
+        // Keep a minimal class toggle for optional visual effects (shadow).
         if (window.pageYOffset > sticky) {
             navbar.classList.add("sticky");
-            document.getElementById("listLanguages").style.position = "fixed";
-            document.getElementById("listLanguages").style.top = `${navbar.offsetHeight}px`;
-            content.style.paddingTop = `${navbar.offsetHeight}px`;
         } else {
             navbar.classList.remove("sticky");
-            document.getElementById("listLanguages").style.position = "absolute";
-            document.getElementById("listLanguages").style.top = `${document.getElementById("home").scrollHeight + document.getElementById("nav").offsetHeight}px`;
-            content.style.paddingTop = contentPadding;
         }
     }
 

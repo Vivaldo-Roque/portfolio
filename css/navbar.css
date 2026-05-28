@@ -1,5 +1,8 @@
 nav {
   z-index: 3;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   width: 100%;
   min-height: 40px;
 }
@@ -29,7 +32,7 @@ nav ul {
     padding: 0;
     overflow: hidden;
   }
-  
+
   nav ul li {
    display: inline-block;
   }
@@ -44,7 +47,7 @@ nav ul {
    nav ul li#fleft a{
     background-color: var(--light-green);
    }
-  
+
   nav ul li a {
     display: block;
     color: var(--white);
@@ -59,14 +62,13 @@ nav ul {
   nav ul li a:hover {
     color: var(--white);
   }
-  
+
   nav ul li a.active {
     transition: background-color 0.5s;
     border-top: 3px solid var(--white);
   }
 
   .sticky {
-    position: fixed;
-    top: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     width: 100%;
   }
