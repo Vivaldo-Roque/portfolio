@@ -70,7 +70,7 @@ window.addEventListener("load", () => {
     var saveLast;
 
     navFollow();
-    navCurrentActive();
+    // Section active detection handled by IntersectionObserver below
 
     function navFollow() {
         // Use CSS `position: sticky` for the navbar to avoid layout thrashing.
@@ -82,33 +82,53 @@ window.addEventListener("load", () => {
         }
     }
 
-    function navCurrentActive() {
-        positions.forEach(function (position) {
+    // Use IntersectionObserver to reliably detect which section is visible
+    function initSectionObserver() {
+        var sectionIds = ['home', 'about', 'skills', 'works', 'experience', 'contact'];
 
-            scrolled = document.scrollingElement.scrollTop;
+        // Map section id -> nav element id (nav + section)
+        function navForSection(id) { return document.getElementById('nav' + id); }
 
-            // Adjusted for scroll-padding-top and navbar height
-            if (scrolled + 200 <= position.offset.bottom && scrolled + 100 >= position.offset.top) {
+        var currentlyActive = null;
 
-                if (saveLast != undefined) {
-                    saveLast.classList.remove(
-                        'active');
+        var observer = new IntersectionObserver(function (entries) {
+            // Find the entry with greatest intersectionRatio that is intersecting
+            var best = null;
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    if (!best || entry.intersectionRatio > best.intersectionRatio) best = entry;
+                }
+            });
+
+            if (best) {
+                var id = best.target.id;
+                var navEl = navForSection(id);
+
+                if (currentlyActive && currentlyActive !== navEl) {
+                    currentlyActive.classList.remove('active');
                 }
 
-                position.nav.classList.add(
-                    'active');
-
-                saveLast = position.nav;
+                if (navEl && !navEl.classList.contains('active')) {
+                    navEl.classList.add('active');
+                    currentlyActive = navEl;
+                }
             }
+        }, {
+            root: null,
+            threshold: [0.25, 0.5, 0.75]
+        });
 
+        sectionIds.forEach(function (id) {
+            var section = document.getElementById(id);
+            if (section) observer.observe(section);
         });
     }
 
     window.onscroll = function (e) {
-
         navFollow();
-        navCurrentActive();
-
     }
+
+    // initialize observer after load
+    initSectionObserver();
 
 });
