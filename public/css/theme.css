@@ -1,0 +1,27 @@
+@media (prefers-color-scheme: dark) {
+    /* Dark theme styles go here */
+    body{
+        color: white;
+        background-color: #35363a;
+    }
+
+    #about_content > div.row > h2, h1, h2, h3, h4{
+        color: white;
+    }
+
+    .lead {
+        color: #a2a2a2;
+      }
+
+      #experience{
+        background-color: #414040;
+      }
+
+      .timeline .timeline-container .timeline-date {
+        color: #dddddd;
+      }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    /* Light theme styles go here */
+  }

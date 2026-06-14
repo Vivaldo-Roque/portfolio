@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+    --headerimg: url("../img/header.jpg");
+    --bannerimg: url("../img/banner.jpg");
+    --white: #ffffff;
+    --grey: #333333;
+    --light-green: #04AA6D;
+    --dark-green: #028d5a;
+}
