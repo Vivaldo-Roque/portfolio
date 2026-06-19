@@ -100,7 +100,7 @@ export default function Hero() {
         <img
           src="/img/header.jpg"
           alt="Serra da Leba, Angola — lush green mountain landscape"
-          className="h-full w-full object-cover brightness-[0.65]"
+          className="h-full w-full object-cover brightness-[0.75]"
           width={1920}
           height={1280}
         />
@@ -238,7 +238,7 @@ export default function Hero() {
             src="/img/header.jpg"
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover brightness-[0.35]"
+            className="absolute inset-0 h-full w-full object-cover brightness-[0.75]"
           />
 
           {/* Bird animation layer */}
