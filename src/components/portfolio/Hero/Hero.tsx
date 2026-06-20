@@ -202,7 +202,7 @@ export default function Hero() {
             src="/img/header.jpg"
             alt=""
             aria-hidden
-            className="absolute inset-0 h-full w-full object-cover brightness-[0.35]"
+            className="absolute inset-0 h-full w-full object-cover brightness-[0.75]"
           />
 
           {/* Bird animation layer */}
