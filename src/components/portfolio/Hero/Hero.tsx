@@ -2,45 +2,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, Download, X } from "lucide-react";
 import { Github, Linkedin, Twitter } from "@/components/portfolio/BrandIcons";
-import { BirdAnimation } from "./BirdAnimation";
-import { MusicPlayer } from "./MusicPlayer";
-import { useLanguage } from "../../context/language-context";
-
-function Typewriter({ words }: { words: string[] }) {
-  const [wordIndex, setWordIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    if (!words || words.length === 0) return;
-    const current = words[wordIndex];
-    const speed = deleting ? 40 : 90;
-    const timeout = setTimeout(() => {
-      if (!deleting) {
-        const next = current.slice(0, text.length + 1);
-        setText(next);
-        if (next === current) {
-          setTimeout(() => setDeleting(true), 1400);
-        }
-      } else {
-        const next = current.slice(0, text.length - 1);
-        setText(next);
-        if (next === "") {
-          setDeleting(false);
-          setWordIndex((i) => (i + 1) % words.length);
-        }
-      }
-    }, speed);
-    return () => clearTimeout(timeout);
-  }, [text, deleting, wordIndex, words]);
-
-  return (
-    <span className="font-mono-code text-lime">
-      {text}
-      <span className="animate-caret ml-0.5 inline-block h-[1em] w-[2px] translate-y-[0.15em] bg-lime" />
-    </span>
-  );
-}
+import { BirdAnimation } from "@/components/portfolio/BirdAnimation";
+import { MusicPlayer } from "@/components/portfolio/MusicPlayer";
+import { useLanguage } from "@/context/language-context";
+import { Typewriter } from "./Typewriter";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -100,7 +65,7 @@ export default function Hero() {
         <img
           src="/img/header.jpg"
           alt="Serra da Leba, Angola — lush green mountain landscape"
-          className="h-full w-full object-cover brightness-[0.65]"
+          className="h-full w-full object-cover brightness-[0.75]"
           width={1920}
           height={1280}
         />
@@ -110,14 +75,13 @@ export default function Hero() {
       <motion.div
         aria-hidden
         style={{ opacity: overlayOpacity }}
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/50 via-background/60 to-background/90"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-background dark:from-background/50 dark:via-background/60 dark:to-background/90"
       />
 
       {/* Photo caption tooltip */}
       <div
-        className={`absolute bottom-6 right-6 z-20 rounded-full border border-moss/40 bg-background/70 px-4 py-2 backdrop-blur transition-opacity duration-300 ${
-          showCaption ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
-        }`}
+        className={`absolute bottom-6 right-6 z-20 rounded-full border border-moss/40 bg-background/70 px-4 py-2 backdrop-blur transition-opacity duration-300 ${showCaption ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+          }`}
       >
         <span className="font-mono-code text-xs uppercase tracking-widest text-lime">
           {t("hero_caption")}

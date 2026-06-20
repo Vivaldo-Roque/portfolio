@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
 import portrait from "@/assets/vivaldo-portrait.jpg";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
+import ReactMarkdown from "react-markdown";
+import bioEn from "@/content/about/bio-en.md?raw";
+import bioPt from "@/content/about/bio-pt.md?raw";
 
 export default function About() {
-  const { t } = useLanguage();
-
-  const paragraphs = [
-    t("about_me_p1"),
-    t("about_me_p2"),
-    t("about_me_p3"),
-  ];
+  const { t, language } = useLanguage();
+  const bio = language === "pt" ? bioPt : bioEn;
 
   return (
     <section id="about" className="relative py-32" aria-label={t("about_me_title")}>
@@ -74,18 +72,42 @@ export default function About() {
             {t("about_title_pre")} <span className="text-gradient-leaf">{t("about_title_gradient")}</span>
           </motion.h2>
 
-          <div className="mt-8 space-y-5 text-lg text-muted-foreground whitespace-pre-line">
-            {paragraphs.map((p, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.3, delay: i * 0.1 }}
-              >
-                {p}
-              </motion.p>
-            ))}
+          <div className="mt-8 text-lg text-muted-foreground">
+            <ReactMarkdown
+              components={{
+                p: ({ children }) => (
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.3 }}
+                    className="mt-5 first:mt-0"
+                  >
+                    {children}
+                  </motion.p>
+                ),
+                ul: ({ children }) => (
+                  <ul className="my-4 space-y-2 list-none">{children}</ul>
+                ),
+                li: ({ children }) => (
+                  <motion.li
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-start gap-2 pl-2"
+                  >
+                    <span className="text-moss select-none mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-moss" />
+                    <span>{children}</span>
+                  </motion.li>
+                ),
+                strong: ({ children }) => (
+                  <strong className="font-semibold text-foreground">{children}</strong>
+                ),
+              }}
+            >
+              {bio}
+            </ReactMarkdown>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">

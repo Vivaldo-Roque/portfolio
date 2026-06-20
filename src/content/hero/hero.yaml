@@ -1,0 +1,19 @@
+en:
+  hero_hello: "hello.world();"
+  hero_tagline: "Engineering digital experiences from the heart of Africa."
+  hero_scroll: "Scroll to begin the story"
+  hero_scroll_player: "Scroll to begin the story"
+  hero_caption: "📍 Serra da Leba, Angola"
+  text_changing1: "WEB DEVELOPER"
+  text_changing2: "SOFTWARE ENGINEER"
+  text_changing3: "TECHNOLOGY GEEK"
+
+pt:
+  hero_hello: "> hello.world();"
+  hero_tagline: "Engenharia de experiências digitais a partir do coração da África."
+  hero_scroll: "Faça scroll para começar a história"
+  hero_scroll_player: "Scroll para iniciar"
+  hero_caption: "📍 Serra da Leba, Angola"
+  text_changing1: "DESENVOLVEDOR WEB"
+  text_changing2: "ENGENHEIRO DE SOFTWARE"
+  text_changing3: "GEEK DA TECNOLOGIA"

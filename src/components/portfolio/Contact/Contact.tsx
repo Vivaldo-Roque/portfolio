@@ -3,7 +3,7 @@ import { useState } from "react";
 import { MapPin, Mail, Phone, Send } from "lucide-react";
 import { Github, Linkedin, Twitter } from "@/components/portfolio/BrandIcons";
 import circuitLeaf from "@/assets/circuit-leaf.jpg";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
 
 export default function Contact() {
   const { t } = useLanguage();

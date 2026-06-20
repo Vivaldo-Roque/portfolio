@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { projects } from "@/lib/projects";
-import ProjectShowcase from "@/components/portfolio/ProjectShowcase";
+import ProjectShowcase from "@/components/portfolio/ProjectShowcase/ProjectShowcase";
 import { useLanguage } from "../context/language-context";
 import { useMemo } from "react";
 

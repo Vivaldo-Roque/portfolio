@@ -1,5 +1,5 @@
 import { Github, Linkedin, Twitter } from "@/components/portfolio/BrandIcons";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
 
 const socials = [
   { Icon: Github, label: "GitHub", href: "https://github.com/Vivaldo-Roque/" },

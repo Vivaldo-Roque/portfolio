@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
 
 export const MusicPlayer: React.FC = () => {
   const { t } = useLanguage();

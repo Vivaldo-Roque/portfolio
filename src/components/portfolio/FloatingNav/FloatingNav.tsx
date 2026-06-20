@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
 
 export default function FloatingNav() {
   const [scrolled, setScrolled] = useState(false);

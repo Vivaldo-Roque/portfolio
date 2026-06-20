@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { GraduationCap, Briefcase, Award, Sparkles } from "lucide-react";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
 
 type Item = {
   period: string;
@@ -56,7 +56,7 @@ function CompetenciasPanel() {
 
   const certifications: Item[] = [
     {
-      period: "2024",
+      period: "2026",
       title: t("certifications_0_title"),
       place: t("certifications_0_place"),
       body: t("certifications_0_body"),
@@ -68,16 +68,10 @@ function CompetenciasPanel() {
       body: t("certifications_1_body"),
     },
     {
-      period: "2023",
+      period: "2024",
       title: t("certifications_2_title"),
       place: t("certifications_2_place"),
       body: t("certifications_2_body"),
-    },
-    {
-      period: t("experience_2_title").includes("Freelance") ? "Em curso" : "Ongoing",
-      title: t("certifications_3_title"),
-      place: t("certifications_3_place"),
-      body: t("certifications_3_body"),
     },
   ];
 
@@ -147,43 +141,19 @@ export default function OriginStory() {
       body: t("academic_1_body"),
     },
     {
-      period: "2024",
+      period: "2025 – 2027",
       title: t("academic_2_title"),
       place: t("academic_2_place"),
       body: t("academic_2_body"),
-    },
-    {
-      period: "2024",
-      title: t("academic_3_title"),
-      place: t("academic_3_place"),
-      body: t("academic_3_body"),
-    },
-    {
-      period: "2025 – 2027",
-      title: t("academic_4_title"),
-      place: t("academic_4_place"),
-      body: t("academic_4_body"),
     },
   ];
 
   const experience: Item[] = [
     {
-      period: "Jul – Ago 2023",
+      period: "NULL",
       title: t("experience_0_title"),
       place: t("experience_0_place"),
       body: t("experience_0_body"),
-    },
-    {
-      period: "2023 – Presente",
-      title: t("experience_1_title"),
-      place: t("experience_1_place"),
-      body: t("experience_1_body"),
-    },
-    {
-      period: t("experience_2_title").includes("Freelance") ? "Em curso" : "Ongoing",
-      title: t("experience_2_title"),
-      place: t("experience_2_place"),
-      body: t("experience_2_body"),
     },
   ];
 
@@ -246,5 +216,3 @@ export default function OriginStory() {
     </section>
   );
 }
-
-
