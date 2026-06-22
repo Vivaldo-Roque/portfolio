@@ -10,10 +10,10 @@ export function SkillCard({ skill, delay }: { skill: Skill; delay: number }) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.25, delay }}
       whileHover={{ y: -4 }}
-      className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-moss/10 bg-surface/60 p-5 backdrop-blur transition hover:border-moss/60 hover:shadow-[0_0_15px_-5px_var(--moss)]"
+      className="group relative flex flex-col items-center justify-center gap-3 rounded-2xl border border-moss/10 bg-surface/60 p-5 backdrop-blur transition hover:border-moss/60 dark:hover:shadow-[0_0_15px_-5px_var(--moss)]"
     >
       <div className="relative flex h-12 w-12 items-center justify-center">
-        <div className="absolute inset-0 rounded-full bg-moss/0 blur-xl transition group-hover:bg-moss/30" />
+        <div className="absolute inset-0 rounded-full bg-moss/0 blur-xl transition dark:group-hover:bg-moss/30" />
         <img
           src={skill.icon}
           alt={`${skill.name} logo`}

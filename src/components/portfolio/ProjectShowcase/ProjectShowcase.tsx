@@ -50,7 +50,7 @@ function SceneBlock({
       <motion.div
         aria-hidden
         style={{ scale, opacity }}
-        className={`absolute inset-10 rounded-[2.5rem] bg-gradient-to-br ${scene.accent} blur-3xl`}
+        className={`absolute inset-10 rounded-[2.5rem] bg-gradient-to-br ${scene.accent} blur-3xl hidden dark:block`}
       />
       <motion.div
         aria-hidden
@@ -170,9 +170,8 @@ export default function ProjectShowcase({
             key={i}
             onClick={() => goTo(i)}
             aria-label={`Go to scene ${i + 1}`}
-            className={`pointer-events-auto h-2.5 rounded-full transition-all ${
-              active === i ? "w-6 bg-lime" : "w-2.5 bg-moss/40 hover:bg-moss"
-            }`}
+            className={`pointer-events-auto h-2.5 rounded-full transition-all ${active === i ? "w-6 bg-lime" : "w-2.5 bg-moss/40 hover:bg-moss"
+              }`}
           />
         ))}
       </div>

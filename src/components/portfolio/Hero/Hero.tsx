@@ -65,7 +65,7 @@ export default function Hero() {
         <img
           src="/img/header.jpg"
           alt="Serra da Leba, Angola — lush green mountain landscape"
-          className="h-full w-full object-cover brightness-[0.75]"
+          className="h-full w-full object-cover brightness-[0.85] dark:brightness-[0.45]"
           width={1920}
           height={1280}
         />
@@ -75,7 +75,7 @@ export default function Hero() {
       <motion.div
         aria-hidden
         style={{ opacity: overlayOpacity }}
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-background dark:from-background/50 dark:via-background/60 dark:to-background/90"
+        className="pointer-events-none absolute inset-0 bg-none dark:bg-gradient-to-b dark:from-background/50 dark:via-background/60 dark:to-background/90"
       />
 
       {/* Photo caption tooltip */}

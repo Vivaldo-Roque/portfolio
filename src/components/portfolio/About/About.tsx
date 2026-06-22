@@ -31,7 +31,7 @@ export default function About() {
             />
             <div
               aria-hidden
-              className="absolute inset-0 mix-blend-color"
+              className="absolute inset-0 mix-blend-color hidden dark:block"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(46,204,113,0.55), rgba(13,31,23,0.6))",
@@ -39,7 +39,7 @@ export default function About() {
             />
             <div
               aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent hidden dark:block"
             />
           </div>
 

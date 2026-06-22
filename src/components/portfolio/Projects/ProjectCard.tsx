@@ -22,7 +22,7 @@ export function ProjectCard({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.3, delay: i * 0.06 }}
       whileHover={{ y: -8 }}
-      className="group glass relative flex flex-col overflow-hidden rounded-2xl transition hover:glow-border"
+      className="group glass relative flex flex-col overflow-hidden rounded-2xl transition dark:hover:glow-border hover:border-moss/40"
     >
       <Link
         to="/projects/$projectId"
@@ -35,10 +35,10 @@ export function ProjectCard({
           <img
             src={p.image}
             alt={`${p.name} screenshot`}
-            className="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-80"
+            className="absolute inset-0 h-full w-full object-cover mix-blend-normal opacity-95 dark:mix-blend-overlay dark:opacity-80"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-surface/95 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface/95 to-transparent hidden dark:block" />
         <span className="font-mono-code absolute bottom-3 left-4 text-xs uppercase tracking-widest text-lime">
           {p.category === "Web" ? t("type_web") : t("type_mobile")}
         </span>

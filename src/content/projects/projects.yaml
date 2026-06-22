@@ -1,8 +1,8 @@
 en:
   works_titles: "RECENT PROJECTS"
   works_chapter: "chapter_03"
-  works_title_pre: "The"
-  works_title_gradient: "Forest"
+  works_title_pre: "My"
+  works_title_gradient: "Projects"
   works_subtitle: "work that grew here"
   projects_filter_label: "Filter by type"
   type_all: "All"
@@ -115,8 +115,8 @@ en:
 pt:
   works_titles: "PROJETOS RECENTES"
   works_chapter: "chapter_03"
-  works_title_pre: "A"
-  works_title_gradient: "Floresta"
+  works_title_pre: "Meus"
+  works_title_gradient: "Projectos"
   works_subtitle: "trabalhos que cresceram aqui"
   projects_filter_label: "Filtrar por tipo"
   type_all: "Todos"

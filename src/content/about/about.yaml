@@ -1,11 +1,11 @@
 en:
   about_me_title: "ABOUT ME"
-  about_chapter: "chapter_04"
-  about_title_gradient: "Roots"
-  about_title_pre: "The"
+  about_chapter: "chapter_01"
+  about_title_gradient: "Me"
+  about_title_pre: "About"
 
 pt:
   about_me_title: "Sobre mim"
-  about_chapter: "chapter_04"
-  about_title_gradient: "Raízes"
-  about_title_pre: "As"
+  about_chapter: "chapter_01"
+  about_title_gradient: "Mim"
+  about_title_pre: "Sobre"

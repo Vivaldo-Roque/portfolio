@@ -86,7 +86,7 @@ export default function Contact() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel="noreferrer noopener"
-                    className="group glass flex items-center gap-4 rounded-2xl p-5 transition hover:glow-border"
+                    className="group glass flex items-center gap-4 rounded-2xl p-5 transition dark:hover:glow-border hover:border-moss/40"
                   >
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-moss/10 text-moss transition group-hover:bg-moss/20 group-hover:text-lime">
                       <Icon className="h-5 w-5" />

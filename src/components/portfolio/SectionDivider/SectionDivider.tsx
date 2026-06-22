@@ -10,10 +10,9 @@ export default function SectionDivider({ variant = "leaf" }: { variant?: Variant
     offset: ["start end", "end start"],
   });
 
-  // Two layers, different speeds
-  const yBack = useTransform(scrollYProgress, [0, 1], [-60, 60]);
-  const yFront = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+  // Subtler parallax translation for a professional, premium feel
+  const yElement = useTransform(scrollYProgress, [0, 1], [-12, 12]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   const isLeaf = variant === "leaf";
 
@@ -21,37 +20,64 @@ export default function SectionDivider({ variant = "leaf" }: { variant?: Variant
     <div
       ref={ref}
       aria-hidden
-      className="relative h-32 overflow-hidden sm:h-40"
+      className="relative h-20 overflow-hidden sm:h-24 flex items-center justify-center"
     >
-      {/* Back gradient orb */}
+      {/* Very faint background light pool */}
       <motion.div
-        style={{ y: yBack, willChange: "transform", opacity }}
-        className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+        style={{ opacity }}
+        className="absolute left-1/2 top-1/2 h-32 w-64 -translate-x-1/2 -translate-y-1/2 pointer-events-none rounded-full blur-[60px] opacity-10 dark:block hidden"
       >
         <div
           className={`h-full w-full rounded-full ${
             isLeaf
-              ? "bg-[radial-gradient(circle,var(--moss),transparent_70%)] opacity-50"
-              : "bg-[radial-gradient(circle,var(--lime),transparent_70%)] opacity-40"
+              ? "bg-[radial-gradient(circle,var(--moss)_0%,transparent_70%)]"
+              : "bg-[radial-gradient(circle,var(--lime)_0%,transparent_70%)]"
           }`}
         />
       </motion.div>
 
-      {/* Front floating leaf / circuit dot */}
+      {/* Main Divider Line & Accent */}
       <motion.div
-        style={{ y: yFront, willChange: "transform" }}
-        className="absolute inset-x-0 top-1/2 flex -translate-y-1/2 justify-center"
+        style={{ y: yElement, willChange: "transform", opacity }}
+        className="relative w-full max-w-2xl px-8 flex items-center justify-center"
       >
-        <span
-          className={`h-1.5 w-24 rounded-full ${
-            isLeaf ? "bg-gradient-to-r from-transparent via-moss to-transparent" : "bg-gradient-to-r from-transparent via-lime to-transparent"
-          }`}
+        {/* Sleek, ultra-thin line with gradient fade */}
+        <div className="absolute inset-x-8 h-[1px] bg-gradient-to-r from-transparent via-border to-transparent opacity-40 dark:opacity-20" />
+        
+        {/* Accent lines using theme color */}
+        <div 
+          className="absolute inset-x-24 h-[1px] bg-gradient-to-r from-transparent via-current to-transparent opacity-30" 
+          style={{ color: isLeaf ? 'var(--moss)' : 'var(--lime)' }}
         />
-      </motion.div>
 
-      {/* Bottom fade into next section */}
-      <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-b from-transparent to-background" />
-      <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-t from-transparent to-background" />
+        {/* Center Emblem */}
+        <div className="relative flex items-center justify-center px-4 bg-background z-10">
+          {isLeaf ? (
+            /* Minimalist Leaf Emblem */
+            <div 
+              className="h-3 w-3 rounded-tl-full rounded-br-full border border-current opacity-80"
+              style={{ color: 'var(--moss)' }}
+            />
+          ) : (
+            /* Minimalist Circuit Emblem */
+            <div className="flex items-center gap-1">
+              <div 
+                className="h-2 w-2 rounded-full border border-current opacity-80"
+                style={{ color: 'var(--lime)' }}
+              />
+              <div 
+                className="h-[1px] w-2 bg-current opacity-60"
+                style={{ color: 'var(--lime)' }}
+              />
+              <div 
+                className="h-1.5 w-1.5 bg-current opacity-80"
+                style={{ color: 'var(--lime)' }}
+              />
+            </div>
+          )}
+        </div>
+      </motion.div>
     </div>
   );
 }
+
