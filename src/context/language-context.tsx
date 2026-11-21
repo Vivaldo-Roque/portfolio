@@ -1,35 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import commonTranslations from "../content/common/common.yaml";
-import heroTranslations from "../content/hero/hero.yaml";
-import aboutTranslations from "../content/about/about.yaml";
-import skillsTranslations from "../content/skills/skills.yaml";
-import projectsTranslations from "../content/projects/projects.yaml";
-import originTranslations from "../content/origin/origin.yaml";
-import contactTranslations from "../content/contact/contact.yaml";
-
-const mergeTranslations = (sources: any[]) => {
-  const merged: any = { en: {}, pt: {} };
-  sources.forEach((source) => {
-    if (source?.en) {
-      merged.en = { ...merged.en, ...source.en };
-    }
-    if (source?.pt) {
-      merged.pt = { ...merged.pt, ...source.pt };
-    }
-  });
-  return merged;
-};
-
-const translationsData = mergeTranslations([
-  commonTranslations,
-  heroTranslations,
-  aboutTranslations,
-  skillsTranslations,
-  projectsTranslations,
-  originTranslations,
-  contactTranslations,
-]);
-
+import translationsData from "../lib/languages.json";
 
 export type Language = "en" | "pt";
 

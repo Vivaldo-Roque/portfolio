@@ -45,58 +45,58 @@
 
 :root {
   --radius: 0.75rem;
-  --background: #0A0F0D;
-  --foreground: #F0F4F1;
-  --deep: #0D1F17;
-  --surface: #111C16;
-  --card: #111C16;
-  --card-foreground: #F0F4F1;
-  --popover: #111C16;
-  --popover-foreground: #F0F4F1;
-  --primary: #27AE60;
-  --primary-foreground: #0A0F0D;
-  --moss: #2ECC71;
-  --lime: #A8FF3E;
-  --secondary: #0D1F17;
-  --secondary-foreground: #F0F4F1;
-  --muted: #0D1F17;
-  --muted-foreground: #8FA898;
-  --accent: #A8FF3E;
-  --accent-foreground: #0A0F0D;
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --deep: #111111;
+  --surface: #141414;
+  --card: #141414;
+  --card-foreground: #FFFFFF;
+  --popover: #141414;
+  --popover-foreground: #FFFFFF;
+  --primary: #2FBF71;
+  --primary-foreground: #000000;
+  --moss: #2FBF71;
+  --lime: #2FBF71;
+  --secondary: #141414;
+  --secondary-foreground: #FFFFFF;
+  --muted: #141414;
+  --muted-foreground: #D0D5D2;
+  --accent: #2FBF71;
+  --accent-foreground: #000000;
   --destructive: oklch(0.62 0.22 27);
-  --destructive-foreground: #F0F4F1;
-  --border: rgba(143, 168, 152, 0.14);
-  --input: rgba(143, 168, 152, 0.18);
-  --ring: #2ECC71;
+  --destructive-foreground: #FFFFFF;
+  --border: #262626;
+  --input: #404040;
+  --ring: #2FBF71;
 }
 
 .dark {
-  --background: #0A0F0D;
-  --foreground: #F0F4F1;
+  --background: #000000;
+  --foreground: #FFFFFF;
 }
 
 .light {
-  --background: #F2F7F4;
-  --foreground: #0A0F0D;
-  --deep: #E1ECE5;
-  --surface: #E8F0EA;
-  --card: #E8F0EA;
-  --card-foreground: #0A0F0D;
-  --popover: #E8F0EA;
-  --popover-foreground: #0A0F0D;
-  --primary: #27AE60;
-  --primary-foreground: #F2F7F4;
-  --moss: #27AE60;
-  --lime: #64B800;
-  --secondary: #E1ECE5;
-  --secondary-foreground: #0A0F0D;
-  --muted: #E1ECE5;
-  --muted-foreground: #5A7062;
-  --accent: #27AE60;
-  --accent-foreground: #F2F7F4;
-  --border: rgba(90, 112, 98, 0.18);
-  --input: rgba(90, 112, 98, 0.22);
-  --ring: #27AE60;
+  --background: #F5F5F5;
+  --foreground: #000000;
+  --deep: #E6E6E6;
+  --surface: #EDEDED;
+  --card: #EDEDED;
+  --card-foreground: #000000;
+  --popover: #EDEDED;
+  --popover-foreground: #000000;
+  --primary: #2FBF71;
+  --primary-foreground: #F5F5F5;
+  --moss: #2FBF71;
+  --lime: #1F9D58;
+  --secondary: #E6E6E6;
+  --secondary-foreground: #000000;
+  --muted: #E6E6E6;
+  --muted-foreground: #666666;
+  --accent: #2FBF71;
+  --accent-foreground: #F5F5F5;
+  --border: #DDDDDD;
+  --input: #CCCCCC;
+  --ring: #2FBF71;
 }
 
 @layer base {
@@ -104,7 +104,7 @@
     border-color: var(--color-border);
   }
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
   body {
     background-color: var(--color-background);
@@ -127,28 +127,25 @@
 }
 
 @utility glass {
-  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  background: color-mix(in oklab, var(--surface) 75%, transparent);
   backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid color-mix(in oklab, var(--moss) 14%, transparent);
+  border: 1px solid var(--border);
 }
 
 @utility glow-border {
   box-shadow:
-    0 0 0 1px color-mix(in oklab, var(--moss) 15%, transparent),
+    0 0 0 1px color-mix(in oklab, var(--moss) 35%, transparent),
     0 8px 30px -10px color-mix(in oklab, var(--moss) 15%, transparent);
 }
 
 @utility text-gradient-leaf {
-  background: linear-gradient(120deg, var(--lime), var(--moss) 60%, #5dffb0);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--foreground);
 }
 
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, rgba(46, 204, 113, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(46, 204, 113, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -176,3 +173,32 @@
 @utility animate-firefly {
   animation: float-up linear infinite;
 }
+
+
+
+
+/* Monako-style full-page snapping (reverse engineered):
+   mandatory snap is toggled on <html> only while the user is in the snap zone */
+html.snap-scroll { scroll-snap-type: y mandatory; }
+.snap-target { scroll-snap-align: start; scroll-snap-stop: always; }
+.snap-viewport { height: 100vh; height: 100lvh; min-height: 100vh; min-height: 100lvh; }
+.section-sticky { position: sticky; top: 0; z-index: 0; isolation: isolate; }
+.section-sticky[data-blurring="true"] > *:not(.hero-blur-mask) { filter: blur(calc(var(--hero-blur, 0) * 16px)); opacity: calc(1 - var(--hero-blur, 0)); will-change: filter, opacity, transform; transform: translateZ(0); backface-visibility: hidden; }
+.section-sticky[data-covered="true"] > *:not(.hero-blur-mask) { opacity: 0; pointer-events: none; }
+.hero-blur-mask { position: absolute; inset: 0; z-index: 3; pointer-events: none; background-color: rgba(0,0,0,calc(var(--hero-blur, 0) * 0.25)); opacity: var(--hero-blur, 0); will-change: opacity, background-color; transform: translateZ(0); }
+
+/* Monako-style slim scrollbar (6px, dark track, translucent thumb, accent on hover) */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: rgba(240, 244, 241, 0.18); }
+::-webkit-scrollbar-thumb:hover { background: var(--lime); }
+
+/* Monako-style text scramble / glitch on scroll */
+[data-scramble-overlay] { font-kerning: none; font-variant-ligatures: none; }
+.scramble-word { display: inline-block; white-space: nowrap; }
+.scramble-cell { position: relative; display: inline-block; white-space: pre; vertical-align: baseline; }
+.scramble-cell::before { content: attr(data-scramble-measure); visibility: hidden; }
+.scramble-cell__visual { position: absolute; top: 0; left: 50%; min-width: 100%; line-height: inherit; text-align: center; transform: translate(-50%); }
+.scramble-dud { color: var(--moss); opacity: 0.85; }
+
+
