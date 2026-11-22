@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Mail, Phone, Send } from "lucide-react";
-import { Github, Linkedin, Twitter } from "@/components/portfolio/BrandIcons";
 import circuitLeaf from "@/assets/circuit-leaf.jpg";
+import { PROFILE, SOCIAL_LINKS } from "@/config/profile";
+import { useLanguage } from "@/context/language-context";
 import { ScrambleText, useScrambleSection } from "./ScrambleText";
-import { useLanguage } from "../../context/language-context";
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null);
@@ -17,27 +17,21 @@ export default function Contact() {
     {
       Icon: MapPin,
       label: t("contact_location_label"),
-      value: "Angola, Ícolo e Bengo, Sequele",
-      href: "https://www.google.com/maps/search/?api=1&query=Angola,+Ícolo+e+Bengo,+Sequele",
+      value: PROFILE.locationFull,
+      href: PROFILE.locationMapsUrl,
     },
     {
       Icon: Mail,
       label: t("contact_email_label"),
-      value: "2001vivaldo@gmail.com",
-      href: "mailto:2001vivaldo@gmail.com",
+      value: PROFILE.email,
+      href: `mailto:${PROFILE.email}`,
     },
     {
       Icon: Phone,
       label: t("contact_whatsapp_label"),
-      value: "(+244) 928 994 233",
-      href: "https://wa.me/244928994233",
+      value: PROFILE.phoneDisplay,
+      href: PROFILE.whatsappUrl,
     },
-  ];
-
-  const socials = [
-    { Icon: Github, label: "GitHub", href: "https://github.com/Vivaldo-Roque/" },
-    { Icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/vivaldoroque/" },
-    { Icon: Twitter, label: "Twitter", href: "https://twitter.com/vivaldo_roque" },
   ];
 
   return (
@@ -67,7 +61,10 @@ export default function Contact() {
           className="max-w-2xl"
         >
           <p className="font-mono-code flex items-center gap-2.5 whitespace-nowrap text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-moss" aria-hidden />
+            <span
+              className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-moss"
+              aria-hidden
+            />
             <ScrambleText className="block" text="chapter_05" />
           </p>
           <ScrambleText
@@ -116,7 +113,7 @@ export default function Contact() {
             </ul>
 
             <div className="mt-8 flex gap-3">
-              {socials.map(({ Icon, label, href }) => (
+              {SOCIAL_LINKS.map(({ Icon, label, href }) => (
                 <a
                   key={label}
                   href={href}

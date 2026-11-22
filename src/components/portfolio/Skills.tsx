@@ -2,170 +2,18 @@ import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Compass, Cpu, FlaskConical, Layers, Rocket, Terminal } from "lucide-react";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
 import { projects } from "@/lib/projects";
-
-type TierId = "field" | "foundation" | "explored";
-
-type SkillMeta = {
-  id: string;
-  name: string;
-  icon: string;
-  tier: TierId;
-  domain: "Mobile" | "Web" | "Systems" | "Data & Infra" | "Game";
-  relatedProjects: { id: string; nameKey: string }[];
-};
-
-const ICON = (slug: string, variant = "original") =>
-  `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${slug}/${slug}-${variant}.svg`;
-
-const SKILLS: SkillMeta[] = [
-  // ===========================================================================
-  // TIER 1: NO TERRENO (Applied in shipped apps & daily stack)
-  // ===========================================================================
-  {
-    id: "flutter",
-    name: "Flutter",
-    icon: ICON("flutter"),
-    tier: "field",
-    domain: "Mobile",
-    relatedProjects: [
-      { id: "cfop_trainer", nameKey: "cfop_trainer_title" },
-      { id: "ecommerce_mobile", nameKey: "ecommerce_mobile_title" },
-      { id: "ecommerce_web_admin", nameKey: "ecommerce_web_admin_title" },
-    ],
-  },
-  {
-    id: "dart",
-    name: "Dart",
-    icon: ICON("dart"),
-    tier: "field",
-    domain: "Mobile",
-    relatedProjects: [
-      { id: "cfop_trainer", nameKey: "cfop_trainer_title" },
-      { id: "ecommerce_mobile", nameKey: "ecommerce_mobile_title" },
-    ],
-  },
-  {
-    id: "python",
-    name: "Python",
-    icon: ICON("python"),
-    tier: "field",
-    domain: "Web",
-    relatedProjects: [
-      { id: "vivacubesolver", nameKey: "vivacubesolver_title" },
-      { id: "banco_viva", nameKey: "banco_viva_title" },
-    ],
-  },
-  {
-    id: "django",
-    name: "Django",
-    icon: ICON("django", "plain"),
-    tier: "field",
-    domain: "Web",
-    relatedProjects: [{ id: "banco_viva", nameKey: "banco_viva_title" }],
-  },
-  {
-    id: "java",
-    name: "Java & Android SDK",
-    icon: ICON("java"),
-    tier: "field",
-    domain: "Mobile",
-    relatedProjects: [
-      { id: "iska_minhas_notas", nameKey: "iska_minhas_notas_title" },
-      { id: "vivacubesolver", nameKey: "vivacubesolver_title" },
-    ],
-  },
-  {
-    id: "sqlite",
-    name: "SQLite & Firebase",
-    icon: ICON("sqlite"),
-    tier: "field",
-    domain: "Data & Infra",
-    relatedProjects: [
-      { id: "cfop_trainer", nameKey: "cfop_trainer_title" },
-      { id: "ecommerce_mobile", nameKey: "ecommerce_mobile_title" },
-      { id: "ecommerce_web_admin", nameKey: "ecommerce_web_admin_title" },
-    ],
-  },
-
-  // ===========================================================================
-  // TIER 2: BASE SÓLIDA & FORMAÇÃO (42 Luanda, ISKA, ITEL, Harvard CS50)
-  // ===========================================================================
-  {
-    id: "c_lang",
-    name: "C & Unix / Linux",
-    icon: ICON("c"),
-    tier: "foundation",
-    domain: "Systems",
-    relatedProjects: [],
-  },
-  {
-    id: "web_core",
-    name: "HTML5, CSS3 & JavaScript",
-    icon: ICON("javascript"),
-    tier: "foundation",
-    domain: "Web",
-    relatedProjects: [
-      { id: "tictactoe", nameKey: "tictactoe_title" },
-      { id: "cfop_trainer", nameKey: "cfop_trainer_title" },
-      { id: "banco_viva", nameKey: "banco_viva_title" },
-    ],
-  },
-  {
-    id: "react",
-    name: "React & TypeScript",
-    icon: ICON("react"),
-    tier: "foundation",
-    domain: "Web",
-    relatedProjects: [],
-  },
-  {
-    id: "mysql_net",
-    name: "MySQL & Redes (CCNA)",
-    icon: ICON("mysql"),
-    tier: "foundation",
-    domain: "Data & Infra",
-    relatedProjects: [],
-  },
-
-  // ===========================================================================
-  // TIER 3: EXPLORAÇÃO & CURTO CONTACTO (Tried briefly out of curiosity — honest!)
-  // ===========================================================================
-  {
-    id: "cpp_csharp",
-    name: "C++ & C#",
-    icon: ICON("cplusplus"),
-    tier: "explored",
-    domain: "Systems",
-    relatedProjects: [],
-  },
-  {
-    id: "unity",
-    name: "Unity3D",
-    icon: ICON("unity"),
-    tier: "explored",
-    domain: "Game",
-    relatedProjects: [],
-  },
-  {
-    id: "angular_next_nest",
-    name: "Angular, Next.js & Nest.js",
-    icon: ICON("nextjs", "original-wordmark"),
-    tier: "explored",
-    domain: "Web",
-    relatedProjects: [],
-  },
-];
+import { SKILLS, type SkillTierId } from "@/config/skills-data";
 
 export default function Skills() {
   const { t, language } = useLanguage();
 
-  const [activeTier, setActiveTier] = useState<"all" | TierId>("all");
+  const [activeTier, setActiveTier] = useState<"all" | SkillTierId>("all");
   const [selectedId, setSelectedId] = useState<string>("flutter");
 
   const tiers: {
-    id: TierId;
+    id: SkillTierId;
     num: string;
     title: string;
     badge: string;
@@ -227,7 +75,11 @@ export default function Skills() {
   );
 
   return (
-    <section id="skills" className="relative min-h-screen py-24 sm:py-32" aria-label={t("skills_title_gradient")}>
+    <section
+      id="skills"
+      className="relative min-h-screen py-24 sm:py-32"
+      aria-label={t("skills_title_gradient")}
+    >
       <div className="pointer-events-none fixed inset-0 bg-grid opacity-30" aria-hidden />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
@@ -280,11 +132,7 @@ export default function Skills() {
           })}
         </div>
 
-        {/* ===================================================================
-            MAIN INTERACTIVE LAYOUT:
-            Left (8 cols): 3 Honest Depth Zones
-            Right (4 cols): Sticky "Evidence & Context Inspector"
-           =================================================================== */}
+        {/* Main interactive layout: 3 Honest Depth Zones + Sticky Inspector */}
         <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-start">
           {/* LEFT: The 3 Honest Zones */}
           <div className="space-y-10 lg:col-span-7 xl:col-span-8">
@@ -428,7 +276,8 @@ export default function Skills() {
                         className="group flex items-center justify-between rounded-xl border border-border bg-black/80 px-3.5 py-2.5 text-xs text-white transition hover:border-moss"
                       >
                         <span className="font-display font-semibold group-hover:text-moss">
-                          {projects.find((p) => p.id === rp.id)?.i18n?.[language]?.name || t(rp.nameKey)}
+                          {projects.find((p) => p.id === rp.id)?.i18n?.[language]?.name ||
+                            t(rp.nameKey)}
                         </span>
                         <span className="font-mono-code inline-flex items-center gap-1 text-[10px] uppercase tracking-widest text-muted-foreground group-hover:text-white">
                           {t("showcase_title")}

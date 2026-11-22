@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { GraduationCap, Briefcase, Award, Sparkles } from "lucide-react";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
+import {
+  ACADEMIC_TIMELINE,
+  CERTIFICATIONS_TIMELINE,
+  EXPERIENCE_TIMELINE,
+  SOFT_SKILL_KEYS,
+  type TimelineItemConfig,
+} from "@/config/origin-data";
 
 type Item = {
   period: string;
@@ -10,13 +17,10 @@ type Item = {
   body: string;
 };
 
-function Timeline({ items }: { items: Item[]; accent?: "moss" | "lime" }) {
+function Timeline({ items }: { items: Item[] }) {
   return (
     <div className="relative mt-10">
-      <div
-        aria-hidden
-        className="absolute left-5 top-0 bottom-0 w-px bg-border"
-      />
+      <div aria-hidden className="absolute left-5 top-0 bottom-0 w-px bg-border" />
       <ul className="space-y-10">
         {items.map((it, i) => (
           <motion.li
@@ -34,7 +38,9 @@ function Timeline({ items }: { items: Item[]; accent?: "moss" | "lime" }) {
               <p className="font-mono-code text-xs uppercase tracking-widest text-muted-foreground">
                 {it.period}
               </p>
-              <h4 className="font-display mt-1.5 text-xl font-semibold text-foreground">{it.title}</h4>
+              <h4 className="font-display mt-1.5 text-xl font-semibold text-foreground">
+                {it.title}
+              </h4>
               {it.place && (
                 <p className="font-mono-code mt-1 text-xs text-muted-foreground/80">
                   {it.place}
@@ -49,141 +55,22 @@ function Timeline({ items }: { items: Item[]; accent?: "moss" | "lime" }) {
   );
 }
 
-function CompetenciasPanel() {
-  const { t } = useLanguage();
-
-  const certifications: Item[] = [
-    {
-      period: "2024",
-      title: t("certifications_0_title"),
-      place: t("certifications_0_place"),
-      body: t("certifications_0_body"),
-    },
-    {
-      period: "2024",
-      title: t("certifications_1_title"),
-      place: t("certifications_1_place"),
-      body: t("certifications_1_body"),
-    },
-    {
-      period: "2023",
-      title: t("certifications_2_title"),
-      place: t("certifications_2_place"),
-      body: t("certifications_2_body"),
-    },
-    {
-      period: t("origin_period_ongoing"),
-      title: t("certifications_3_title"),
-      place: t("certifications_3_place"),
-      body: t("certifications_3_body"),
-    },
-  ];
-
-  const softSkills = [
-    t("soft_problem_solving"),
-    t("soft_algorithmic_thinking"),
-    t("soft_clean_code"),
-    t("soft_git_flow"),
-    t("soft_agile"),
-    t("soft_code_review"),
-    t("soft_peer_mentoring"),
-    t("soft_technical_comm"),
-    t("soft_languages"),
-  ];
-
-  return (
-    <div className="mt-10 space-y-12">
-      <div>
-        <h3 className="font-display flex items-center gap-3 text-xl font-semibold">
-          <Award className="h-5 w-5 text-moss" />
-          {t("origin_sec_certifications")}
-          <span className="h-px flex-1 bg-border" />
-        </h3>
-        <Timeline items={certifications} accent="lime" />
-      </div>
-
-      <div>
-        <h3 className="font-display flex items-center gap-3 text-xl font-semibold">
-          <Sparkles className="h-5 w-5 text-moss" />
-          {t("origin_sec_softskills")}
-          <span className="h-px flex-1 bg-border" />
-        </h3>
-        <div className="mt-6 flex flex-wrap gap-2.5">
-          {softSkills.map((s, i) => (
-            <motion.span
-              key={s}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: i * 0.04 }}
-              className="font-mono-code rounded-full border border-input bg-surface/60 px-3.5 py-1.5 text-xs text-foreground/90 backdrop-blur transition hover:border-moss hover:text-moss"
-            >
-              {s}
-            </motion.span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function OriginStory() {
   const { t } = useLanguage();
   const [tab, setTab] = useState<"academic" | "experience" | "competencias">("academic");
 
-  const academic: Item[] = [
-    {
-      period: "2016 – 2018",
-      title: t("academic_0_title"),
-      place: t("academic_0_place"),
-      body: t("academic_0_body"),
-    },
-    {
-      period: "2019 – 2023",
-      title: t("academic_1_title"),
-      place: t("academic_1_place"),
-      body: t("academic_1_body"),
-    },
-    {
-      period: "2024",
-      title: t("academic_2_title"),
-      place: t("academic_2_place"),
-      body: t("academic_2_body"),
-    },
-    {
-      period: "2024",
-      title: t("academic_3_title"),
-      place: t("academic_3_place"),
-      body: t("academic_3_body"),
-    },
-    {
-      period: "2025 – 2027",
-      title: t("academic_4_title"),
-      place: t("academic_4_place"),
-      body: t("academic_4_body"),
-    },
-  ];
+  const resolveItems = (configs: TimelineItemConfig[]): Item[] =>
+    configs.map((c) => ({
+      period: c.periodLiteral || (c.periodKey ? t(c.periodKey) : ""),
+      title: t(c.titleKey),
+      place: t(c.placeKey),
+      body: t(c.bodyKey),
+    }));
 
-  const experience: Item[] = [
-    {
-      period: t("origin_period_piscine"),
-      title: t("experience_0_title"),
-      place: t("experience_0_place"),
-      body: t("experience_0_body"),
-    },
-    {
-      period: t("origin_period_present"),
-      title: t("experience_1_title"),
-      place: t("experience_1_place"),
-      body: t("experience_1_body"),
-    },
-    {
-      period: t("origin_period_ongoing"),
-      title: t("experience_2_title"),
-      place: t("experience_2_place"),
-      body: t("experience_2_body"),
-    },
-  ];
+  const academic = resolveItems(ACADEMIC_TIMELINE);
+  const experience = resolveItems(EXPERIENCE_TIMELINE);
+  const certifications = resolveItems(CERTIFICATIONS_TIMELINE);
+  const softSkills = SOFT_SKILL_KEYS.map((key) => t(key));
 
   const tabs = [
     { id: "academic" as const, label: t("origin_tab_academic"), Icon: GraduationCap },
@@ -215,7 +102,8 @@ export default function OriginStory() {
             {t("origin_chapter")}
           </p>
           <h2 className="font-display mt-3 text-4xl font-bold sm:text-5xl">
-            {t("origin_title_pre")} <span className="text-foreground">{t("origin_title_gradient")}</span>
+            {t("origin_title_pre")}{" "}
+            <span className="text-foreground">{t("origin_title_gradient")}</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
             {t("origin_subtitle")}
@@ -240,12 +128,43 @@ export default function OriginStory() {
           ))}
         </div>
 
-        {tab === "academic" && <Timeline key="academic" items={academic} accent="moss" />}
-        {tab === "experience" && <Timeline key="experience" items={experience} accent="lime" />}
-        {tab === "competencias" && <CompetenciasPanel key="competencias" />}
+        {tab === "academic" && <Timeline key="academic" items={academic} />}
+        {tab === "experience" && <Timeline key="experience" items={experience} />}
+        {tab === "competencias" && (
+          <div className="mt-10 space-y-12">
+            <div>
+              <h3 className="font-display flex items-center gap-3 text-xl font-semibold">
+                <Award className="h-5 w-5 text-moss" />
+                {t("origin_sec_certifications")}
+                <span className="h-px flex-1 bg-border" />
+              </h3>
+              <Timeline items={certifications} />
+            </div>
+
+            <div>
+              <h3 className="font-display flex items-center gap-3 text-xl font-semibold">
+                <Sparkles className="h-5 w-5 text-moss" />
+                {t("origin_sec_softskills")}
+                <span className="h-px flex-1 bg-border" />
+              </h3>
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                {softSkills.map((s, i) => (
+                  <motion.span
+                    key={s}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: i * 0.04 }}
+                    className="font-mono-code rounded-full border border-input bg-surface/60 px-3.5 py-1.5 text-xs text-foreground/90 backdrop-blur transition hover:border-moss hover:text-moss"
+                  >
+                    {s}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
 }
-
-

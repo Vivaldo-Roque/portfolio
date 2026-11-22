@@ -1,46 +1,13 @@
 import { useEffect, useRef, type ElementType, type HTMLAttributes, type RefObject } from "react";
-
-const CHARS = "!<>-_\\/[]{}—=+*^?#________";
-const FRAME_MS = 1000 / 60;
-const SPEED = 2;
-const CHAR_HOLD_MS = FRAME_MS / SPEED / 0.28;
-const toMs = (frames: number) => (frames * FRAME_MS) / SPEED;
-const randMs = (maxFrames: number) => toMs(Math.floor(Math.random() * maxFrames));
-
-const escapeHtml = (s: string) =>
-  String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[c] || c);
-
-const renderChar = (c: string) => (c === "\n" ? "<br>" : escapeHtml(c));
-
-const renderCell = (measure: string, visualHtml: string, extraClass = "") => {
-  const cls = extraClass ? `scramble-cell__visual ${extraClass}` : "scramble-cell__visual";
-  return `<span class="scramble-cell" data-scramble-measure="${escapeHtml(measure || " ")}"><span class="${cls}">${visualHtml}</span></span>`;
-};
-
-const createBuffer = () => {
-  let html = "";
-  let inWord = false;
-  return {
-    appendText(t: string) {
-      if (inWord) {
-        html += "</span>";
-        inWord = false;
-      }
-      html += t;
-    },
-    appendCell(c: string) {
-      if (!inWord) {
-        html += '<span class="scramble-word">';
-        inWord = true;
-      }
-      html += c;
-    },
-    toString() {
-      if (inWord) html += "</span>";
-      return html;
-    },
-  };
-};
+import {
+  CHAR_HOLD_MS,
+  CHARS,
+  createBuffer,
+  escapeHtml,
+  randMs,
+  renderCell,
+  renderChar,
+} from "@/lib/scramble-utils";
 
 type QueueItem = {
   from: string;
@@ -108,7 +75,10 @@ export class TextScrambler {
         complete++;
         buf.appendCell(renderCell(to, renderChar(to)));
       } else if (this.elapsedMs >= start) {
-        if (!item.char || (item.nextCharAt !== undefined && this.elapsedMs >= item.nextCharAt)) {
+        if (
+          !item.char ||
+          (item.nextCharAt !== undefined && this.elapsedMs >= item.nextCharAt)
+        ) {
           item.char = CHARS[Math.floor(Math.random() * CHARS.length)];
           item.nextCharAt = this.elapsedMs + CHAR_HOLD_MS;
         }
@@ -242,14 +212,14 @@ export function useScrambleSection(
 
     const check = () => {
       const vh =
-        document.querySelector<HTMLElement>(".snap-viewport")?.getBoundingClientRect().height ||
+        document.querySelector<HTMLElement>(".snap-viewport")?.getBoundingClientRect()
+          .height ||
         window.innerHeight ||
         1;
       const stacks = Array.from(document.querySelectorAll<HTMLElement>("[data-stack]"));
       const idx = stacks.indexOf(root);
       let inView = false;
       if (idx !== -1) {
-        // Sticky chapter: active when scrollY is within [idx*vh - 0.45*vh, idx*vh + 0.55*vh]
         const progress = (window.scrollY - idx * vh) / vh;
         inView = progress >= -0.45 && progress <= 0.55;
       } else {

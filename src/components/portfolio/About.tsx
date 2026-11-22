@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight, Compass, Cpu, Globe2, Network, Rocket, Terminal } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Cpu, Globe2, Rocket, Terminal, type LucideIcon } from "lucide-react";
 import portrait from "@/assets/vivaldo-portrait.jpg";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
+import { ABOUT_STOPS_CONFIG } from "@/config/about-data";
+import { PROFILE } from "@/config/profile";
 import { ScrambleText, useScrambleSection } from "./ScrambleText";
 import AboutGlobe from "./AboutGlobe";
 
@@ -20,7 +22,7 @@ type Stop = {
   highlightBody?: string;
   metrics: { label: string; value: string }[];
   chips: string[];
-  Icon: typeof Compass;
+  Icon: LucideIcon;
 };
 
 function JourneyStop({
@@ -78,9 +80,7 @@ function JourneyStop({
           <span className="font-mono-code text-xs uppercase tracking-[0.2em] text-moss">
             {stop.year}
           </span>
-          <span className="font-mono-code text-xs text-muted-foreground">
-            — {stop.place}
-          </span>
+          <span className="font-mono-code text-xs text-muted-foreground">— {stop.place}</span>
         </div>
 
         {/* Stage Title with Monako glitch scramble */}
@@ -97,7 +97,7 @@ function JourneyStop({
           </div>
         </div>
 
-        {/* Authentic, full descriptive text from Vivaldo's original bio */}
+        {/* Narrative paragraphs & optional bullets/highlights */}
         <div className="mt-5 max-w-2xl space-y-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
           {stop.paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
@@ -169,121 +169,52 @@ export default function About() {
   const { t } = useLanguage();
   const [activeStop, setActiveStop] = useState(0);
 
-  // Every single sentence from Vivaldo's original about_me_p1, about_me_p2, and about_me_p3
-  // preserved verbatim in languages.json, divided naturally across the 4 stops of the walking globe!
-  const stops: Stop[] = [
-    {
-      id: "roots",
-      num: "01",
-      year: t("about_stop1_year"),
-      tag: t("about_stop1_tag"),
-      place: t("about_stop1_place"),
-      title: t("about_stop1_title"),
-      paragraphs: [t("about_stop1_p1"), t("about_stop1_p2"), t("about_stop1_p3")],
+  // Build localized stops dynamically from ABOUT_STOPS_CONFIG + src/locales/{pt,en}/about.yaml
+  const stops: Stop[] = ABOUT_STOPS_CONFIG.map((cfg) => {
+    const p = cfg.prefix;
+    return {
+      id: cfg.id,
+      num: cfg.num,
+      year: t(`${p}_year`),
+      tag: t(`${p}_tag`),
+      place: t(`${p}_place`),
+      title: t(`${p}_title`),
+      paragraphs: Array.from({ length: cfg.paragraphCount }, (_, i) => t(`${p}_p${i + 1}`)),
+      bullets: cfg.bulletCount
+        ? Array.from({ length: cfg.bulletCount }, (_, i) => t(`${p}_b${i + 1}`))
+        : undefined,
+      afterBullets: cfg.hasAfterBullets ? t(`${p}_after`) : undefined,
+      highlightLabel: cfg.hasHighlight ? t(`${p}_hl_label`) : undefined,
+      highlightBody: cfg.hasHighlight ? t(`${p}_hl_body`) : undefined,
       metrics: [
-        { label: t("about_stop1_m1_label"), value: t("about_stop1_m1_val") },
-        { label: t("about_stop1_m2_label"), value: t("about_stop1_m2_val") },
-        { label: t("about_stop1_m3_label"), value: t("about_stop1_m3_val") },
+        { label: t(`${p}_m1_label`), value: t(`${p}_m1_val`) },
+        { label: t(`${p}_m2_label`), value: t(`${p}_m2_val`) },
+        { label: t(`${p}_m3_label`), value: t(`${p}_m3_val`) },
       ],
-      chips: [
-        t("about_stop1_chip1"),
-        t("about_stop1_chip2"),
-        t("about_stop1_chip3"),
-        t("about_stop1_chip4"),
-      ],
-      Icon: Compass,
-    },
-    {
-      id: "training",
-      num: "02",
-      year: t("about_stop2_year"),
-      tag: t("about_stop2_tag"),
-      place: t("about_stop2_place"),
-      title: t("about_stop2_title"),
-      paragraphs: [t("about_stop2_p1")],
-      bullets: [t("about_stop2_b1"), t("about_stop2_b2")],
-      afterBullets: t("about_stop2_after"),
-      metrics: [
-        { label: t("about_stop2_m1_label"), value: t("about_stop2_m1_val") },
-        { label: t("about_stop2_m2_label"), value: t("about_stop2_m2_val") },
-        { label: t("about_stop2_m3_label"), value: t("about_stop2_m3_val") },
-      ],
-      chips: [
-        t("about_stop2_chip1"),
-        t("about_stop2_chip2"),
-        t("about_stop2_chip3"),
-        t("about_stop2_chip4"),
-      ],
-      Icon: Network,
-    },
-    {
-      id: "cadet42",
-      num: "03",
-      year: t("about_stop3_year"),
-      tag: t("about_stop3_tag"),
-      place: t("about_stop3_place"),
-      title: t("about_stop3_title"),
-      paragraphs: [t("about_stop3_p1"), t("about_stop3_p2"), t("about_stop3_p3")],
-      metrics: [
-        { label: t("about_stop3_m1_label"), value: t("about_stop3_m1_val") },
-        { label: t("about_stop3_m2_label"), value: t("about_stop3_m2_val") },
-        { label: t("about_stop3_m3_label"), value: t("about_stop3_m3_val") },
-      ],
-      chips: [
-        t("about_stop3_chip1"),
-        t("about_stop3_chip2"),
-        t("about_stop3_chip3"),
-        t("about_stop3_chip4"),
-        t("about_stop3_chip5"),
-      ],
-      Icon: Terminal,
-    },
-    {
-      id: "stack",
-      num: "04",
-      year: t("about_stop4_year"),
-      tag: t("about_stop4_tag"),
-      place: t("about_stop4_place"),
-      title: t("about_stop4_title"),
-      paragraphs: [t("about_stop4_p1"), t("about_stop4_p2")],
-      highlightLabel: t("about_stop4_hl_label"),
-      highlightBody: t("about_stop4_hl_body"),
-      metrics: [
-        { label: t("about_stop4_m1_label"), value: t("about_stop4_m1_val") },
-        { label: t("about_stop4_m2_label"), value: t("about_stop4_m2_val") },
-        { label: t("about_stop4_m3_label"), value: t("about_stop4_m3_val") },
-      ],
-      chips: [
-        t("about_stop4_chip1"),
-        t("about_stop4_chip2"),
-        t("about_stop4_chip3"),
-        t("about_stop4_chip4"),
-        t("about_stop4_chip5"),
-        t("about_stop4_chip6"),
-        t("about_stop4_chip7"),
-      ],
-      Icon: Rocket,
-    },
-  ];
+      chips: Array.from({ length: cfg.chipCount }, (_, i) => t(`${p}_chip${i + 1}`)),
+      Icon: cfg.Icon,
+    };
+  });
 
   const current = stops[activeStop] || stops[0];
 
   const scrollToStop = (id: string) => {
-    document.getElementById(`stop-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document
+      .getElementById(`stop-${id}`)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <section id="about" className="relative min-h-screen bg-background text-foreground" aria-label={t("about_me_title")}>
-      {/* Subtle architectural grid backdrop */}
+    <section
+      id="about"
+      className="relative min-h-screen bg-background text-foreground"
+      aria-label={t("about_me_title")}
+    >
       <div className="pointer-events-none fixed inset-0 bg-grid opacity-35" aria-hidden />
 
-      {/* =====================================================================
-          MOBILE & TABLET STICKY GLOBE HUD (< lg):
-          Stays pinned at the top of the phone screen while the 4 stages scroll underneath!
-         ===================================================================== */}
+      {/* Mobile & Tablet Sticky Globe HUD (< lg) */}
       <div className="sticky top-0 z-30 border-b border-border bg-black/90 px-4 pt-14 pb-3 backdrop-blur-md lg:hidden">
         <div className="mx-auto flex max-w-xl items-center gap-3">
-          {/* Compact 3D Walking Globe on Mobile */}
           <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-xl border border-input bg-black sm:h-28 sm:w-32">
             <AboutGlobe activeStop={activeStop} />
           </div>
@@ -292,7 +223,7 @@ export default function About() {
             <div className="flex items-center gap-2">
               <img
                 src={portrait}
-                alt="Vivaldo Cristóvão Roque"
+                alt={PROFILE.fullName}
                 className="h-7 w-7 shrink-0 rounded-full border border-input object-cover object-[50%_20%]"
                 style={{ filter: "grayscale(0.3) contrast(1.08)" }}
               />
@@ -303,7 +234,6 @@ export default function About() {
             <p className="font-display mt-1 truncate text-sm font-bold text-white">
               {current.title}
             </p>
-            {/* Mobile step buttons 01..04 */}
             <div className="mt-2 flex items-center gap-1.5">
               {stops.map((s, idx) => {
                 const isAct = idx === activeStop;
@@ -329,27 +259,24 @@ export default function About() {
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-          {/* =================================================================
-              DESKTOP LEFT STICKY EXPEDITION PASSPORT & 3D GLOBE (lg: 4 cols)
-             ================================================================= */}
+          {/* Desktop Left Sticky Expedition Passport & 3D Globe */}
           <aside className="hidden lg:col-span-4 lg:block">
             <div className="lg:sticky lg:top-20 lg:flex lg:h-[calc(100vh-5rem)] lg:flex-col lg:justify-between lg:py-4">
               <div className="overflow-hidden rounded-2xl border border-input bg-surface/90 p-3.5 backdrop-blur-md">
-                {/* Identity Header with Vivaldo's Real Portrait */}
                 <div className="mb-3 flex items-center gap-3 rounded-xl border border-border bg-black/60 p-2.5">
                   <img
                     src={portrait}
-                    alt="Vivaldo Cristóvão Roque"
+                    alt={PROFILE.fullName}
                     className="h-12 w-12 shrink-0 rounded-lg border border-input object-cover object-[50%_20%]"
                     style={{ filter: "grayscale(0.3) contrast(1.08)" }}
                   />
                   <div className="min-w-0 flex-1">
                     <p className="font-mono-code flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] text-moss">
                       <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-moss" />
-                      LUANDA · ANGOLA
+                      {PROFILE.locationShort.toUpperCase()}
                     </p>
                     <h1 className="font-display truncate text-sm font-bold text-white">
-                      Vivaldo Cristóvão Roque
+                      {PROFILE.fullName}
                     </h1>
                     <p className="truncate text-[11px] text-muted-foreground">
                       {t("about_globe_hint")}
@@ -357,7 +284,7 @@ export default function About() {
                   </div>
                 </div>
 
-                {/* 3D Planet Stage where the character walks from stop 01 -> 04 */}
+                {/* 3D Planet Stage */}
                 <div className="relative aspect-[4/3.6] w-full overflow-hidden rounded-xl border border-border bg-black">
                   <AboutGlobe
                     activeStop={activeStop}
@@ -370,7 +297,7 @@ export default function About() {
                   </span>
                 </div>
 
-                {/* Expedition Progress Rail (clickable chapters) */}
+                {/* Expedition Progress Rail */}
                 <div className="mt-3 space-y-1">
                   {stops.map((s, idx) => {
                     const isAct = idx === activeStop;
@@ -388,7 +315,9 @@ export default function About() {
                         <span className="flex items-center gap-2.5">
                           <span
                             className={`inline-block h-1.5 w-1.5 rounded-full ${
-                              isAct ? "bg-moss" : "bg-muted-foreground/40 group-hover:bg-moss"
+                              isAct
+                                ? "bg-moss"
+                                : "bg-muted-foreground/40 group-hover:bg-moss"
                             }`}
                           />
                           <span className="font-mono-code text-[10px] uppercase tracking-[0.18em]">
@@ -397,7 +326,9 @@ export default function About() {
                         </span>
                         <span
                           className={`font-mono-code text-[9px] ${
-                            isAct ? "font-semibold text-black/70" : "text-muted-foreground/70"
+                            isAct
+                              ? "font-semibold text-black/70"
+                              : "text-muted-foreground/70"
                           }`}
                         >
                           {s.year.split(" ")[0]}
@@ -428,16 +359,13 @@ export default function About() {
             </div>
           </aside>
 
-          {/* =================================================================
-              RIGHT NARRATIVE EXPEDITION (8 cols — Vivaldo's exact original text across 4 stops)
-             ================================================================= */}
+          {/* Right Narrative Expedition */}
           <div className="lg:col-span-8">
-            {/* Prologue Header with Vivaldo's Portrait Card */}
             <div className="flex min-h-[60vh] flex-col justify-center pb-10 pt-8 sm:pt-16 lg:min-h-[72vh] lg:pt-28">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
                 <img
                   src={portrait}
-                  alt="Vivaldo Cristóvão Roque"
+                  alt={PROFILE.fullName}
                   className="h-24 w-24 shrink-0 rounded-2xl border border-input object-cover object-[50%_20%] sm:h-28 sm:w-28"
                   style={{ filter: "grayscale(0.25) contrast(1.06)" }}
                 />
@@ -447,7 +375,7 @@ export default function About() {
                     01 / 04 · {t("about_title_pre")} {t("about_title_gradient")}
                   </p>
                   <h2 className="font-display mt-2 text-3xl font-bold leading-[0.98] tracking-tight text-white sm:text-5xl">
-                    Vivaldo Cristóvão Roque
+                    {PROFILE.fullName}
                   </h2>
                   <p className="mt-3 max-w-xl text-base text-foreground/90 sm:text-lg">
                     {t("about_me_p1")}
@@ -458,17 +386,33 @@ export default function About() {
               {/* Quick summary stats bar */}
               <div className="mt-8 grid max-w-2xl grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
                 {[
-                  { k: t("about_stat_degree_label"), v: t("about_stat_degree_val"), I: Globe2 },
+                  {
+                    k: t("about_stat_degree_label"),
+                    v: t("about_stat_degree_val"),
+                    I: Globe2,
+                  },
                   { k: t("about_stat_net_label"), v: t("about_stat_net_val"), I: Cpu },
-                  { k: t("about_stat_prog_label"), v: t("about_stat_prog_val"), I: Terminal },
-                  { k: t("about_stat_focus_label"), v: t("about_stat_focus_val"), I: Rocket },
+                  {
+                    k: t("about_stat_prog_label"),
+                    v: t("about_stat_prog_val"),
+                    I: Terminal,
+                  },
+                  {
+                    k: t("about_stat_focus_label"),
+                    v: t("about_stat_focus_val"),
+                    I: Rocket,
+                  },
                 ].map(({ k, v, I }) => (
                   <div key={k} className="rounded-xl border border-border bg-surface/60 p-3">
                     <div className="flex items-center justify-between text-muted-foreground">
-                      <span className="font-mono-code text-[10px] uppercase tracking-widest">{k}</span>
+                      <span className="font-mono-code text-[10px] uppercase tracking-widest">
+                        {k}
+                      </span>
                       <I className="h-3.5 w-3.5 text-moss" />
                     </div>
-                    <p className="font-display mt-1.5 text-xs font-semibold text-white sm:text-sm">{v}</p>
+                    <p className="font-display mt-1.5 text-xs font-semibold text-white sm:text-sm">
+                      {v}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -483,7 +427,7 @@ export default function About() {
               </button>
             </div>
 
-            {/* The 4 Interactive Stops with 100% of Vivaldo's original descriptive text */}
+            {/* The 4 Interactive Stops */}
             {stops.map((s, idx) => (
               <JourneyStop
                 key={s.id}
@@ -494,7 +438,7 @@ export default function About() {
               />
             ))}
 
-            {/* Closing CTA card at the end of the journey */}
+            {/* Closing CTA card */}
             <div className="my-14 rounded-2xl border border-input bg-surface/80 p-6 backdrop-blur-md sm:my-20 sm:p-10">
               <p className="font-mono-code flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-moss">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />

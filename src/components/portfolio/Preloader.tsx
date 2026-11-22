@@ -1,55 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import portrait from "@/assets/vivaldo-portrait.jpg";
-
-const CHARS = "!<>-_\\/[]{}—=+*^?#________";
-const FRAME_MS = 1000 / 60;
-const SPEED = 2;
-const CHAR_HOLD_MS = FRAME_MS / SPEED / 0.28;
-const toMs = (frames: number) => (frames * FRAME_MS) / SPEED;
-const randMs = (maxFrames: number) => toMs(Math.floor(Math.random() * maxFrames));
-
-const escapeHtml = (s: string) =>
-  String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[c] || c);
-
-const renderChar = (c: string) => (c === "\n" ? "<br>" : escapeHtml(c));
-
-const renderCell = (measure: string, visualHtml: string, extraClass = "") => {
-  const cls = extraClass ? `scramble-cell__visual ${extraClass}` : "scramble-cell__visual";
-  return `<span class="scramble-cell" data-scramble-measure="${escapeHtml(measure || " ")}"><span class="${cls}">${visualHtml}</span></span>`;
-};
-
-const createBuffer = () => {
-  let html = "";
-  let inWord = false;
-  return {
-    appendText(t: string) {
-      if (inWord) {
-        html += "</span>";
-        inWord = false;
-      }
-      html += t;
-    },
-    appendCell(c: string) {
-      if (!inWord) {
-        html += '<span class="scramble-word">';
-        inWord = true;
-      }
-      html += c;
-    },
-    toString() {
-      if (inWord) html += "</span>";
-      return html;
-    },
-  };
-};
+import { PRELOAD_FONTS, PRELOAD_IMAGES } from "@/config/profile";
+import {
+  CHAR_HOLD_MS,
+  CHARS,
+  createBuffer,
+  escapeHtml,
+  randMs,
+  renderCell,
+  renderChar,
+  toMs,
+} from "@/lib/scramble-utils";
 
 /**
- * Exact reverse-engineered `class B1` from monako.ai:
  * Scrambles existing text out into green glitch characters until every character vanishes.
  */
 class ScrambleOut {
   private el: HTMLElement;
-  private queue: { from: string; start: number; end: number; char: string | null; nextCharAt?: number }[] = [];
+  private queue: {
+    from: string;
+    start: number;
+    end: number;
+    char: string | null;
+    nextCharAt?: number;
+  }[] = [];
   private frameRequest = 0;
   private lastTickAt = 0;
   private elapsedMs = 0;
@@ -96,7 +70,10 @@ class ScrambleOut {
         continue;
       }
       if (this.elapsedMs >= item.start) {
-        if (!item.char || (item.nextCharAt !== undefined && this.elapsedMs >= item.nextCharAt)) {
+        if (
+          !item.char ||
+          (item.nextCharAt !== undefined && this.elapsedMs >= item.nextCharAt)
+        ) {
           item.char = CHARS[Math.floor(Math.random() * CHARS.length)];
           item.nextCharAt = this.elapsedMs + CHAR_HOLD_MS;
         }
@@ -142,54 +119,39 @@ function ScrambleOutLabel({ text, stagger }: { text: string; stagger: number }) 
   );
 }
 
-// Exact Monako preloader timings
 const HOLD_BEFORE_EXIT_MS = 250;
 const STAGGER = { counters: 0, bar: 120, eyebrow: 240, backdrop: 760 };
 const ITEM_FADE_MS = 460;
 const BACKDROP_FADE_MS = 520;
 const TOTAL_EXIT_MS = STAGGER.backdrop + BACKDROP_FADE_MS;
 
-const PRELOAD_IMAGES = [
-  "/img/header.jpg",
-  portrait,
-  "/img/works/cfoptrainer.png",
-  "/img/works/vivacubesolver.jpg",
-  "/img/works/bancoviva.png",
-  "/img/works/flutter_web_ecommerce_1.png",
-];
+const ALL_PRELOAD_IMAGES = [portrait, ...PRELOAD_IMAGES];
 
-const PRELOAD_FONTS = [
-  '400 1em "Space Grotesk"',
-  '700 1em "Space Grotesk"',
-  '400 1em "JetBrains Mono"',
-];
-
-/**
- * Exact reverse-engineered Monako.ai boot preloader (`sS`):
- * - Preloads images and fonts while incrementing `IMG 00/06` and `FNT 00/03` counters
- *   and animating the 1px `w-64` horizontal progress bar (`scaleX`).
- * - Once complete, holds 250ms, then triggers `ScrambleOut` (`B1`) on the counters and
- *   `LOADING RESOURCES` label while fading/sliding them up (`-6px`) and finally fading out the black backdrop.
- */
 export default function Preloader({ onDone }: { onDone?: () => void }) {
-  const total = PRELOAD_IMAGES.length + PRELOAD_FONTS.length;
+  const total = ALL_PRELOAD_IMAGES.length + PRELOAD_FONTS.length;
   const [counts, setCounts] = useState({ images: 0, fonts: 0 });
   const [phase, setPhase] = useState<"loading" | "exiting" | "done">("loading");
   const rootRef = useRef<HTMLDivElement>(null);
   const loadedImages = useRef(new Set<string>());
 
-  // Load fonts + paced step so the user sees the counter & bar animate smoothly even on local cache
   useEffect(() => {
     let cancelled = false;
     PRELOAD_FONTS.forEach((f, idx) => {
       const done = () => {
         window.setTimeout(() => {
           if (!cancelled) {
-            setCounts((c) => ({ ...c, fonts: Math.min(PRELOAD_FONTS.length, c.fonts + 1) }));
+            setCounts((c) => ({
+              ...c,
+              fonts: Math.min(PRELOAD_FONTS.length, c.fonts + 1),
+            }));
           }
         }, 90 * (idx + 1));
       };
-      if (typeof document !== "undefined" && document.fonts && typeof document.fonts.load === "function") {
+      if (
+        typeof document !== "undefined" &&
+        document.fonts &&
+        typeof document.fonts.load === "function"
+      ) {
         document.fonts.load(f).then(done, done);
       } else {
         done();
@@ -204,7 +166,10 @@ export default function Preloader({ onDone }: { onDone?: () => void }) {
     if (loadedImages.current.has(key)) return;
     loadedImages.current.add(key);
     window.setTimeout(() => {
-      setCounts((c) => ({ ...c, images: Math.min(PRELOAD_IMAGES.length, c.images + 1) }));
+      setCounts((c) => ({
+        ...c,
+        images: Math.min(ALL_PRELOAD_IMAGES.length, c.images + 1),
+      }));
     }, 75 * (idx + 1));
   };
 
@@ -224,13 +189,15 @@ export default function Preloader({ onDone }: { onDone?: () => void }) {
     const timers: number[] = [];
 
     if (root) {
-      Array.from(root.querySelectorAll<HTMLElement>("[data-scramble-out]")).forEach((el) => {
-        const stagger = Number(el.getAttribute("data-scramble-stagger") || 0);
-        const text = el.getAttribute("data-scramble-text") || el.textContent || "";
-        const s = new ScrambleOut(el);
-        scramblers.push(s);
-        timers.push(window.setTimeout(() => s.start(text), stagger));
-      });
+      Array.from(root.querySelectorAll<HTMLElement>("[data-scramble-out]")).forEach(
+        (el) => {
+          const stagger = Number(el.getAttribute("data-scramble-stagger") || 0);
+          const text = el.getAttribute("data-scramble-text") || el.textContent || "";
+          const s = new ScrambleOut(el);
+          scramblers.push(s);
+          timers.push(window.setTimeout(() => s.start(text), stagger));
+        },
+      );
     }
 
     const doneTimer = window.setTimeout(() => setPhase("done"), TOTAL_EXIT_MS);
@@ -257,7 +224,7 @@ export default function Preloader({ onDone }: { onDone?: () => void }) {
   if (phase === "done") return null;
 
   const isExiting = phase === "exiting";
-  const imgCounter = `IMG ${counts.images.toString().padStart(2, "0")}/${PRELOAD_IMAGES.length.toString().padStart(2, "0")}`;
+  const imgCounter = `IMG ${counts.images.toString().padStart(2, "0")}/${ALL_PRELOAD_IMAGES.length.toString().padStart(2, "0")}`;
   const fntCounter = `FNT ${counts.fonts.toString().padStart(2, "0")}/${PRELOAD_FONTS.length.toString().padStart(2, "0")}`;
 
   const itemStyle = (delayMs: number) => ({
@@ -275,16 +242,19 @@ export default function Preloader({ onDone }: { onDone?: () => void }) {
       aria-valuemax={100}
       aria-valuenow={Math.floor(progress * 100)}
       aria-label="Loading"
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black pointer-events-auto"
+      className="pointer-events-auto fixed inset-0 z-[9999] flex items-center justify-center bg-black"
       style={{
         opacity: isExiting ? 0 : 1,
         transition: `opacity ${BACKDROP_FADE_MS}ms ease-out`,
         transitionDelay: isExiting ? `${STAGGER.backdrop}ms` : "0ms",
       }}
     >
-      {/* Hidden 1x1 off-screen image preloader nodes so the backdrop stays 100% pitch black */}
-      <div className="pointer-events-none fixed -left-[9999px] -top-[9999px] h-px w-px overflow-hidden opacity-0" aria-hidden="true">
-        {PRELOAD_IMAGES.map((src, i) => {
+      {/* Hidden 1x1 off-screen image preloader nodes */}
+      <div
+        className="pointer-events-none fixed -left-[9999px] -top-[9999px] h-px w-px overflow-hidden opacity-0"
+        aria-hidden="true"
+      >
+        {ALL_PRELOAD_IMAGES.map((src, i) => {
           const key = `${src}-${i}`;
           return (
             <img
@@ -303,7 +273,6 @@ export default function Preloader({ onDone }: { onDone?: () => void }) {
       </div>
 
       <div className="relative flex flex-col items-center gap-8 px-6">
-        {/* Eyebrow: pulsing green dot + "loading resources" */}
         <div
           className="font-mono-code flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-muted-foreground"
           style={itemStyle(STAGGER.eyebrow)}
@@ -312,7 +281,6 @@ export default function Preloader({ onDone }: { onDone?: () => void }) {
           <ScrambleOutLabel text="loading resources" stagger={STAGGER.eyebrow} />
         </div>
 
-        {/* 1px Progress Bar */}
         <div className="w-full" style={itemStyle(STAGGER.bar)}>
           <div className="h-px w-64 max-w-full overflow-hidden bg-border">
             <div
@@ -325,7 +293,6 @@ export default function Preloader({ onDone }: { onDone?: () => void }) {
           </div>
         </div>
 
-        {/* Telemetry Counters: IMG 06/06 · FNT 03/03 */}
         <div
           className="font-mono-code flex items-center gap-6 text-[9px] uppercase tracking-[0.22em] text-muted-foreground/75"
           style={itemStyle(STAGGER.counters)}

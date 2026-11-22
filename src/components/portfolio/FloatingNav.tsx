@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { useLanguage } from "../../context/language-context";
+import { useLanguage } from "@/context/language-context";
 import { SUSPEND_SNAP_EVENT } from "@/routes/index";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export default function FloatingNav() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { t, language, setLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   const links = [
     { href: "#home", label: t("navhome") },
@@ -85,37 +86,7 @@ export default function FloatingNav() {
           ))}
         </ul>
         <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Language Switcher Pill: PT | EN */}
-          <div
-            role="group"
-            aria-label="Language switcher"
-            className="font-mono-code inline-flex items-center rounded-full border border-white/15 bg-black/60 p-0.5 text-[10px] uppercase tracking-widest sm:text-[11px]"
-          >
-            <button
-              type="button"
-              onClick={() => setLanguage("pt")}
-              aria-pressed={language === "pt"}
-              className={`rounded-full px-2.5 py-1 transition ${
-                language === "pt"
-                  ? "bg-moss font-bold text-black shadow-[0_0_10px_rgba(47,191,113,0.4)]"
-                  : "text-white/65 hover:text-white"
-              }`}
-            >
-              PT
-            </button>
-            <button
-              type="button"
-              onClick={() => setLanguage("en")}
-              aria-pressed={language === "en"}
-              className={`rounded-full px-2.5 py-1 transition ${
-                language === "en"
-                  ? "bg-moss font-bold text-black shadow-[0_0_10px_rgba(47,191,113,0.4)]"
-                  : "text-white/65 hover:text-white"
-              }`}
-            >
-              EN
-            </button>
-          </div>
+          <LanguageSwitcher />
 
           <a
             href="#contact"
@@ -137,7 +108,10 @@ export default function FloatingNav() {
 
       {/* Mobile Dropdown Navigation Drawer */}
       {mobileOpen && (
-        <div className="mx-auto mt-2 overflow-hidden rounded-2xl border border-white/15 bg-black/95 p-3 shadow-2xl backdrop-blur-lg md:hidden" style={{ width: "min(94%, 64rem)" }}>
+        <div
+          className="mx-auto mt-2 overflow-hidden rounded-2xl border border-white/15 bg-black/95 p-3 shadow-2xl backdrop-blur-lg md:hidden"
+          style={{ width: "min(94%, 64rem)" }}
+        >
           <ul className="grid grid-cols-2 gap-1.5">
             {links.map((l) => (
               <li key={l.href}>

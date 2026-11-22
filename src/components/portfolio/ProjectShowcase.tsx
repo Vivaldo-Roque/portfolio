@@ -2,32 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState, type RefObject } from "react";
 import { ArrowDown, ExternalLink, Pause, Play, X, Smartphone, Monitor } from "lucide-react";
 import { Github } from "@/components/portfolio/BrandIcons";
-import { makeArchitecturalPlaceholder } from "@/lib/projects";
-import { useLanguage } from "../../context/language-context";
-
-export type Scene = {
-  eyebrow: string;
-  title: string;
-  body: string;
-  accent: string;
-  image?: string;
-  caption?: string;
-};
-
-export type ShowcaseProject = {
-  id?: string;
-  name: string;
-  description: string;
-  tags: string[];
-  href: string;
-  liveUrl?: string;
-  accent: string;
-  image?: string;
-  category?: "Web" | "Mobile";
-  tier?: "field" | "lab";
-  year?: string;
-  scenes: Scene[];
-};
+import { LanguageSwitcher } from "@/components/portfolio/LanguageSwitcher";
+import { makeArchitecturalPlaceholder, type Scene, type ShowcaseProject } from "@/lib/projects";
+import { useLanguage } from "@/context/language-context";
 
 /**
  * Framed Device / Architectural Mockup Window for each Showcase Scene:
@@ -48,9 +25,7 @@ function FramedProjectVisual({
 }) {
   return (
     <div className="relative mx-auto w-full max-w-xl">
-      {/* Outer hardware bezel */}
       <div className="overflow-hidden rounded-2xl border border-input bg-surface/95 shadow-[0_25px_70px_rgba(0,0,0,0.75)] backdrop-blur-md">
-        {/* Top window / device telemetry bar */}
         <div className="flex items-center justify-between border-b border-border bg-black/80 px-4 py-2.5">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-moss" />
@@ -61,12 +36,15 @@ function FramedProjectVisual({
             </span>
           </div>
           <span className="font-mono-code inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-2.5 py-0.5 text-[9px] uppercase tracking-widest text-foreground/80">
-            {isMobile ? <Smartphone className="h-3 w-3 text-moss" /> : <Monitor className="h-3 w-3 text-moss" />}
+            {isMobile ? (
+              <Smartphone className="h-3 w-3 text-moss" />
+            ) : (
+              <Monitor className="h-3 w-3 text-moss" />
+            )}
             {badge || (isMobile ? "MOBILE FRAME" : "WEB FRAME")}
           </span>
         </div>
 
-        {/* Framed Image Viewport */}
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-black">
           <div className="absolute inset-0 bg-grid opacity-30" />
           <img
@@ -92,7 +70,7 @@ function SceneBlock({
   scene: Scene;
   index: number;
   total: number;
-  project: ShowcaseProject;
+  project: ShowcaseProject & { category?: "Web" | "Mobile" };
   scrollRoot: RefObject<HTMLDivElement | null>;
 }) {
   const ref = useRef<HTMLElement>(null);
@@ -122,11 +100,11 @@ function SceneBlock({
         style={{ y, opacity }}
         className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-8 px-5 sm:px-8 lg:grid-cols-12 lg:gap-12"
       >
-        {/* Text Narrative Column (5 cols) */}
         <div className={`lg:col-span-5 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
           <p className="font-mono-code flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-moss">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-            {scene.eyebrow} · {String(index + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}
+            {scene.eyebrow} · {String(index + 1).padStart(2, "0")}/
+            {String(total).padStart(2, "0")}
           </p>
           <h3 className="font-display mt-3 text-3xl font-bold leading-tight text-white sm:text-5xl">
             {scene.title}
@@ -135,7 +113,6 @@ function SceneBlock({
             {scene.body}
           </p>
 
-          {/* Scene tech tags */}
           <div className="mt-6 flex flex-wrap gap-1.5">
             {project.tags.map((tg) => (
               <span
@@ -148,7 +125,6 @@ function SceneBlock({
           </div>
         </div>
 
-        {/* Framed Image / Placeholder Visual Column (7 cols) */}
         <div className={`lg:col-span-7 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
           <FramedProjectVisual
             src={visualSrc}
@@ -167,10 +143,10 @@ export default function ProjectShowcase({
   project,
   onClose,
 }: {
-  project: ShowcaseProject;
+  project: ShowcaseProject & { category?: "Web" | "Mobile" };
   onClose: () => void;
 }) {
-  const { t, language, setLanguage } = useLanguage();
+  const { t } = useLanguage();
   const scrollRoot = useRef<HTMLDivElement>(null);
   const [auto, setAuto] = useState(false);
   const [active, setActive] = useState(0);
@@ -224,7 +200,8 @@ export default function ProjectShowcase({
         <div className="pointer-events-auto rounded-full border border-input bg-black/80 px-4 py-2 backdrop-blur-md">
           <p className="font-mono-code flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-moss">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-            showcase · {String(active + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}
+            showcase · {String(active + 1).padStart(2, "0")}/
+            {String(total).padStart(2, "0")}
           </p>
           <p className="font-display text-xs font-semibold text-white sm:text-sm">
             {project.name}
@@ -232,43 +209,16 @@ export default function ProjectShowcase({
         </div>
 
         <div className="pointer-events-auto flex items-center gap-2">
-          <div
-            role="group"
-            aria-label="Language switcher"
-            className="font-mono-code inline-flex items-center rounded-full border border-input bg-black/80 p-0.5 text-[10px] uppercase tracking-widest backdrop-blur-md"
-          >
-            <button
-              type="button"
-              onClick={() => setLanguage("pt")}
-              aria-pressed={language === "pt"}
-              className={`rounded-full px-2.5 py-1 transition ${
-                language === "pt"
-                  ? "bg-moss font-bold text-black"
-                  : "text-white/65 hover:text-white"
-              }`}
-            >
-              PT
-            </button>
-            <button
-              type="button"
-              onClick={() => setLanguage("en")}
-              aria-pressed={language === "en"}
-              className={`rounded-full px-2.5 py-1 transition ${
-                language === "en"
-                  ? "bg-moss font-bold text-black"
-                  : "text-white/65 hover:text-white"
-              }`}
-            >
-              EN
-            </button>
-          </div>
+          <LanguageSwitcher />
           <button
             onClick={() => setAuto((a) => !a)}
             className="font-mono-code inline-flex items-center gap-2 rounded-full border border-input bg-black/80 px-3.5 py-2 text-[11px] uppercase tracking-widest text-white backdrop-blur-md transition hover:border-moss hover:text-moss"
             aria-label={auto ? "Pause auto-play" : "Play auto-play"}
           >
             {auto ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
-            <span className="hidden sm:inline">{auto ? t("showcase_auto") : t("showcase_scroll")}</span>
+            <span className="hidden sm:inline">
+              {auto ? t("showcase_auto") : t("showcase_scroll")}
+            </span>
           </button>
           {project.href && project.href !== "#" && (
             <a
@@ -319,7 +269,7 @@ export default function ProjectShowcase({
         ref={scrollRoot}
         className="h-full w-full snap-y snap-mandatory overflow-y-auto scroll-smooth"
       >
-        {/* SCENE 00: Hero Overview with Framed Primary Screenshot */}
+        {/* SCENE 00: Hero Overview */}
         <section
           data-scene-index={0}
           className="relative flex min-h-screen w-full snap-start items-center justify-center overflow-hidden py-24"
@@ -344,12 +294,12 @@ export default function ProjectShowcase({
                 {project.description}
               </p>
               <div className="mt-5 flex flex-wrap gap-1.5">
-                {project.tags.map((t) => (
+                {project.tags.map((tag) => (
                   <span
-                    key={t}
+                    key={tag}
                     className="font-mono-code rounded-full border border-input bg-surface px-3 py-1 text-[10px] uppercase tracking-widest text-foreground/85"
                   >
-                    {t}
+                    {tag}
                   </span>
                 ))}
               </div>
@@ -376,7 +326,7 @@ export default function ProjectShowcase({
           </motion.div>
         </section>
 
-        {/* SCENES 01..04: Each with its own Framed Screenshot or Architectural Placeholder */}
+        {/* SCENES 01..04 */}
         {project.scenes.map((s, i) => (
           <SceneBlock
             key={i}
