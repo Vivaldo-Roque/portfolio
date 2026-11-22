@@ -1,0 +1,82 @@
+# =============================================================================
+# ORIGIN (PT)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+experience_title: "EXPERIÊNCIA"
+education_title: "EDUCAÇÃO"
+edu1_name: "42 Luanda"
+edu1_degree: "Programa intensivo de programação"
+edu1_period: "Jun 2025 - Ago 2027"
+edu2_name: "ISKA - Instituto Superior Kangonjo de Angola"
+edu2_degree: "Licenciatura, Engenharia de Computação"
+edu2_period: "Fev 2019 - Jul 2023"
+edu2_note: "Finalist. Sem data prevista para defesa do título de licenciado."
+edu3_name: "Escola Nº4073 - Padre Inácio Tambu"
+edu3_degree: "Ensino Geral, Ciências Biológicas e Físicas"
+edu3_period: "2016 - 2018"
+banner_text: "VOCÊ PODE VER MEU TRABALHO MAIS DE PERTO"
+banner_btn_text: "NO GITHUB"
+banner_contact: "CONTATO"
+origin_chapter: "chapter_01"
+origin_title_pre: "Onde tudo"
+origin_title_gradient: "começou"
+origin_subtitle: |-
+  Toda floresta começa com uma semente. A minha foi plantada em Luanda — entre livros de ciência, computadores emprestados e a vontade teimosa de perceber como tudo funciona por dentro.
+origin_tab_academic: "Formação Académica"
+origin_tab_experience: "Experiência"
+origin_tab_certifications: "Competências & Certificações"
+origin_sec_certifications: "Certificações"
+origin_sec_softskills: "Competências transversais"
+origin_period_ongoing: "Em curso"
+origin_period_present: "2023 – Presente"
+origin_period_piscine: "Jul – Ago 2023"
+academic_0_title: "O Brilho Inicial"
+academic_0_place: "Escola Nº4073 — Padre Inácio Tambu"
+academic_0_body: |-
+  Estudei Ciências Físicas e Biológicas no ensino médio. Foi aqui que vi código pela primeira vez — e percebi que computadores não eram caixas mágicas, eram linguagem. A semente foi plantada.
+academic_1_title: "A Base"
+academic_1_place: "ISKA — Instituto Superior Kangonjo de Angola"
+academic_1_body: |-
+  Licenciatura em Engenharia Informática. Quatro anos a transformar curiosidade em método: estruturas de dados, redes, bases de dados, e os primeiros projetos que realmente funcionavam fora do papel.
+academic_2_title: "A Perspetiva Global"
+academic_2_place: "Harvard CS50 — Introduction to Computer Science"
+academic_2_body: |-
+  Voltei aos fundamentos com a lente de Harvard. Consolidei o que era intuição em princípios sólidos — abstração, recursão, complexidade — e ganhei vocabulário para conversar com qualquer engenheiro do mundo.
+academic_3_title: "Conectando o Mundo"
+academic_3_place: "Cisco — CCNA Networking Academy"
+academic_3_body: |-
+  Introduction to Networks + Switching, Routing & Wireless Essentials. Aprendi a pensar em pacotes, sub-redes e topologias — o tecido invisível por trás de toda aplicação web.
+academic_4_title: "Aceleração"
+academic_4_place: "42 Luanda — Software Engineering Program"
+academic_4_body: |-
+  Atualmente no programa intensivo da 42. Sem professores, sem aulas — apenas peer-learning, projetos exigentes em C, sistemas e arquitetura. Aqui aprende-se a aprender.
+experience_0_title: "Mergulho Profundo"
+experience_0_place: "42 Luanda Piscine"
+experience_0_body: |-
+  Um mês de imersão total: dormir pouco, codar muito, defender o trabalho diante de pares. Aprendi a colaborar sob pressão, ler código alheio e a entregar mesmo quando o problema parece intransponível.
+experience_1_title: "Construindo em Aberto"
+experience_1_place: "Projetos pessoais & open-source"
+experience_1_body: |-
+  Construo continuamente em Flutter, Django e Python — apps móveis, dashboards e ferramentas que resolvem problemas reais à minha volta, em Luanda e além. Cada repositório é um capítulo desta floresta.
+experience_2_title: "Freelance & Colaborações"
+experience_2_place: "Remoto · Angola"
+experience_2_body: |-
+  Disponível para colaborações em produto, mobile e web. Trabalho com equipas pequenas que valorizam código limpo, comunicação honesta e entregas consistentes.
+certifications_0_title: "CS50x — Introduction to Computer Science"
+certifications_0_place: "Harvard University · edX"
+certifications_0_body: |-
+  Curso de ciência da computação que consolida fundamentos — abstração, algoritmos, estruturas de dados, memória, web — com projetos avaliados de ponta a ponta.
+certifications_1_title: "CCNA — Networking Essentials"
+certifications_1_place: "Cisco Networking Academy"
+certifications_1_body: |-
+  Introduction to Networks + Switching, Routing & Wireless Essentials. Base sólida em redes IP, modelos OSI/TCP-IP e configuração de equipamentos.
+certifications_2_title: "42 Luanda Piscine — Concluída"
+certifications_2_place: "42 Network"
+certifications_2_body: |-
+  Imersão de 4 semanas em C e Unix, avaliada por pares. Aprovado para o programa principal da 42 Luanda.
+certifications_3_title: "Mais a caminho…"
+certifications_3_place: "Aprendizagem contínua"
+certifications_3_body: |-
+  Estudo ativo em arquitetura de software, sistemas distribuídos e cloud. Novas certificações chegam ao longo do percurso.

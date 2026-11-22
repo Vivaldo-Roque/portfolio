@@ -1,0 +1,115 @@
+# =============================================================================
+# SKILLS (PT)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+skills_levels_title: "Tecnologias que já explorei"
+skills_levels_subtitle1: "Desenvolvimento Web"
+skills_levels_subtitle2: "Linguagem de programação de uso geral"
+skills_levels_subtitle3: "Sistema de Gerenciamento de Banco de Dados (DBMS)"
+skills_levels_subtitle4: "Mecanismos de jogo"
+skills_levels_subtitle5: "Frameworks multi plataforma"
+skills_levels_subtitle6: "Sistemas operacionais"
+skills_chapter: "chapter_02"
+skills_title_gradient: "Ecossistema"
+skills_title_pre: "O"
+skills_subtitle: |-
+  Uma coleção viva de ferramentas, linguagens e frameworks que cultivo — cada uma escolhida para o trabalho, equilibradas para entregar software confiável.
+skills_marquee_prefix: "Focado atualmente em"
+skills_page_title: "Transparência Técnica: O que domino no terreno vs. o que já explorei."
+skills_page_subtitle: |-
+  Nenhum engenheiro domina 20 tecnologias ao mesmo nível. Em vez de uma lista genérica, organizei o meu radar técnico por profundidade real — e podes clicar em qualquer tecnologia para ver exatamente onde e como a usei.
+skills_filter_all: "Visão Completa ({count})"
+skills_zone_prefix: "ZONA"
+skills_tier_field_title: "Domínio no Terreno (Foco Principal)"
+skills_tier_field_badge: "USO REAL & PRODUÇÃO"
+skills_tier_field_sub: |-
+  Tecnologias onde tenho mão na massa real — usadas para publicar aplicações, resolver problemas concretos e onde me sinto em casa.
+skills_tier_foundation_title: "Base Sólida de Engenharia"
+skills_tier_foundation_badge: "42 LUANDA · ISKA · ITEL · CS50"
+skills_tier_foundation_sub: |-
+  Os fundamentos que sustentam o meu raciocínio: baixo nível em C/Unix na 42 Luanda, redes Cisco no ITEL e bases web.
+skills_tier_explored_title: "Exploração & Curto Contacto"
+skills_tier_explored_badge: "CURIOSIDADE & LABORATÓRIO"
+skills_tier_explored_sub: |-
+  Transparência total: ferramentas que experimentei em aulas ou por curiosidade para entender como funcionam, mas onde não me considero especialista.
+skills_inspector_title: "INSPEÇÃO DE CONTEXTO REAL"
+skills_inspector_tier_field: "01 · NO TERRENO (PRODUÇÃO)"
+skills_inspector_tier_foundation: "02 · BASE SÓLIDA"
+skills_inspector_tier_explored: "03 · EXPLORAÇÃO CURTA"
+skills_inspector_where: "ONDE APLIQUEI NA PRÁTICA:"
+skills_inspector_empty_foundation: |-
+  Praticado intensivamente em desafios de engenharia (42 Luanda / ISKA / ITEL / Harvard CS50).
+skills_inspector_empty_explored: |-
+  Explorada em pequenos testes de aprendizagem — sem projetos comerciais publicados com ela ainda.
+skills_inspector_all_projects: "Ver Todos os Projetos"
+skill_flutter_headline: "A minha ferramenta principal para criar aplicações mobile e multi-plataforma."
+skill_flutter_story: |-
+  Utilizado em produção para publicar na Google Play Store e construir experiências completas de e-commerce e painéis administrativos responsivos.
+skill_flutter_evidence: "Google Play Store + 3 projetos completos"
+skill_dart_headline: |-
+  Linguagem base do meu ecossistema Flutter, gestão de estado (GetX) e lógica assíncrona.
+skill_dart_story: |-
+  Aplicada diariamente no desenvolvimento de interfaces reativas, integração com APIs, persistência local e arquitetura modular.
+skill_dart_evidence: "Uso contínuo em produção"
+skill_python_headline: |-
+  A minha linguagem de eleição para backend web, automação e algoritmos de visão/lógica.
+skill_python_story: |-
+  Usada tanto na lógica de resolução do cubo mágico (VivaCubeSolver) como no desenvolvimento de aplicações web estruturadas com Django e no CS50 de Harvard.
+skill_python_evidence: "Backend & Algoritmos aplicados"
+skill_django_headline: "Framework principal com que construo sistemas web seguros, ORM e operações CRUD."
+skill_django_story: |-
+  Grande foco de especialização atual para criar plataformas web completas e escaláveis em conjunto com Python.
+skill_django_evidence: "Foco principal Web Backend"
+skill_java_headline: "Desenvolvimento Android nativo, scraping autenticado (Jsoup) e integração com câmara."
+skill_java_story: |-
+  Base das primeiras aplicações Android que criei para resolver problemas reais dos estudantes do ISKA e captura de imagem do cubo mágico.
+skill_java_evidence: "2 APKs nativos lançados"
+skill_sqlite_headline: |-
+  Persistência local offline em mobile (SQLite) e backend em tempo real na cloud (Firebase).
+skill_sqlite_story: |-
+  SQLite guarda o progresso e algoritmos no CFOP Trainer; Firebase Authentication, Firestore e Hosting suportam o ecossistema de E-commerce.
+skill_sqlite_evidence: "Base de dados em apps reais"
+skill_c_lang_headline: "A forja da 42 Luanda e do CS50: ponteiros, gestão manual de memória e processos Unix."
+skill_c_lang_story: |-
+  Não uso C para fazer sites comerciais, mas reconstruir funções da libc do zero na 42 Luanda deu-me o rigor de baixo nível que torna o meu código mais limpo em qualquer linguagem.
+skill_c_lang_evidence: "42 Luanda (Piscine & Common Core) + CS50"
+skill_web_core_headline: |-
+  Os alicerces da Web: DOM, estilização responsiva e lógica de interface sem dependências.
+skill_web_core_story: |-
+  Aplicados desde algoritmos de IA para jogos de tabuleiro no browser até interfaces web embutidas em aplicações híbridas.
+skill_web_core_evidence: "Base de todos os projetos Web"
+skill_react_headline: "Componentização moderna, hooks e tipagem estática para interfaces web interativas."
+skill_react_story: |-
+  É a stack que alimenta este próprio portfólio interativo (em conjunto com Tailwind CSS, Framer Motion e Three.js).
+skill_react_evidence: "Usado neste Portfólio"
+skill_mysql_net_headline: "Modelação relacional SQL e infraestrutura de redes TCP/IP, routing e switching."
+skill_mysql_net_story: |-
+  Consolidados na licenciatura em Engenharia Informática (ISKA) e nos treinamentos práticos Cisco CCNA (Intro to Networks & SRWE) no ITEL.
+skill_mysql_net_evidence: "ISKA + Certificações ITEL CCNA"
+skill_cpp_csharp_headline: "Contacto académico e exploração de programação orientada a objetos."
+skill_cpp_csharp_story: |-
+  Estudei os conceitos fundamentais e sintaxe, mas optei por focar a minha carreira diária em Python, Dart e C.
+skill_cpp_csharp_evidence: "Contacto académico / estudo"
+skill_unity_headline: "Experiências iniciais com motores de jogo 3D e física por pura curiosidade criativa."
+skill_unity_story: |-
+  Brinquei com protótipos para entender como cenas 3D e scripts C# funcionam, sem ter seguido desenvolvimento de jogos como foco principal.
+skill_unity_evidence: "Exploração por curiosidade"
+skill_angular_next_nest_headline: "Exploração do ecossistema TypeScript full-stack para comparar arquiteturas web."
+skill_angular_next_nest_story: |-
+  Testei cada uma em pequenos laboratórios para perceber as diferenças face a React e Django, mas não são as ferramentas onde passo a maior parte do meu tempo.
+skill_angular_next_nest_evidence: "Testes curtos & comparação"
+level: "Nível:"
+skillname: "Nome:"
+beginner_level: "Iniciante"
+intermediate_level: "Intermediário"
+soft_problem_solving: "Resolução de problemas"
+soft_algorithmic_thinking: "Pensamento algorítmico"
+soft_clean_code: "Clean Code"
+soft_git_flow: "Git / GitHub flow"
+soft_agile: "Scrum & Agile"
+soft_code_review: "Code review"
+soft_peer_mentoring: "Mentoria peer-to-peer"
+soft_technical_comm: "Comunicação técnica"
+soft_languages: "Português · Inglês · Francês"

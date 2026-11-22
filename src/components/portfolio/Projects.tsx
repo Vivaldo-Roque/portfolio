@@ -1,121 +1,121 @@
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { ExternalLink, X, Play } from "lucide-react";
+import { ExternalLink, Play, Search, X, Layers, Rocket, FlaskConical, Smartphone, Globe } from "lucide-react";
 import { Github } from "@/components/portfolio/BrandIcons";
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Link } from "@tanstack/react-router";
-import { Project, projects } from "@/lib/projects";
+import { Project, ProjectTier, projects } from "@/lib/projects";
 import { useLanguage } from "../../context/language-context";
 
-function Fireflies() {
-  const dots = useMemo(
-    () =>
-      Array.from({ length: 24 }).map(() => ({
-        left: Math.random() * 100,
-        delay: Math.random() * 20,
-        duration: 16 + Math.random() * 18,
-        size: 2 + Math.random() * 3,
-        opacity: 0.3 + Math.random() * 0.5,
-      })),
-    [],
-  );
-
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-      {dots.map((d, i) => (
-        <span
-          key={i}
-          className="animate-firefly absolute bottom-[-10vh] block rounded-full bg-lime shadow-[0_0_4px_var(--lime)]"
-          style={{
-            left: `${d.left}%`,
-            width: d.size,
-            height: d.size,
-            opacity: d.opacity,
-            animationDelay: `${d.delay}s`,
-            animationDuration: `${d.duration}s`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
-function ProjectCard({
-  p,
-  i,
-}: {
-  p: Project;
-  i: number;
-}) {
+function ProjectCard({ p, i }: { p: Project; i: number }) {
   const { t } = useLanguage();
+  const isField = p.tier !== "lab";
+
   return (
     <motion.article
-      key={p.name}
+      key={p.id}
       layout
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.3, delay: i * 0.06 }}
-      whileHover={{ y: -8 }}
-      className="group glass relative flex flex-col overflow-hidden rounded-2xl transition hover:glow-border"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25, delay: Math.min(i * 0.04, 0.24) }}
+      className="group glass relative flex flex-col overflow-hidden rounded-2xl border border-border transition duration-300 hover:-translate-y-1 hover:border-moss/60"
     >
       <Link
         to="/projects/$projectId"
         params={{ projectId: p.id }}
         aria-label={`Open ${p.name} showcase`}
-        className={`relative h-40 w-full overflow-hidden bg-gradient-to-br text-left block ${p.accent}`}
+        className="relative block aspect-[16/10] w-full overflow-hidden border-b border-border bg-black text-left"
       >
-        <div className="absolute inset-0 bg-grid opacity-60" />
+        <div className="absolute inset-0 bg-grid opacity-40" />
         {p.image && (
           <img
             src={p.image}
             alt={`${p.name} screenshot`}
-            className="absolute inset-0 h-full w-full object-cover mix-blend-overlay opacity-80"
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+            style={{ filter: "grayscale(0.18) contrast(1.05)" }}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-surface/95 to-transparent" />
-        <span className="font-mono-code absolute bottom-3 left-4 flex items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" aria-hidden />
-          {p.category === "Web" ? t("type_web") : t("type_mobile")}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent" />
+
+        {/* Top-left Tier Badge: Applied in the Field vs Study/Lab */}
+        <span
+          className={`font-mono-code absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[9px] uppercase tracking-widest backdrop-blur-md ${
+            isField
+              ? "border-moss/45 bg-black/80 text-white"
+              : "border-white/15 bg-black/75 text-muted-foreground"
+          }`}
+        >
+          <span
+            className={`inline-block h-1.5 w-1.5 rounded-full ${
+              isField ? "bg-moss" : "bg-white/40"
+            }`}
+          />
+          {isField ? t("works_tier_field_badge") : t("works_tier_lab_badge")}
         </span>
-        <span className="absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-input bg-background/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-foreground backdrop-blur transition group-hover:border-moss group-hover:text-moss">
+
+        {/* Top-right Showcase trigger pill */}
+        <span className="font-mono-code absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-input bg-black/75 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-foreground backdrop-blur transition group-hover:border-moss group-hover:text-moss">
           <Play className="h-3 w-3" />
           {t("showcase_title")}
         </span>
+
+        {/* Bottom-left Platform + Year */}
+        <div className="font-mono-code absolute bottom-3 left-4 right-4 flex items-center justify-between text-[10px] uppercase tracking-widest text-white/85">
+          <span className="flex items-center gap-1.5">
+            {p.category === "Web" ? (
+              <Globe className="h-3 w-3 text-moss" />
+            ) : (
+              <Smartphone className="h-3 w-3 text-moss" />
+            )}
+            {p.category === "Web" ? t("type_web") : t("type_mobile")}
+          </span>
+          {p.year && <span className="text-muted-foreground">{p.year}</span>}
+        </div>
       </Link>
-      <div className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-xl font-semibold text-foreground">{p.name}</h3>
-        <p className="mt-2 flex-1 text-sm text-muted-foreground">{p.description}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {p.tags.map((t) => (
+
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <h3 className="font-display text-xl font-bold text-white transition group-hover:text-moss">
+          {p.name}
+        </h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+          {p.description}
+        </p>
+
+        {/* Tech tags */}
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {p.tags.map((tag) => (
             <span
-              key={t}
-              className="font-mono-code rounded-full border border-input px-2.5 py-1 text-[10px] uppercase tracking-widest text-muted-foreground"
+              key={tag}
+              className="font-mono-code rounded-full border border-border bg-black/50 px-2.5 py-0.5 text-[10px] uppercase tracking-widest text-foreground/80"
             >
-              {t}
+              {tag}
             </span>
           ))}
         </div>
-        <div className="mt-5 flex flex-wrap gap-2">
+
+        {/* Action buttons */}
+        <div className="mt-5 flex flex-wrap items-center gap-2 pt-1">
           <Link
             to="/projects/$projectId"
             params={{ projectId: p.id }}
-            className="inline-flex items-center gap-2 rounded-full bg-foreground px-4 py-2 font-mono-code text-xs font-semibold uppercase tracking-widest text-background transition hover:bg-foreground/90"
+            className="font-mono-code inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-widest text-black transition hover:bg-white/90"
           >
             <Play className="h-3.5 w-3.5" />
             {t("showcase_explore")}
           </Link>
-          <a
-            href={p.href}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label={`Open ${p.name} on GitHub`}
-            className="inline-flex items-center gap-2 rounded-full border border-input px-4 py-2 font-mono-code text-xs uppercase tracking-widest text-foreground transition hover:border-moss hover:text-moss"
-          >
-            <Github className="h-3.5 w-3.5" />
-            GitHub
-            <ExternalLink className="h-3 w-3" />
-          </a>
+          {p.href && p.href !== "#" && (
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={`Open ${p.name}`}
+              className="font-mono-code inline-flex items-center gap-1.5 rounded-full border border-input px-3.5 py-2 text-[11px] uppercase tracking-widest text-foreground transition hover:border-moss hover:text-moss"
+            >
+              <Github className="h-3.5 w-3.5" />
+              {p.href.includes("play.google.com") ? "Google Play" : "GitHub"}
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          )}
         </div>
       </div>
     </motion.article>
@@ -123,131 +123,276 @@ function ProjectCard({
 }
 
 export default function Projects() {
-  const { t } = useLanguage();
-  const [filter, setFilter] = useState<"All" | "Web" | "Mobile">("All");
-  const [open, setOpen] = useState(false);
+  const { t, language } = useLanguage();
 
-  const filters = [
-    { id: "All" as const, label: t("type_all") },
-    { id: "Web" as const, label: t("type_web") },
-    { id: "Mobile" as const, label: t("type_mobile") },
-  ];
+  const [categoryFilter, setCategoryFilter] = useState<"All" | "Web" | "Mobile">("All");
+  const [tierFilter, setTierFilter] = useState<"All" | ProjectTier>("All");
+  const [tagFilter, setTagFilter] = useState<string>("All");
+  const [query, setQuery] = useState("");
 
-  // Localized projects data structure helper
+  // Localized projects data structure (reads directly from each project's YAML file in src/content/projects/*.yaml)
   const localizedProjects = useMemo(() => {
-    return projects.map(p => ({
-      ...p,
-      name: t(`${p.id}_title`) || p.name,
-      description: t(`works${projects.indexOf(p) + 1}_desc`) || p.description,
-    }));
-  }, [t]);
+    return projects.map((p) => {
+      const loc = p.i18n?.[language] || p.i18n?.pt;
+      return {
+        ...p,
+        name: loc?.name || p.name,
+        description: loc?.description || p.description,
+      };
+    });
+  }, [language]);
 
-  const filtered = localizedProjects.filter((p) => filter === "All" || p.category === filter);
-  const featured = localizedProjects.slice(0, 3);
+  // Unique top technologies for quick chip filtering as the project catalog grows
+  const allTags = useMemo(() => {
+    const counts = new Map<string, number>();
+    localizedProjects.forEach((p) => {
+      p.tags.forEach((tg) => {
+        counts.set(tg, (counts.get(tg) || 0) + 1);
+      });
+    });
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([name]) => name);
+  }, [localizedProjects]);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return localizedProjects.filter((p) => {
+      if (categoryFilter !== "All" && p.category !== categoryFilter) return false;
+      const tier = p.tier || "field";
+      if (tierFilter !== "All" && tier !== tierFilter) return false;
+      if (tagFilter !== "All" && !p.tags.some((tg) => tg.toLowerCase() === tagFilter.toLowerCase())) {
+        return false;
+      }
+      if (q) {
+        const hay = `${p.name} ${p.description} ${p.tags.join(" ")}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [localizedProjects, categoryFilter, tierFilter, tagFilter, query]);
+
+  const counts = useMemo(() => {
+    const total = localizedProjects.length;
+    const field = localizedProjects.filter((p) => (p.tier || "field") === "field").length;
+    const lab = localizedProjects.filter((p) => p.tier === "lab").length;
+    const web = localizedProjects.filter((p) => p.category === "Web").length;
+    const mobile = localizedProjects.filter((p) => p.category === "Mobile").length;
+    return { total, field, lab, web, mobile };
+  }, [localizedProjects]);
+
+  const hasActiveFilters =
+    categoryFilter !== "All" || tierFilter !== "All" || tagFilter !== "All" || query.trim() !== "";
+
+  const resetFilters = () => {
+    setCategoryFilter("All");
+    setTierFilter("All");
+    setTagFilter("All");
+    setQuery("");
+  };
 
   return (
-    <section id="work" className="relative overflow-hidden py-32" aria-label={t("works_titles")}>
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-background via-deep to-background"
-        aria-hidden
-      />
-      <Fireflies />
+    <section id="work" className="relative min-h-screen overflow-hidden py-24 sm:py-32" aria-label={t("works_titles")}>
+      <div className="pointer-events-none fixed inset-0 bg-grid opacity-30" aria-hidden />
 
-      <div className="relative mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.25 }}
-        >
-          <p className="font-mono-code flex items-center gap-2.5 text-xs uppercase tracking-widest text-muted-foreground">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" aria-hidden />
-            {t("works_chapter")}
-          </p>
-          <h2 className="font-display mt-3 text-4xl font-bold sm:text-5xl">
-            {t("works_title_pre")} <span className="text-foreground">{t("works_title_gradient")}</span>
-            <span className="block text-2xl font-medium text-muted-foreground sm:text-3xl">
-              {t("works_subtitle")}
-            </span>
-          </h2>
-        </motion.div>
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Header */}
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="font-mono-code flex items-center gap-2.5 text-xs uppercase tracking-widest text-muted-foreground">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" aria-hidden />
+              03 / 04 · {t("works_chapter")}
+            </p>
+            <h1 className="font-display mt-3 text-3xl font-bold text-white sm:text-5xl">
+              {t("works_title_pre")} <span className="text-foreground">{t("works_title_gradient")}</span>
+            </h1>
+            <p className="mt-3 max-w-2xl text-base text-muted-foreground sm:text-lg">
+              {t("works_catalog_subtitle")}
+            </p>
+          </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((p, i) => (
-            <ProjectCard key={p.name} p={p} i={i} />
-          ))}
-        </div>
-
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
-          <button
-            onClick={() => setOpen(true)}
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 font-mono-code text-xs font-semibold uppercase tracking-widest text-background transition hover:bg-foreground/90"
-          >
-            {t("btn_see_portfolio")}
-            <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </button>
           <a
             href="https://github.com/Vivaldo-Roque/"
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 rounded-full border border-input px-6 py-3 font-mono-code text-xs uppercase tracking-widest text-foreground transition hover:border-moss hover:text-moss"
+            className="font-mono-code inline-flex w-fit items-center gap-2 rounded-full border border-input bg-surface px-5 py-2.5 text-xs uppercase tracking-widest text-foreground transition hover:border-moss hover:text-moss"
           >
             <Github className="h-4 w-4" />
-            GitHub
+            GitHub ({counts.total})
+            <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>
-      </div>
 
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="left-0 top-0 grid h-screen max-h-screen w-screen max-w-none translate-x-0 translate-y-0 gap-0 overflow-y-auto rounded-none border-0 bg-background p-0 sm:rounded-none">
-          <DialogTitle className="sr-only">{t("works_titles")}</DialogTitle>
-          <DialogDescription className="sr-only">
-            Full list of projects with category filters.
-          </DialogDescription>
-
-          <div className="sticky top-0 z-10 border-b border-moss/20 bg-background/85 backdrop-blur">
-            <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-              <div>
-                <p className="font-mono-code text-xs text-moss">// {t("works_chapter")} · full</p>
-                <h3 className="font-display mt-1 text-2xl font-bold sm:text-3xl">
-                  {t("works_title_pre")} <span className="text-gradient-leaf">{t("works_title_gradient")}</span>
-                </h3>
-              </div>
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="Close"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-moss/30 text-foreground transition hover:border-moss hover:bg-moss/10 hover:text-lime"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-            <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-2 px-6 pb-5">
-              {filters.map((f) => (
+        {/* ===================================================================
+            STICKY MULTI-AXIS FILTER & SEARCH BAR (built to scale to dozens of projects)
+           =================================================================== */}
+        <div className="mt-10 rounded-2xl border border-input bg-surface/90 p-4 backdrop-blur-md sm:p-5">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            {/* Search Input */}
+            <div className="relative flex-1">
+              <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={t("works_search_placeholder")}
+                className="font-mono-code w-full rounded-xl border border-border bg-black/70 py-2.5 pl-10 pr-9 text-xs text-white placeholder:text-muted-foreground focus:border-moss focus:outline-none"
+              />
+              {query && (
                 <button
-                  key={f.id}
-                  onClick={() => setFilter(f.id)}
-                  className={`font-mono-code rounded-full px-4 py-2 text-xs uppercase tracking-widest transition ${
-                    filter === f.id
-                      ? "bg-moss text-primary-foreground"
-                      : "border border-moss/30 text-muted-foreground hover:border-moss hover:text-lime"
+                  type="button"
+                  onClick={() => setQuery("")}
+                  aria-label="Clear search"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Tier Filter: All vs In the Field vs Study/Lab */}
+            <div className="flex flex-wrap items-center gap-1.5">
+              {[
+                {
+                  id: "All" as const,
+                  label: t("works_filter_all_count", { count: counts.total }),
+                  Icon: Layers,
+                },
+                {
+                  id: "field" as const,
+                  label: t("works_filter_field_count", { count: counts.field }),
+                  Icon: Rocket,
+                },
+                {
+                  id: "lab" as const,
+                  label: t("works_filter_lab_count", { count: counts.lab }),
+                  Icon: FlaskConical,
+                },
+              ].map(({ id, label, Icon }) => {
+                const active = tierFilter === id;
+                return (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => setTierFilter(id)}
+                    className={`font-mono-code inline-flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-[11px] uppercase tracking-wider transition ${
+                      active
+                        ? "bg-white font-semibold text-black"
+                        : "border border-border bg-black/50 text-muted-foreground hover:border-input hover:text-white"
+                    }`}
+                  >
+                    <Icon className={`h-3.5 w-3.5 ${active ? "text-moss" : ""}`} />
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Platform Filter: All / Web / Mobile */}
+            <div className="flex flex-wrap items-center gap-1.5">
+              {[
+                { id: "All" as const, label: t("type_all") },
+                { id: "Web" as const, label: `${t("type_web")} (${counts.web})` },
+                { id: "Mobile" as const, label: `${t("type_mobile")} (${counts.mobile})` },
+              ].map((f) => {
+                const active = categoryFilter === f.id;
+                return (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => setCategoryFilter(f.id)}
+                    className={`font-mono-code rounded-xl px-3.5 py-2 text-[11px] uppercase tracking-wider transition ${
+                      active
+                        ? "bg-moss font-semibold text-black"
+                        : "border border-border bg-black/50 text-muted-foreground hover:border-input hover:text-white"
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Technology Tag Pills Row */}
+          <div className="mt-3.5 flex flex-wrap items-center gap-1.5 border-t border-border/70 pt-3.5">
+            <span className="font-mono-code mr-1 text-[10px] uppercase tracking-widest text-muted-foreground">
+              Stack:
+            </span>
+            <button
+              type="button"
+              onClick={() => setTagFilter("All")}
+              className={`font-mono-code rounded-full px-2.5 py-1 text-[10px] uppercase tracking-widest transition ${
+                tagFilter === "All"
+                  ? "bg-white font-semibold text-black"
+                  : "border border-border bg-black/40 text-muted-foreground hover:text-white"
+              }`}
+            >
+              {t("type_all")}
+            </button>
+            {allTags.map((tg) => {
+              const active = tagFilter.toLowerCase() === tg.toLowerCase();
+              return (
+                <button
+                  key={tg}
+                  type="button"
+                  onClick={() => setTagFilter(active ? "All" : tg)}
+                  className={`font-mono-code rounded-full px-2.5 py-1 text-[10px] uppercase tracking-widest transition ${
+                    active
+                      ? "bg-white font-semibold text-black"
+                      : "border border-border bg-black/40 text-muted-foreground hover:border-input hover:text-white"
                   }`}
                 >
-                  {f.label}
+                  {tg}
                 </button>
-              ))}
-            </div>
-          </div>
+              );
+            })}
 
-          <div className="mx-auto w-full max-w-6xl px-6 py-10">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {filtered.map((p, i) => (
-                <ProjectCard key={p.name} p={p} i={i} />
-              ))}
-            </div>
+            {hasActiveFilters && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="font-mono-code ml-auto inline-flex items-center gap-1 text-[10px] uppercase tracking-widest text-moss hover:underline"
+              >
+                <X className="h-3 w-3" />
+                {t("works_filter_reset")}
+              </button>
+            )}
           </div>
-        </DialogContent>
-      </Dialog>
+        </div>
+
+        {/* Active count status line */}
+        <div className="mt-6 flex items-center justify-between">
+          <p className="font-mono-code text-xs uppercase tracking-widest text-muted-foreground">
+            {t("works_showing_count", { shown: filtered.length, total: counts.total })}
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        {filtered.length > 0 ? (
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((p, i) => (
+              <ProjectCard key={p.id} p={p} i={i} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-10 rounded-2xl border border-border bg-surface/60 p-12 text-center">
+            <p className="font-display text-xl font-semibold text-white">
+              {t("works_empty_title")}
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {t("works_empty_subtitle")}
+            </p>
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="font-mono-code mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-black"
+            >
+              {t("works_empty_btn")}
+            </button>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
-

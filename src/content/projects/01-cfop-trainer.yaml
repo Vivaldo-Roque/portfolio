@@ -1,0 +1,45 @@
+# =============================================================================
+# 01 · CFOP TRAINER
+# Para adicionar um novo projeto no futuro, basta duplicar este ficheiro .yaml
+# dentro de src/content/projects/ e colocar as imagens em public/img/works/!
+# =============================================================================
+
+id: cfop_trainer
+order: 1
+category: Mobile       # "Mobile" ou "Web"
+tier: field            # "field" (Aplicado no Terreno) ou "lab" (Estudo & Lab)
+year: "2024"
+
+tags:
+  - Flutter
+  - Dart
+  - SQLite
+  - HTML
+  - CSS
+  - JavaScript
+
+# Links externos (deixa vazio ou remove se não aplicável)
+href: "https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer"
+liveUrl: "https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer"
+
+# Imagens (podes escrever apenas o nome do ficheiro que colocaste em public/img/works/)
+image: "cfoptrainer.png"
+gallery:
+  - "cfoptrainer.png"
+
+# Textos em Português (PT) e Inglês (EN)
+pt:
+  name: "CFOP Trainer"
+  description: |-
+    CFOP TRAINER, UMA FERRAMENTA PARA AJUDÁ-LO A APRENDER E TREINAR CFOP.
+  # Opcional: podes personalizar os textos das 4 cenas do Showcase aqui se quiseres:
+  # scenes:
+  #   - eyebrow: "Problema"
+  #     title: "O ponto de partida"
+  #     body: "Texto personalizado da cena 1..."
+  #     image: "cfoptrainer.png"
+
+en:
+  name: "CFOP Trainer"
+  description: |-
+    CFOP TRAINER, A TOOL TO HELP YOU LEARN AND TRAIN CFOP.

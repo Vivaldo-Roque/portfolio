@@ -29,7 +29,7 @@ const KEYS: Record<ChapterId, { chapter: string; pre: string; grad: string; sub:
  */
 export default function Chapter({ id, index }: { id: ChapterId; index: number }) {
   const slotRef = useRef<HTMLDivElement>(null);
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const k = KEYS[id];
   const cur = CHAPTERS[index];
 
@@ -51,27 +51,27 @@ export default function Chapter({ id, index }: { id: ChapterId; index: number })
         >
           {cur.index}
         </span>
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-6 drop-shadow-[0_2px_18px_rgba(0,0,0,0.85)]">
-          <p className="font-mono-code flex items-center gap-2.5 whitespace-nowrap text-xs uppercase tracking-[0.25em] text-foreground/85">
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-5 pb-20 sm:px-6 lg:pb-0">
+          <p className="font-mono-code flex items-center gap-2.5 whitespace-nowrap text-[11px] uppercase tracking-[0.22em] text-foreground/85 sm:text-xs sm:tracking-[0.25em]">
             <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-moss" aria-hidden />
             <ScrambleText text={`${cur.index} / 0${CHAPTERS.length} · ${t(cur.nav)}`} />
           </p>
           <ScrambleText
             as="h2"
             text={`${t(k.pre)} ${t(k.grad)}`}
-            className="font-display mt-5 text-4xl font-bold leading-[0.95] tracking-tight text-white sm:text-6xl md:text-7xl"
+            className="font-display mt-4 text-3xl font-bold leading-[0.98] tracking-tight text-white sm:mt-5 sm:text-6xl md:text-7xl"
           />
           <ScrambleText
             as="p"
             text={t(k.sub)}
-            className="mt-6 max-w-xl text-base text-foreground/90 sm:text-lg"
+            className="mt-4 max-w-xl text-sm leading-relaxed text-foreground/90 sm:mt-6 sm:text-lg"
           />
           <Link
             to="/chapter/$chapterId"
             params={{ chapterId: id }}
-            className="group mt-10 inline-flex items-center gap-2 rounded-full border border-white/35 bg-black/55 px-6 py-3 font-mono-code text-xs uppercase tracking-widest text-white backdrop-blur-sm transition hover:border-moss hover:text-moss"
+            className="group mt-7 inline-flex items-center gap-2 rounded-full border border-white/35 bg-black/55 px-5 py-2.5 font-mono-code text-[11px] uppercase tracking-widest text-white backdrop-blur-sm transition hover:border-moss hover:text-moss sm:mt-10 sm:px-6 sm:py-3 sm:text-xs"
           >
-            {language === "pt" ? "Ver detalhes" : "See details"}
+            {t("btn_see_details")}
             <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>

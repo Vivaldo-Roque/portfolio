@@ -1,0 +1,131 @@
+# =============================================================================
+# ABOUT (PT)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+about_me_title: "Sobre mim"
+about_chapter: "chapter_04"
+about_title_gradient: "Raízes"
+about_title_pre: "As"
+about_me_p1: |-
+  Sou Vivaldo Cristóvão Roque, engenheiro de software full-stack baseado em Luanda, Angola.
+about_me_p2: |-
+  Atualmente, estou no estágio final do curso de Engenharia Informática no Instituto Superior Politécnico Kangonjo, onde venho consolidando conhecimentos de sistemas, redes e desenvolvimento de software. Minha trajetória começou no ensino médio na Escola Nº 4073 – Padre Inácio Tambu (formado entre 2016 e 2018, com destaque em Ciências Físicas e Biológicas), e desde então venho buscando ampliar continuamente minha formação.
+  
+  No Centro de Formação do ITEL, realizei treinamentos práticos como:
+  
+  • CCNA: Introduction to Network;
+  • CCNA: SRWE.
+  
+  Além disso, concluí o curso “Introduction to Computer Science” pela Harvard Online, o que consolidou meus fundamentos em ciência da computação. Também tive uma experiência enriquecedora participando da piscina da 42Luanda, que me estimulou a pensar de forma inovadora e colaborativa.
+  
+  Atualmente, sou cadete na 42 Luanda, um programa intensivo de engenharia de software, onde estou trabalhando para alcançar o common core e possivelmente seguir uma especialização. Este ambiente de aprendizagem peer-to-peer tem me desafiado a desenvolver habilidades de resolução de problemas, trabalho em equipe e domínio de conceitos de programação de baixo nível.
+  
+  Tenho desenvolvido um grande interesse em criar aplicações para a web utilizando o framework Django em conjunto com a linguagem Python e em desenvolver soluções móveis para Android com Flutter em conjunto com a linguagem Dart. Estou em busca de oportunidades e projetos que me permitam combinar minhas habilidades em redes, desenvolvimento e análise de sistemas para criar soluções tecnológicas completas.
+  
+  Objetivo:
+  Especializar-me e crescer na área de desenvolvimento, aplicando de forma integrada meus conhecimentos em Engenharia Informática e treinamentos complementares, com o intuito de contribuir para projetos inovadores no mercado de tecnologia.
+  
+  Convido você a conhecer meus projetos e a se conectar para trocarmos experiências e ideias.
+about_me_p3: |-
+  Minha experiência mais recente foi focada na criação de aplicativos com Flutter, Dart, Java e Sqlite.
+about_globe_hint: "Faz scroll para caminhar pelo globo"
+about_btn_see_projects: "Ver Projetos"
+about_stat_degree_label: "Superior"
+about_stat_degree_val: "Eng. Informática (ISKA)"
+about_stat_net_label: "Redes & CS"
+about_stat_net_val: "ITEL CCNA + Harvard"
+about_stat_prog_label: "Programa"
+about_stat_prog_val: "Cadete 42 Luanda"
+about_stat_focus_label: "Foco"
+about_stat_focus_val: "Django & Flutter"
+about_walk_btn: "Caminhar pela minha história"
+about_next_stop_eyebrow: "PRÓXIMA PARAGEM"
+about_next_stop_title: |-
+  Convido você a conhecer meus projetos e a se conectar para trocarmos experiências e ideias.
+about_next_stop_btn: "Conhecer Meus Projetos"
+about_stop1_year: "2016 — PRESENTE"
+about_stop1_tag: "AS RAÍZES & O ISKA"
+about_stop1_place: "Luanda · Escola Nº 4073 & Instituto Superior Politécnico Kangonjo"
+about_stop1_title: "Da Escola Padre Inácio Tambu à Engenharia Informática"
+about_stop1_p1: |-
+  Sou Vivaldo Cristóvão Roque, engenheiro de software full-stack baseado em Luanda, Angola.
+about_stop1_p2: |-
+  Atualmente, estou no estágio final do curso de Engenharia Informática no Instituto Superior Politécnico Kangonjo, onde venho consolidando conhecimentos de sistemas, redes e desenvolvimento de software.
+about_stop1_p3: |-
+  Minha trajetória começou no ensino médio na Escola Nº 4073 – Padre Inácio Tambu (formado entre 2016 e 2018, com destaque em Ciências Físicas e Biológicas), e desde então venho buscando ampliar continuamente minha formação.
+about_stop1_m1_label: "Ensino Médio"
+about_stop1_m1_val: "Ciências Físicas e Biológicas"
+about_stop1_m2_label: "Ensino Superior"
+about_stop1_m2_val: "Engenharia Informática (ISKA)"
+about_stop1_m3_label: "Base"
+about_stop1_m3_val: "Luanda, Angola"
+about_stop1_chip1: "Sistemas"
+about_stop1_chip2: "Redes"
+about_stop1_chip3: "Desenvolvimento de Software"
+about_stop1_chip4: "Ciências Físicas e Biológicas"
+about_stop2_year: "ITEL & HARVARD"
+about_stop2_tag: "REDES & CIÊNCIA DA COMPUTAÇÃO"
+about_stop2_place: "Centro de Formação do ITEL · Harvard Online"
+about_stop2_title: "Treinamentos Práticos em Redes & Fundamentos em Harvard"
+about_stop2_p1: "No Centro de Formação do ITEL, realizei treinamentos práticos como:"
+about_stop2_b1: "CCNA: Introduction to Network"
+about_stop2_b2: "CCNA: SRWE (Switching, Routing, and Wireless Essentials)"
+about_stop2_after: |-
+  Além disso, concluí o curso “Introduction to Computer Science” pela Harvard Online, o que consolidou meus fundamentos em ciência da computação.
+about_stop2_m1_label: "Centro ITEL"
+about_stop2_m1_val: "Cisco CCNA & SRWE"
+about_stop2_m2_label: "Harvard Online"
+about_stop2_m2_val: "Intro to Computer Science"
+about_stop2_m3_label: "Foco"
+about_stop2_m3_val: "Redes & Fundamentos CS"
+about_stop2_chip1: "CCNA: Introduction to Network"
+about_stop2_chip2: "CCNA: SRWE"
+about_stop2_chip3: "Harvard CS50"
+about_stop2_chip4: "Fundamentos de Computação"
+about_stop3_year: "42 LUANDA"
+about_stop3_tag: "PISCINE & CADETE"
+about_stop3_place: "42 Luanda · Aprendizagem Peer-to-Peer"
+about_stop3_title: "Da Piscine a Cadete na 42 Luanda"
+about_stop3_p1: |-
+  Também tive uma experiência enriquecedora participando da piscina da 42Luanda, que me estimulou a pensar de forma inovadora e colaborativa.
+about_stop3_p2: |-
+  Atualmente, sou cadete na 42 Luanda, um programa intensivo de engenharia de software, onde estou trabalhando para alcançar o common core e possivelmente seguir uma especialização.
+about_stop3_p3: |-
+  Este ambiente de aprendizagem peer-to-peer tem me desafiado a desenvolver habilidades de resolução de problemas, trabalho em equipe e domínio de conceitos de programação de baixo nível.
+about_stop3_m1_label: "Etapa Inicial"
+about_stop3_m1_val: "Piscine 42 Luanda"
+about_stop3_m2_label: "Posição Atual"
+about_stop3_m2_val: "Cadete · Common Core"
+about_stop3_m3_label: "Metodologia"
+about_stop3_m3_val: "Peer-to-Peer & Baixo Nível"
+about_stop3_chip1: "42 Luanda"
+about_stop3_chip2: "Common Core"
+about_stop3_chip3: "Peer-to-Peer"
+about_stop3_chip4: "Resolução de Problemas"
+about_stop3_chip5: "Programação de Baixo Nível"
+about_stop4_year: "STACK & OBJETIVO"
+about_stop4_tag: "DJANGO, FLUTTER & VISÃO"
+about_stop4_place: "Web & Mobile · Soluções Tecnológicas Completas"
+about_stop4_title: "Aplicações Web & Mobile e o Meu Objetivo Profissional"
+about_stop4_p1: |-
+  Tenho desenvolvido um grande interesse em criar aplicações para a web utilizando o framework Django em conjunto com a linguagem Python e em desenvolver soluções móveis para Android com Flutter em conjunto com a linguagem Dart.
+about_stop4_p2: |-
+  Minha experiência mais recente foi focada na criação de aplicativos com Flutter, Dart, Java e Sqlite. Estou em busca de oportunidades e projetos que me permitam combinar minhas habilidades em redes, desenvolvimento e análise de sistemas para criar soluções tecnológicas completas.
+about_stop4_hl_label: "Objetivo"
+about_stop4_hl_body: |-
+  Especializar-me e crescer na área de desenvolvimento, aplicando de forma integrada meus conhecimentos em Engenharia Informática e treinamentos complementares, com o intuito de contribuir para projetos inovadores no mercado de tecnologia. Convido você a conhecer meus projetos e a se conectar para trocarmos experiências e ideias.
+about_stop4_m1_label: "Web & Backend"
+about_stop4_m1_val: "Python & Django"
+about_stop4_m2_label: "Mobile Android"
+about_stop4_m2_val: "Flutter, Dart, Java & SQLite"
+about_stop4_m3_label: "Integração"
+about_stop4_m3_val: "Redes + Sistemas + Dev"
+about_stop4_chip1: "Python"
+about_stop4_chip2: "Django"
+about_stop4_chip3: "Flutter"
+about_stop4_chip4: "Dart"
+about_stop4_chip5: "Java"
+about_stop4_chip6: "SQLite"
+about_stop4_chip7: "Análise de Sistemas"

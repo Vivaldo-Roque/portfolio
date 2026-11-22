@@ -1,0 +1,111 @@
+# =============================================================================
+# SKILLS (EN)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+skills_levels_title: "Technologies I've already explored"
+skills_levels_subtitle1: "Web development"
+skills_levels_subtitle2: "General purpose programming language"
+skills_levels_subtitle3: "Data Base Management System (DBMS)"
+skills_levels_subtitle4: "Game engines"
+skills_levels_subtitle5: "Cross-platform frameworks"
+skills_levels_subtitle6: "Operating systems"
+skills_chapter: "chapter_02"
+skills_title_gradient: "Ecosystem"
+skills_title_pre: "The"
+skills_subtitle: |-
+  A living collection of tools, languages and frameworks I cultivate — each one chosen for the job, balanced together to ship reliable software.
+skills_marquee_prefix: "Currently focused on"
+skills_page_title: "Technical Transparency: What I ship in the field vs. what I've explored."
+skills_page_subtitle: |-
+  No engineer masters 20 technologies at the same depth. Instead of a generic laundry list, I organized my technical radar by real-world depth — click any technology to see where and how I actually used it.
+skills_filter_all: "Full Radar ({count})"
+skills_zone_prefix: "ZONE"
+skills_tier_field_title: "Applied in the Field (Core Focus)"
+skills_tier_field_badge: "REAL USE & PRODUCTION"
+skills_tier_field_sub: |-
+  Technologies where I have real hands-on depth — used to ship apps, solve concrete problems, and where I feel most at home.
+skills_tier_foundation_title: "Solid Engineering Foundation"
+skills_tier_foundation_badge: "42 LUANDA · ISKA · ITEL · CS50"
+skills_tier_foundation_sub: |-
+  The fundamentals backing my engineering mindset: low-level C/Unix at 42 Luanda, Cisco networking at ITEL, and core web.
+skills_tier_explored_title: "Exploration & Brief Exposure"
+skills_tier_explored_badge: "CURIOSITY & LABS"
+skills_tier_explored_sub: |-
+  Full transparency: tools I tried in class or out of curiosity to understand how they work, without claiming expert mastery.
+skills_inspector_title: "REAL CONTEXT INSPECTOR"
+skills_inspector_tier_field: "01 · IN THE FIELD (PROD)"
+skills_inspector_tier_foundation: "02 · SOLID FOUNDATION"
+skills_inspector_tier_explored: "03 · BRIEF EXPLORATION"
+skills_inspector_where: "WHERE I APPLIED IT:"
+skills_inspector_empty_foundation: |-
+  Practiced intensively in engineering challenges (42 Luanda / ISKA / ITEL / Harvard CS50).
+skills_inspector_empty_explored: "Explored in short learning labs — no commercial projects shipped with it yet."
+skills_inspector_all_projects: "See All Projects"
+skill_flutter_headline: "My primary framework for shipping mobile and cross-platform applications."
+skill_flutter_story: |-
+  Used in production to publish on the Google Play Store and build complete e-commerce apps and responsive admin dashboards.
+skill_flutter_evidence: "Google Play Store + 3 complete projects"
+skill_dart_headline: "Core language powering my Flutter apps, state management (GetX), and async logic."
+skill_dart_story: |-
+  Applied daily when building reactive UIs, API integrations, local persistence, and modular architectures.
+skill_dart_evidence: "Continuous production use"
+skill_python_headline: "My go-to language for web backends, automation, and logic/vision algorithms."
+skill_python_story: |-
+  Used both in the Rubik's Cube solver engine (VivaCubeSolver) and in building structured Django web applications and Harvard CS50.
+skill_python_evidence: "Applied Backend & Algorithms"
+skill_django_headline: |-
+  Primary web framework I use to build secure backend systems, ORM models, and CRUD flows.
+skill_django_story: |-
+  A major focus of my current specialization for creating complete, scalable web platforms with Python.
+skill_django_evidence: "Core Web Backend focus"
+skill_java_headline: "Native Android development, authenticated scraping (Jsoup), and camera integration."
+skill_java_story: |-
+  Foundation of the native Android apps I built to solve real problems for ISKA students and camera-based cube solving.
+skill_java_evidence: "2 native APKs shipped"
+skill_sqlite_headline: "Offline-first mobile persistence (SQLite) and real-time cloud backend (Firebase)."
+skill_sqlite_story: |-
+  SQLite stores progress and algorithms in CFOP Trainer; Firebase Auth, Firestore, and Hosting power the E-commerce suite.
+skill_sqlite_evidence: "Databases in live apps"
+skill_c_lang_headline: "The 42 Luanda & CS50 forge: pointers, manual memory management, and Unix processes."
+skill_c_lang_story: |-
+  I don't use C to build commercial websites, but rebuilding libc from scratch at 42 Luanda gave me the low-level rigor that makes my code cleaner in any language.
+skill_c_lang_evidence: "42 Luanda (Piscine & Common Core) + CS50"
+skill_web_core_headline: "The bedrock of the Web: DOM manipulation, responsive layout, and vanilla UI logic."
+skill_web_core_story: |-
+  Applied from browser-based board game AI algorithms to embedded web views inside hybrid applications.
+skill_web_core_evidence: "Foundation of all Web projects"
+skill_react_headline: "Modern component architecture, hooks, and static typing for interactive web UIs."
+skill_react_story: |-
+  Powers this very interactive portfolio (paired with Tailwind CSS, Framer Motion, and Three.js).
+skill_react_evidence: "Used in this Portfolio"
+skill_mysql_net_headline: "Relational SQL modeling and TCP/IP network infrastructure, routing, and switching."
+skill_mysql_net_story: |-
+  Consolidated during my Computer Engineering degree (ISKA) and hands-on Cisco CCNA (Intro to Networks & SRWE) training at ITEL.
+skill_mysql_net_evidence: "ISKA + ITEL CCNA Certifications"
+skill_cpp_csharp_headline: "Academic exposure and exploration of object-oriented programming."
+skill_cpp_csharp_story: |-
+  Studied the core OOP concepts and syntax, though I chose to focus my daily engineering work on Python, Dart, and C.
+skill_cpp_csharp_evidence: "Academic exposure / study"
+skill_unity_headline: "Early experiments with 3D game engines and physics out of creative curiosity."
+skill_unity_story: |-
+  Built small prototypes to understand how 3D scenes and C# scripts work, without pursuing game dev as a main track.
+skill_unity_evidence: "Curiosity-driven exploration"
+skill_angular_next_nest_headline: "Exploration of the full-stack TypeScript ecosystem to compare web architectures."
+skill_angular_next_nest_story: |-
+  Tested each in small labs to understand how they compare to React and Django, though they aren't where I spend most of my time.
+skill_angular_next_nest_evidence: "Short labs & comparison"
+level: "Level:"
+skillname: "Name:"
+beginner_level: "Beginner"
+intermediate_level: "Intermediate"
+soft_problem_solving: "Problem solving"
+soft_algorithmic_thinking: "Algorithmic thinking"
+soft_clean_code: "Clean Code"
+soft_git_flow: "Git / GitHub flow"
+soft_agile: "Scrum & Agile"
+soft_code_review: "Code review"
+soft_peer_mentoring: "Peer-to-peer mentoring"
+soft_technical_comm: "Technical communication"
+soft_languages: "Portuguese · English · French"

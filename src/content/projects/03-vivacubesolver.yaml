@@ -1,0 +1,30 @@
+# =============================================================================
+# 03 · VIVACUBESOLVER
+# =============================================================================
+
+id: vivacubesolver
+order: 3
+category: Mobile
+tier: field
+year: "2023"
+
+tags:
+  - Android
+  - Java
+  - Python
+
+href: "https://github.com/Vivaldo-Roque/VivaCubeSolver"
+
+image: "vivacubesolver.jpg"
+gallery:
+  - "vivacubesolver.jpg"
+
+pt:
+  name: "VivaCubeSolver"
+  description: |-
+    APLICATIVO CAPAZ DE RESOLVER O CUBO MÁGICO A PARTIR DE IMAGENS CAPTURADAS PELA CÂMERA.
+
+en:
+  name: "VivaCubeSolver"
+  description: |-
+    APPLICATION CAPABLE OF SOLVING THE MAGIC CUBE FROM IMAGES CAPTURED BY THE CAMERA.

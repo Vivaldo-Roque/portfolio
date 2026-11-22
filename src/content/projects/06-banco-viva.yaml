@@ -1,0 +1,32 @@
+# =============================================================================
+# 06 · BANCO VIVA
+# =============================================================================
+
+id: banco_viva
+order: 6
+category: Web
+tier: lab
+year: "2023"
+
+tags:
+  - Python
+  - Django
+  - Bootstrap
+  - Fontawesome
+
+href: "https://github.com/Vivaldo-Roque/bancoviva"
+liveUrl: "https://bancoviva.vercel.app"
+
+image: "bancoviva.png"
+gallery:
+  - "bancoviva.png"
+
+pt:
+  name: "Banco Viva"
+  description: |-
+    Este é um projeto simples criado utilizando a framework Django. Simula um sistema de conta bancária com operações CRUD básicas (Criar, Ler, Atualizar, Apagar). Criei-o como parte da minha jornada de aprendizagem.
+
+en:
+  name: "Bank Viva"
+  description: |-
+    This is a simple project built using the Django framework. It simulates a bank account system with basic CRUD operations (Create, Read, Update, Delete). I built it as part of my learning journey.

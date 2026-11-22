@@ -1,0 +1,34 @@
+# =============================================================================
+# 04 · ECOMMERCE MOBILE APP
+# =============================================================================
+
+id: ecommerce_mobile
+order: 4
+category: Mobile
+tier: field
+year: "2024"
+
+tags:
+  - Flutter
+  - Dart
+  - GetX
+  - Firebase Authentication
+  - Firebase Firestore
+  - Firebase Hosting
+
+href: "https://github.com/Vivaldo-Roque/"
+
+image: "flutter_ecommerce_1.png"
+gallery:
+  - "flutter_ecommerce_1.png"
+  - "flutter_ecommerce_1.jpg"
+
+pt:
+  name: "App Mobile de Ecommerce"
+  description: |-
+    UMA APLICAÇÃO MOBILE DE ECOMMERCE COMPLETA CONSTRUÍDA COM FLUTTER, PROPORCIONANDO UMA EXPERIÊNCIA DE COMPRA PERFEITA PARA OS USUÁRIOS.
+
+en:
+  name: "Ecommerce Mobile App"
+  description: |-
+    A FULL-FEATURED ECOMMERCE MOBILE APPLICATION BUILT WITH FLUTTER, PROVIDING A SEAMLESS SHOPPING EXPERIENCE FOR USERS.

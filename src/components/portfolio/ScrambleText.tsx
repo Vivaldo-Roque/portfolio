@@ -1,4 +1,4 @@
-import { useEffect, type ElementType, type HTMLAttributes, type RefObject } from "react";
+import { useEffect, useRef, type ElementType, type HTMLAttributes, type RefObject } from "react";
 
 const CHARS = "!<>-_\\/[]{}—=+*^?#________";
 const FRAME_MS = 1000 / 60;
@@ -153,6 +153,22 @@ export function ScrambleText({
   className?: string;
 } & HTMLAttributes<HTMLElement>) {
   const str = String(text || "");
+  const overlayRef = useRef<HTMLSpanElement>(null);
+  const prevTextRef = useRef<string>(str);
+
+  useEffect(() => {
+    const el = overlayRef.current;
+    if (!el) return;
+    if (prevTextRef.current !== str) {
+      prevTextRef.current = str;
+      const scrambler = new TextScrambler(el);
+      scrambler.setText(str);
+      return () => scrambler.stop();
+    } else {
+      el.textContent = str;
+    }
+  }, [str]);
+
   return (
     <Tag
       {...rest}
@@ -163,6 +179,7 @@ export function ScrambleText({
         {str}
       </span>
       <span
+        ref={overlayRef}
         data-scramble-overlay="true"
         data-scramble-text={str}
         aria-label={str}

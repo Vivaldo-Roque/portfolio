@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import portrait from "@/assets/vivaldo-portrait.jpg";
+import { useLanguage } from "../../context/language-context";
 
 export type StageMode = "tech";
 
@@ -438,38 +439,15 @@ const EJECT_SLOTS: [number, number, number][] = [
 
 type Card = { tag: string; title: string; subtitle: string; image: string; badge: string };
 
-const CARDS: Record<number, Card | undefined> = {
-  1: {
-    tag: "LUANDA · ANGOLA",
-    title: "Vivaldo Cristóvão Roque",
-    subtitle: "Engenheiro de Software Full-Stack",
-    image: portrait,
-    badge: "HUMANO POR TRÁS DO CÓDIGO",
-  },
-  2: {
-    tag: "2016 → 2026",
-    title: "Da Lógica à Engenharia",
-    subtitle: "ISKA · Google Play · Freelance",
-    image: "/img/works/vivacubesolver.jpg",
-    badge: "JORNADA NO TERRENO",
-  },
-  3: {
-    tag: "GOOGLE PLAY & WEB",
-    title: "CFOP Trainer & Banco Viva",
-    subtitle: "Produtos reais publicados e em uso",
-    image: "/img/works/cfoptrainer.png",
-    badge: "EM PRODUÇÃO",
-  },
-  4: {
-    tag: "FLUTTER · DJANGO · REACT",
-    title: "Arquitetura Multi-Plataforma",
-    subtitle: "Mobile, Web & Sistemas Escaláveis",
-    image: "/img/works/flutter_web_ecommerce_1.png",
-    badge: "STACK TÉCNICA",
-  },
+const CARD_IMAGES: Record<number, string | undefined> = {
+  1: portrait,
+  2: "/img/works/vivacubesolver.jpg",
+  3: "/img/works/cfoptrainer.png",
+  4: "/img/works/flutter_web_ecommerce_1.png",
 };
 
 export default function ThreeHero({ activeChapter = 0 }: { activeChapter?: number }) {
+  const { t } = useLanguage();
   const mountRef = useRef<HTMLDivElement>(null);
   const cardSlotRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -890,20 +868,51 @@ export default function ThreeHero({ activeChapter = 0 }: { activeChapter?: numbe
     };
   }, []);
 
-  const activeCard = CARDS[activeChapter];
+  const cardImage = CARD_IMAGES[activeChapter];
+  const activeCard: Card | undefined = cardImage
+    ? {
+        tag: t(`three_card_${activeChapter}_tag`),
+        title: t(`three_card_${activeChapter}_title`),
+        subtitle: t(`three_card_${activeChapter}_subtitle`),
+        badge: t(`three_card_${activeChapter}_badge`),
+        image: cardImage,
+      }
+    : undefined;
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 h-full w-full overflow-hidden bg-black">
       <div ref={mountRef} className="absolute inset-0 h-full w-full" />
 
       {/* Subtle landmark caption */}
-      <p className="font-mono-code absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-[10px] uppercase tracking-[0.3em] text-white/45">
+      <p className="font-mono-code absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap text-[9px] uppercase tracking-[0.25em] text-white/45 sm:bottom-6 sm:text-[10px] sm:tracking-[0.3em]">
         Serra da Leba · Huíla, Angola
       </p>
 
       <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-black/85 via-black/55 to-transparent md:w-3/5" />
 
-      {/* Right-hand card slot: the ejected cubie flies here and the card takes over */}
+      {/* Mobile Compact Ejected Card (bottom-right above caption on phones/tablets < lg) */}
+      {activeCard && (
+        <div className="absolute bottom-11 right-4 left-4 z-10 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/85 p-2.5 backdrop-blur-md sm:left-auto sm:w-80 lg:hidden">
+          <img
+            src={activeCard.image}
+            alt={activeCard.title}
+            className="h-14 w-14 shrink-0 rounded-xl border border-border object-cover object-[50%_20%]"
+            style={{ filter: "grayscale(0.3) contrast(1.06)" }}
+          />
+          <div className="min-w-0 flex-1">
+            <span className="font-mono-code inline-flex items-center gap-1.5 text-[9px] uppercase tracking-widest text-moss">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
+              {activeCard.badge}
+            </span>
+            <p className="font-display truncate text-xs font-semibold text-white sm:text-sm">
+              {activeCard.title}
+            </p>
+            <p className="truncate text-[11px] text-muted-foreground">{activeCard.subtitle}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop Right-hand card slot: the ejected cubie flies here and the card takes over */}
       <div className="absolute inset-y-0 right-8 z-10 hidden items-center lg:flex xl:right-16">
         <div ref={cardSlotRef} className="relative h-[22rem] w-72 xl:w-80">
           <div
@@ -916,8 +925,8 @@ export default function ThreeHero({ activeChapter = 0 }: { activeChapter?: numbe
                 <img
                   src={activeCard.image}
                   alt={activeCard.title}
-                  className="h-full w-full object-cover"
-                  style={{ filter: "grayscale(0.2) contrast(1.06)" }}
+                  className="h-full w-full object-cover object-[50%_22%]"
+                  style={{ filter: "grayscale(0.55) contrast(1.08) brightness(0.95)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
                 <span className="font-mono-code absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-input bg-black/75 px-2.5 py-1 text-[9px] uppercase tracking-widest text-foreground backdrop-blur">

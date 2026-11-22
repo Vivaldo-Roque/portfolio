@@ -1,0 +1,53 @@
+# =============================================================================
+# TEMPLATE DE NOVO PROJETO (Ignorado automaticamente porque começa com "_")
+# =============================================================================
+# COMO ADICIONAR UM NOVO PROJETO SEM MEXER NO CÓDIGO:
+# 1. Guarda as imagens do projeto na pasta: public/img/works/ (ex: meu_app_1.png)
+# 2. Faz uma cópia deste ficheiro nesta mesma pasta (src/content/projects/)
+#    com um nome sem "_" no início (ex: 08-meu-novo-projeto.yaml)
+# 3. Preenche os dados abaixo e grava. O projeto aparece automaticamente no site!
+# =============================================================================
+
+id: meu_novo_projeto          # Identificador único para o URL (/pt/projects/meu_novo_projeto)
+order: 8                      # Ordem em que aparece na grelha (1, 2, 3...)
+category: Web                 # "Web" ou "Mobile"
+tier: field                   # "field" (Aplicado no Terreno) ou "lab" (Estudo & Lab)
+year: "2026"
+
+tags:
+  - Python
+  - Django
+  - React
+
+# Links do projeto (usa "#" se não tiver link público ainda)
+href: "https://github.com/Vivaldo-Roque/meu-novo-projeto"
+liveUrl: "https://meu-novo-projeto.com"
+
+# Imagens colocadas em public/img/works/ (basta escrever o nome do ficheiro!)
+image: "bancoviva.png"
+gallery:
+  - "bancoviva.png"
+
+# Textos em Português
+pt:
+  name: "Nome do Projeto em Português"
+  description: |-
+    Escreve aqui a descrição do projeto em Português.
+    Como estamos a usar "|-" do YAML, podes escrever várias linhas livremente.
+
+  # (OPCIONAL) Se quiseres personalizar os textos ou imagens das 4 cenas do Showcase:
+  # scenes:
+  #   - eyebrow: "Problema"
+  #     title: "O desafio que resolvi"
+  #     body: "Explicação detalhada do problema..."
+  #     image: "captura_cena_1.png"
+  #   - eyebrow: "Stack"
+  #     title: "Arquitetura escolhida"
+  #     body: "Por que escolhi estas tecnologias..."
+  #     image: "captura_cena_2.png"
+
+# Textos em Inglês
+en:
+  name: "Project Name in English"
+  description: |-
+    Write your project description in English here.

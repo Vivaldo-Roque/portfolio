@@ -1,0 +1,27 @@
+# =============================================================================
+# COMMON (PT)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+langdesc: "Português 🇵🇹"
+portfolio: "PORTFÓLIO"
+navhome: "INÍCIO"
+navabout: "SOBRE"
+navskills: "HABILIDADES"
+navworks: "TRABALHOS"
+navexperience: "EXPERIÊNCIA"
+navcontact: "CONTATO"
+navorigin: "JORNADA"
+btn_contact_me: "CONTATE-ME"
+btn_see_portfolio: "VER PORTFÓLIO"
+btn_download_cv: "BAIXAR CV"
+btn_let_talk: "VAMOS CONVERSAR"
+btn_see_details: "Ver detalhes"
+btn_back: "Voltar"
+footer_crafted: "Criado com código & raízes em Angola 🌿"
+theme_light: "Claro"
+theme_dark: "Escuro"
+player_title: "Leitor de Música"
+player_now_playing: "A Tocar"
+player_close: "Fechar"

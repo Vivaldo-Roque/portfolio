@@ -72,7 +72,7 @@ function CompetenciasPanel() {
       body: t("certifications_2_body"),
     },
     {
-      period: t("experience_2_title").includes("Freelance") ? "Em curso" : "Ongoing",
+      period: t("origin_period_ongoing"),
       title: t("certifications_3_title"),
       place: t("certifications_3_place"),
       body: t("certifications_3_body"),
@@ -166,19 +166,19 @@ export default function OriginStory() {
 
   const experience: Item[] = [
     {
-      period: "Jul – Ago 2023",
+      period: t("origin_period_piscine"),
       title: t("experience_0_title"),
       place: t("experience_0_place"),
       body: t("experience_0_body"),
     },
     {
-      period: "2023 – Presente",
+      period: t("origin_period_present"),
       title: t("experience_1_title"),
       place: t("experience_1_place"),
       body: t("experience_1_body"),
     },
     {
-      period: t("experience_2_title").includes("Freelance") ? "Em curso" : "Ongoing",
+      period: t("origin_period_ongoing"),
       title: t("experience_2_title"),
       place: t("experience_2_place"),
       body: t("experience_2_body"),

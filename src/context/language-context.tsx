@@ -1,52 +1,74 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import translationsData from "../lib/languages.json";
+import React, { createContext, useContext, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import "../lib/i18n";
 
 export type Language = "en" | "pt";
 
 interface LanguageContextType {
   language: Language;
-  t: (key: string, replacements?: Record<string, string>) => string;
+  setLanguage: (lang: Language) => void;
+  toggleLanguage: () => void;
+  t: (key: string, replacements?: Record<string, string | number>) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>("en");
+  const { t: i18nT, i18n } = useTranslation();
 
+  // Normalize language code (e.g. "pt-AO" or "pt-PT" -> "pt")
+  const rawLang = (i18n.resolvedLanguage || i18n.language || "en").slice(0, 2).toLowerCase();
+  const language: Language = rawLang === "pt" ? "pt" : "en";
+
+  // Synchronize the active language code with the URL (/pt/... or /en/...)
   useEffect(() => {
-    // Client-only detection to prevent SSR hydration mismatch
-    const systemLang = navigator.language.slice(0, 2);
-    if (systemLang === "pt") {
-      setLanguage("pt");
+    document.documentElement.lang = language;
+    if (typeof window === "undefined") return;
+
+    const { pathname, search, hash } = window.location;
+    const segments = pathname.split("/").filter(Boolean);
+    const first = segments[0]?.toLowerCase();
+
+    if (first === "pt" || first === "en") {
+      if (first !== language) {
+        segments[0] = language;
+        const nextPath = `/${segments.join("/")}`;
+        window.history.replaceState(window.history.state, "", `${nextPath}${search}${hash}`);
+      }
     } else {
-      setLanguage("en");
+      const rest = segments.length > 0 ? `/${segments.join("/")}` : "";
+      const nextPath = `/${language}${rest}`;
+      window.history.replaceState(window.history.state, "", `${nextPath}${search}${hash}`);
     }
-  }, []);
+  }, [language]);
 
-  const t = (key: string, replacements?: Record<string, string>): string => {
-    const dict = (translationsData as any)[language];
-    if (!dict) return key;
+  // Listen to browser Back/Forward buttons if the URL language prefix changes
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onPopState = () => {
+      const first = window.location.pathname.split("/").filter(Boolean)[0]?.toLowerCase();
+      if ((first === "pt" || first === "en") && first !== language) {
+        i18n.changeLanguage(first);
+      }
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [language, i18n]);
 
-    let translation = dict[key];
-    if (translation === undefined) {
-      // Fallback to English dictionary if key not found in active language
-      const enDict = (translationsData as any)["en"];
-      translation = enDict?.[key];
-    }
+  const setLanguage = (lang: Language) => {
+    i18n.changeLanguage(lang);
+  };
 
-    if (translation === undefined) return key;
+  const toggleLanguage = () => {
+    setLanguage(language === "pt" ? "en" : "pt");
+  };
 
-    if (replacements) {
-      Object.entries(replacements).forEach(([placeholder, value]) => {
-        translation = translation.replace(new RegExp(`{${placeholder}}`, "g"), value);
-      });
-    }
-
-    return translation;
+  const t = (key: string, replacements?: Record<string, string | number>): string => {
+    return i18nT(key, replacements as Record<string, unknown>) as string;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

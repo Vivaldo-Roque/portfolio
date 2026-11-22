@@ -1,0 +1,30 @@
+# =============================================================================
+# HERO (EN)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+hero_hello: '> printf("Hello, World!\n");'
+hero_tagline: "Engineering digital experiences from the heart of Africa."
+hero_scroll: "Scroll to begin the story"
+hero_scroll_player: "Scroll to begin the story"
+hero_caption: "📍 Serra da Leba, Angola"
+three_card_1_tag: "LUANDA · ANGOLA"
+three_card_1_title: "Vivaldo Cristóvão Roque"
+three_card_1_subtitle: "Full-Stack Software Engineer"
+three_card_1_badge: "HUMAN BEHIND THE CODE"
+three_card_2_tag: "2016 → 2026"
+three_card_2_title: "From Logic to Engineering"
+three_card_2_subtitle: "ISKA · Google Play · Freelance"
+three_card_2_badge: "FIELD JOURNEY"
+three_card_3_tag: "GOOGLE PLAY & WEB"
+three_card_3_title: "CFOP Trainer & Banco Viva"
+three_card_3_subtitle: "Real products published and in use"
+three_card_3_badge: "IN PRODUCTION"
+three_card_4_tag: "FLUTTER · DJANGO · REACT"
+three_card_4_title: "Cross-Platform Architecture"
+three_card_4_subtitle: "Mobile, Web & Scalable Systems"
+three_card_4_badge: "TECH STACK"
+text_changing1: "WEB DEVELOPER"
+text_changing2: "SOFTWARE ENGINEER"
+text_changing3: "TECHNOLOGY GEEK"

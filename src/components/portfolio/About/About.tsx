@@ -2,12 +2,10 @@ import { motion } from "framer-motion";
 import portrait from "@/assets/vivaldo-portrait.jpg";
 import { useLanguage } from "@/context/language-context";
 import ReactMarkdown from "react-markdown";
-import bioEn from "@/content/about/bio-en.md?raw";
-import bioPt from "@/content/about/bio-pt.md?raw";
 
 export default function About() {
-  const { t, language } = useLanguage();
-  const bio = language === "pt" ? bioPt : bioEn;
+  const { t } = useLanguage();
+  const bio = t("bio");
 
   return (
     <section id="about" className="relative py-32" aria-label={t("about_me_title")}>

@@ -1,0 +1,82 @@
+# =============================================================================
+# ORIGIN (EN)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+experience_title: "EXPERIENCE"
+education_title: "EDUCATION"
+edu1_name: "42 Luanda"
+edu1_degree: "Intensive coding program"
+edu1_period: "Jun 2025 - Aug 2027"
+edu2_name: "ISKA - Instituto Superior Kangonjo de Angola"
+edu2_degree: "Bachelor's Degree, Computer Engineering"
+edu2_period: "Feb 2019 - Jul 2023"
+edu2_note: "Finalist. No expected date for bachelor's degree defense."
+edu3_name: "School Nº4073 - Padre Inácio Tambu"
+edu3_degree: "General Education, Biological and Physical Sciences"
+edu3_period: "2016 - 2018"
+banner_text: "YOU CAN TAKE A CLOSER LOOK AT MY WORK"
+banner_btn_text: "ON GITHUB"
+banner_contact: "CONTACT"
+origin_chapter: "chapter_01"
+origin_title_pre: "Where it all"
+origin_title_gradient: "began"
+origin_subtitle: |-
+  Every forest starts with a seed. Mine was planted in Luanda — among science books, borrowed computers, and a stubborn desire to understand how everything works from the inside.
+origin_tab_academic: "Academic Education"
+origin_tab_experience: "Experience"
+origin_tab_certifications: "Skills & Certifications"
+origin_sec_certifications: "Certifications"
+origin_sec_softskills: "Soft Skills"
+origin_period_ongoing: "Ongoing"
+origin_period_present: "2023 – Present"
+origin_period_piscine: "Jul – Aug 2023"
+academic_0_title: "The Spark"
+academic_0_place: "School Nº4073 — Padre Inácio Tambu"
+academic_0_body: |-
+  I studied Physical and Biological Sciences in high school. This is where I saw code for the first time — and realized computers weren't magic boxes, they were language. The seed was planted.
+academic_1_title: "The Foundation"
+academic_1_place: "ISKA — Instituto Superior Kangonjo de Angola"
+academic_1_body: |-
+  Bachelor's Degree in Computer Engineering. Four years turning curiosity into method: data structures, networks, databases, and the first projects that actually worked off the paper.
+academic_2_title: "The Global Perspective"
+academic_2_place: "Harvard CS50 — Introduction to Computer Science"
+academic_2_body: |-
+  Returned to the basics with Harvard's lens. Consolidated intuition into solid principles — abstraction, recursion, complexity — and gained vocabulary to talk to any engineer in the world.
+academic_3_title: "Wiring the World"
+academic_3_place: "Cisco — CCNA Networking Academy"
+academic_3_body: |-
+  Introduction to Networks + Switching, Routing & Wireless Essentials. Learned to think in packets, subnets, and topologies — the invisible fabric behind every web application.
+academic_4_title: "Level Up"
+academic_4_place: "42 Luanda — Software Engineering Program"
+academic_4_body: |-
+  Currently in the intensive program at 42. No teachers, no classes — just peer-learning, demanding projects in C, systems, and architecture. Here you learn how to learn.
+experience_0_title: "The Deep End"
+experience_0_place: "42 Luanda Piscine"
+experience_0_body: |-
+  A month of total immersion: sleeping little, coding a lot, defending work in front of peers. Learned to collaborate under pressure, read others' code, and deliver even when the problem seems insurmountable.
+experience_1_title: "Building in the Open"
+experience_1_place: "Personal & open-source projects"
+experience_1_body: |-
+  I continuously build in Flutter, Django, and Python — mobile apps, dashboards, and tools that solve real problems around me, in Luanda and beyond. Each repository is a chapter of this forest.
+experience_2_title: "Freelance & Collaborations"
+experience_2_place: "Remote · Angola"
+experience_2_body: |-
+  Available for product, mobile, and web collaborations. Working with small teams that value clean code, honest communication, and consistent deliveries.
+certifications_0_title: "CS50x — Introduction to Computer Science"
+certifications_0_place: "Harvard University · edX"
+certifications_0_body: |-
+  Computer science course that consolidates fundamentals — abstraction, algorithms, data structures, memory, web — with projects assessed from start to finish.
+certifications_1_title: "CCNA — Networking Essentials"
+certifications_1_place: "Cisco Networking Academy"
+certifications_1_body: |-
+  Introduction to Networks + Switching, Routing & Wireless Essentials. Solid foundation in IP networks, OSI/TCP-IP models, and network equipment configuration.
+certifications_2_title: "42 Luanda Piscine — Completed"
+certifications_2_place: "42 Network"
+certifications_2_body: |-
+  4-week immersion in C and Unix, peer-assessed. Approved for the main program of 42 Luanda.
+certifications_3_title: "More on the way…"
+certifications_3_place: "Continuous learning"
+certifications_3_body: |-
+  Active study in software architecture, distributed systems, and cloud. New certifications arrive along the way.

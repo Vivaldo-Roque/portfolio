@@ -1,0 +1,34 @@
+# =============================================================================
+# 05 · ECOMMERCE WEB ADMIN DASHBOARD
+# =============================================================================
+
+id: ecommerce_web_admin
+order: 5
+category: Web
+tier: field
+year: "2024"
+
+tags:
+  - Flutter
+  - Dart
+  - GetX
+  - Firebase Authentication
+  - Firebase Firestore
+  - Firebase Hosting
+
+href: "https://github.com/Vivaldo-Roque/"
+
+image: "flutter_web_ecommerce_1.png"
+gallery:
+  - "flutter_web_ecommerce_1.png"
+  - "flutter_web_ecommerce_2.png"
+
+pt:
+  name: "Dashboard Admin Web de Ecommerce"
+  description: |-
+    UM DASHBOARD ADMIN WEB ABRANGENTE PARA GESTÃO DE OPERAÇÕES DE ECOMMERCE, CONSTRUÍDO COM FLUTTER PARA WEB.
+
+en:
+  name: "Ecommerce Web Admin Dashboard"
+  description: |-
+    A COMPREHENSIVE WEB ADMIN DASHBOARD FOR MANAGING ECOMMERCE OPERATIONS, BUILT WITH FLUTTER FOR WEB.

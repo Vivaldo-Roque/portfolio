@@ -1,0 +1,32 @@
+# =============================================================================
+# 02 · ISKA MINHAS NOTAS
+# =============================================================================
+
+id: iska_minhas_notas
+order: 2
+category: Mobile
+tier: field
+year: "2023"
+
+tags:
+  - Android
+  - Java
+  - Jsoup
+  - Apache POI
+  - HTML
+
+href: "https://github.com/Vivaldo-Roque/ISKA_Minhas_Notas"
+
+image: "iskaminhasnotas.png"
+gallery:
+  - "iskaminhasnotas.png"
+
+pt:
+  name: "ISKA MINHAS NOTAS"
+  description: |-
+    APLICATIVO CAPAZ DE EXTRAIR DADOS DO ALUNO DA SECRETARIA ONLINE DO ISKA ATRAVÉS DAS CREDENCIAIS DO ALUNO.
+
+en:
+  name: "ISKA MINHAS NOTAS"
+  description: |-
+    APPLICATION CAPABLE OF EXTRACTING STUDENT DATA FROM ISKA'S ONLINE SECRETARY THROUGH THE STUDENT'S CREDENTIALS.

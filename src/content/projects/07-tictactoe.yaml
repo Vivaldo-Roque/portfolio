@@ -1,0 +1,31 @@
+# =============================================================================
+# 07 · TICTACTOE (JOGO DA VELHA)
+# =============================================================================
+
+id: tictactoe
+order: 7
+category: Web
+tier: lab
+year: "2022"
+
+tags:
+  - CSS
+  - HTML
+  - JavaScript
+
+href: "https://github.com/Vivaldo-Roque/TicTacToe"
+liveUrl: "https://vivaldo-roque.github.io/TicTacToe"
+
+image: "tictactoe.png"
+gallery:
+  - "tictactoe.png"
+
+pt:
+  name: "Jogo da Velha"
+  description: |-
+    JOGO TICTACTOE COM IA USANDO JAVASCRIPT.
+
+en:
+  name: "Tic-Tac-Toe"
+  description: |-
+    TICTACTOE GAME WITH AI USING JAVASCRIPT.

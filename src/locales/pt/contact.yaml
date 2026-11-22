@@ -1,0 +1,18 @@
+# =============================================================================
+# CONTACT (PT)
+# Dica: Para textos longos ou com vários parágrafos, usa "|-" na linha de cima
+#       ou cria um ficheiro .md nesta pasta (ex: bio.md -> t("bio")).
+# =============================================================================
+
+contact_title: "Vamos construir algo juntos."
+contact_subtitle: "Estou aberto a oportunidades, colaborações e ideias interessantes."
+contact_location_label: "Localização"
+contact_email_label: "Email"
+contact_whatsapp_label: "WhatsApp"
+contact_form_name: "Nome"
+contact_form_email: "Email"
+contact_form_message: "Mensagem"
+contact_form_send: "Enviar Mensagem"
+contact_form_sending: "A enviar..."
+contact_form_success: "Mensagem enviada — obrigado!"
+contact_form_error: "Falha ao enviar. Por favor, tente novamente."
