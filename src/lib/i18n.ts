@@ -67,11 +67,9 @@ i18n
     nonExplicitSupportedLngs: true, // matches "pt-PT", "pt-AO", "pt-BR" -> "pt" and "en-US" -> "en"
     load: "languageOnly",
     detection: {
-      // 1. Check URL path (/pt/... or /en/...) or query (?lang=pt) first
-      // 2. Check user's manual choice in localStorage
-      // 3. Otherwise detect browser/OS language automatically
-      order: ["path", "querystring", "localStorage", "navigator", "htmlTag"],
-      lookupFromPathIndex: 0,
+      // 1. Check user's manual choice in localStorage
+      // 2. Otherwise detect browser/OS language automatically
+      order: ["localStorage", "navigator", "htmlTag"],
       lookupQuerystring: "lang",
       lookupLocalStorage: "portfolio_lang",
       caches: ["localStorage"],
