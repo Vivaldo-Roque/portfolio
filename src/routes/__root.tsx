@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, useRouter } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { LanguageProvider } from "@/context/language-context";
+import { SoundProvider } from "@/context/sound-context";
 
 function NotFoundComponent() {
   return (
@@ -72,7 +73,9 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <LanguageProvider>
-      <Outlet />
+      <SoundProvider>
+        <Outlet />
+      </SoundProvider>
     </LanguageProvider>
   );
 }

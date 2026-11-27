@@ -16,7 +16,7 @@ export const PROFILE = {
   email: "2001vivaldo@gmail.com",
   phoneDisplay: "(+244) 928 994 233",
   whatsappUrl: "https://wa.me/244928994233",
-  locationShort: "Luanda · Angola",
+  locationShort: "Sequele · Ícolo e Bengo, Angola",
   locationFull: "Angola, Ícolo e Bengo, Sequele",
   locationMapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Angola,+Ícolo+e+Bengo,+Sequele",

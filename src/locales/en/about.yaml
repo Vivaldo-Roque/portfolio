@@ -8,7 +8,7 @@ about_me_title: "ABOUT ME"
 about_chapter: "chapter_04"
 about_title_gradient: "Roots"
 about_title_pre: "The"
-about_me_p1: "I am Vivaldo Cristóvão Roque, a full-stack software engineer based in Luanda, Angola."
+about_me_p1: "I am Vivaldo Cristóvão Roque, a Computer Engineering graduate based in Sequele, Ícolo e Bengo, Angola."
 about_me_p2: |-
   I am currently in the final stage of the Computer Engineering course at the Kangonjo Polytechnic Institute, where I have been consolidating my knowledge of systems, networks and software development. My journey began in high school at School Nº 4073 – Padre Inácio Tambu (graduated between 2016 and 2018, with emphasis on Physical and Biological Sciences), and since then I have been seeking to continually expand my education.
   
@@ -48,17 +48,17 @@ about_stop1_year: "2016 — PRESENT"
 about_stop1_tag: "THE ROOTS & ISKA"
 about_stop1_place: "Luanda · School Nº 4073 & Kangonjo Polytechnic Institute"
 about_stop1_title: "From Padre Inácio Tambu High School to Computer Engineering"
-about_stop1_p1: "I am Vivaldo Cristóvão Roque, a full-stack software engineer based in Luanda, Angola."
+about_stop1_p1: "I hold a Bachelor's degree in Computer Engineering from Kangonjo Polytechnic Institute (ISKA) and am currently looking for an opportunity in software development."
 about_stop1_p2: |-
-  I am currently in the final stage of the Computer Engineering course at the Kangonjo Polytechnic Institute, where I have been consolidating my knowledge of systems, networks and software development.
+  During my degree, I consolidated solid knowledge in systems, networks, and software engineering.
 about_stop1_p3: |-
   My journey began in high school at School Nº 4073 – Padre Inácio Tambu (graduated between 2016 and 2018, with emphasis on Physical and Biological Sciences), and since then I have been seeking to continually expand my education.
 about_stop1_m1_label: "High School"
 about_stop1_m1_val: "Physical & Biological Sciences"
 about_stop1_m2_label: "Higher Education"
-about_stop1_m2_val: "Computer Engineering (ISKA)"
+about_stop1_m2_val: "B.Sc. Computer Engineering"
 about_stop1_m3_label: "Base"
-about_stop1_m3_val: "Luanda, Angola"
+about_stop1_m3_val: "Sequele, Ícolo e Bengo, Angola"
 about_stop1_chip1: "Systems"
 about_stop1_chip2: "Networks"
 about_stop1_chip3: "Software Development"
@@ -77,7 +77,7 @@ about_stop2_m1_val: "Cisco CCNA & SRWE"
 about_stop2_m2_label: "Harvard Online"
 about_stop2_m2_val: "Intro to Computer Science"
 about_stop2_m3_label: "Focus"
-about_stop2_m3_val: "Networking & CS Foundations"
+about_stop2_m3_val: "Mobile App Development"
 about_stop2_chip1: "CCNA: Introduction to Network"
 about_stop2_chip2: "CCNA: SRWE"
 about_stop2_chip3: "Harvard CS50"
@@ -89,41 +89,41 @@ about_stop3_title: "From the Piscine to Cadet at 42 Luanda"
 about_stop3_p1: |-
   I also had an enriching experience participating in the 42Luanda pool, which encouraged me to think in an innovative and collaborative way.
 about_stop3_p2: |-
-  Currently, I am a cadet at 42 Luanda, an intensive software engineering program, where I am working to achieve the common core and possibly pursue a specialization.
+  Currently, I am a cadet at 42 Luanda, an intensive software engineering program. I have completed the Common Core and am now in the advanced phase (42 Advanced).
 about_stop3_p3: |-
   This peer-to-peer learning environment has been challenging me to develop problem-solving skills, teamwork, and mastery of low-level programming concepts.
 about_stop3_m1_label: "Entry Stage"
 about_stop3_m1_val: "42 Luanda Piscine"
 about_stop3_m2_label: "Current Role"
-about_stop3_m2_val: "Cadet · Common Core"
+about_stop3_m2_val: "Cadet · 42 Advanced"
 about_stop3_m3_label: "Methodology"
 about_stop3_m3_val: "Peer-to-Peer & Low-Level"
 about_stop3_chip1: "42 Luanda"
-about_stop3_chip2: "Common Core"
+about_stop3_chip2: "42 Advanced"
 about_stop3_chip3: "Peer-to-Peer"
 about_stop3_chip4: "Problem Solving"
 about_stop3_chip5: "Low-Level Programming"
-about_stop4_year: "STACK & OBJECTIVE"
-about_stop4_tag: "DJANGO, FLUTTER & VISION"
-about_stop4_place: "Web & Mobile · Complete Technological Solutions"
-about_stop4_title: "Web & Mobile Applications and My Career Objective"
+about_stop4_year: "FOCUS & OBJECTIVE"
+about_stop4_tag: "MOBILE APPS & VISION"
+about_stop4_place: "Mobile Development · Technological Solutions"
+about_stop4_title: "Mobile App Development and My Career Objective"
 about_stop4_p1: |-
-  I have developed a great interest in creating web applications using the Django framework in conjunction with the Python language and in developing mobile solutions for Android with Flutter in conjunction with the Dart language.
+  My main focus is developing mobile applications with Flutter and Dart, creating fast, intuitive, and well-structured experiences.
 about_stop4_p2: |-
-  My latest experience has been focused on building applications with Flutter, Dart, Java and Sqlite. I am looking for opportunities and projects that allow me to combine my skills in networking, development and systems analysis to create complete technological solutions.
+  I am looking for opportunities and projects where I can apply my Computer Engineering background to build complete technological solutions.
 about_stop4_hl_label: "Objective"
 about_stop4_hl_body: |-
-  Specialize and grow in the development area, applying my knowledge in Computer Engineering and complementary training in an integrated manner, with the aim of contributing to innovative projects in the technology market. I invite you to learn about my projects and connect with us to exchange experiences and ideas.
-about_stop4_m1_label: "Web & Backend"
-about_stop4_m1_val: "Python & Django"
-about_stop4_m2_label: "Android Mobile"
-about_stop4_m2_val: "Flutter, Dart, Java & SQLite"
-about_stop4_m3_label: "Integration"
-about_stop4_m3_val: "Networks + Systems + Dev"
-about_stop4_chip1: "Python"
-about_stop4_chip2: "Django"
-about_stop4_chip3: "Flutter"
-about_stop4_chip4: "Dart"
-about_stop4_chip5: "Java"
-about_stop4_chip6: "SQLite"
-about_stop4_chip7: "Systems Analysis"
+  Specialize and grow in mobile development, applying my Computer Engineering knowledge in an integrated way to contribute to innovative projects. I invite you to explore my projects and connect to exchange experiences and ideas.
+about_stop4_m1_label: "Main Focus"
+about_stop4_m1_val: "Mobile Apps"
+about_stop4_m2_label: "Mobile Stack"
+about_stop4_m2_val: "Flutter & Dart"
+about_stop4_m3_label: "Availability"
+about_stop4_m3_val: "Open to Opportunities"
+about_stop4_chip1: "Flutter"
+about_stop4_chip2: "Dart"
+about_stop4_chip3: "Mobile Apps"
+about_stop4_chip4: "Computer Engineering"
+about_stop4_chip5: ""
+about_stop4_chip6: ""
+about_stop4_chip7: ""

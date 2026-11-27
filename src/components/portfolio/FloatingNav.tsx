@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Volume2, VolumeX, X } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
+import { useSound } from "@/context/sound-context";
 import { SUSPEND_SNAP_EVENT } from "@/routes/index";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -9,6 +10,7 @@ export default function FloatingNav() {
   const [activeSection, setActiveSection] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useLanguage();
+  const { muted, toggleMute } = useSound();
 
   const links = [
     { href: "#home", label: t("navhome") },
@@ -86,6 +88,15 @@ export default function FloatingNav() {
           ))}
         </ul>
         <div className="flex items-center gap-2 sm:gap-2.5">
+          <button
+            type="button"
+            onClick={toggleMute}
+            aria-label={muted ? "Unmute sound effects" : "Mute sound effects"}
+            title={muted ? "Ativar som" : "Silenciar som"}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-input bg-black/60 text-white/80 transition hover:border-moss hover:text-moss"
+          >
+            {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
+          </button>
           <LanguageSwitcher />
 
           <a

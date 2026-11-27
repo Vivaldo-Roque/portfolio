@@ -1,7 +1,7 @@
 # =============================================================================
 # 01 · CFOP TRAINER
-# Para adicionar um novo projeto no futuro, basta duplicar este ficheiro .yaml
-# dentro de src/content/projects/ e colocar as imagens em public/img/works/!
+# Para adicionar um novo projeto no futuro, basta criar uma nova subpasta
+# dentro de src/content/projects/ com o seu project.yaml e imagens!
 # =============================================================================
 
 id: cfop_trainer
@@ -22,7 +22,7 @@ tags:
 href: "https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer"
 liveUrl: "https://play.google.com/store/apps/details?id=ao.vivalabs.cfop_trainer"
 
-# Imagens (podes escrever apenas o nome do ficheiro que colocaste em public/img/works/)
+# Imagens (basta escrever o nome do ficheiro colocado nesta mesma subpasta do projeto)
 image: "cfoptrainer.png"
 gallery:
   - "cfoptrainer.png"

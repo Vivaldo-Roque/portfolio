@@ -60,21 +60,56 @@ export type ShowcaseProject = {
 
 export type Project = ShowcaseProject & {
   category: "Web" | "Mobile";
+  folderPath?: string;
 };
+
+// Automatically index every image/media asset placed inside any project's subfolder
+const projectAssetModules = import.meta.glob<string>(
+  "../content/projects/**/*.{png,jpg,jpeg,webp,gif,svg,avif}",
+  {
+    eager: true,
+    import: "default",
+  },
+);
 
 /**
  * Resolves an image path from a YAML project file:
- * - If you write just `"meu_app.png"`, it automatically points to `"/img/works/meu_app.png"`.
+ * - First checks if the image exists inside the project's own subfolder (`src/content/projects/<folder>/<image>`).
  * - If you write `"/img/..."` or `"https://..."`, it uses it as-is.
+ * - Fallback: points to `"/img/works/<image>"` if not found locally.
  */
-export function resolveProjectImage(img?: string): string {
+export function resolveProjectImage(img?: string, folderPath?: string): string {
   if (!img) return "";
   const trimmed = img.trim();
   if (!trimmed) return "";
-  if (trimmed.startsWith("/") || trimmed.startsWith("http://") || trimmed.startsWith("https://") || trimmed.startsWith("data:")) {
+  if (
+    trimmed.startsWith("/") ||
+    trimmed.startsWith("http://") ||
+    trimmed.startsWith("https://") ||
+    trimmed.startsWith("data:")
+  ) {
     return trimmed;
   }
-  return `/img/works/${trimmed}`;
+
+  // Clean leading "./" if the user wrote "./cover.png"
+  const cleanName = trimmed.replace(/^\.\//, "");
+
+  // 1. Look inside the project's own isolated subfolder first
+  if (folderPath) {
+    const localKey = `${folderPath}/${cleanName}`;
+    if (projectAssetModules[localKey]) {
+      return projectAssetModules[localKey];
+    }
+  }
+
+  // 2. Also match by filename in any project subfolder if folderPath wasn't provided
+  for (const [assetPath, assetUrl] of Object.entries(projectAssetModules)) {
+    if (assetPath.endsWith(`/${cleanName}`)) {
+      return assetUrl;
+    }
+  }
+
+  return `/img/works/${cleanName}`;
 }
 
 /**
@@ -184,21 +219,25 @@ export const defaultScenes = (
   },
 ];
 
-// Automatically load every .yaml/.yml file inside src/content/projects/
-// Ignore files starting with "_" (such as _TEMPLATE.yaml)
-const projectYamlModules = import.meta.glob<RawProjectYaml>("../content/projects/*.{yaml,yml}", {
+// Automatically load every .yaml/.yml file inside src/content/projects/<project-folder>/
+// Ignore folders or files starting with "_" (such as _TEMPLATE/project.yaml)
+const projectYamlModules = import.meta.glob<RawProjectYaml>("../content/projects/**/*.{yaml,yml}", {
   eager: true,
   import: "default",
 });
 
 export const projects: Project[] = Object.entries(projectYamlModules)
   .filter(([filePath, raw]) => {
-    const fileName = filePath.split("/").pop() || "";
-    return !fileName.startsWith("_") && Boolean(raw && raw.id && raw.pt && raw.en);
+    const segments = filePath.split("/");
+    const hasUnderscoreSegment = segments.some((seg) => seg.startsWith("_"));
+    return !hasUnderscoreSegment && Boolean(raw && raw.id && raw.pt && raw.en);
   })
-  .map(([, raw]) => {
-    const primaryImg = resolveProjectImage(raw.image);
-    const galleryImgs = (raw.gallery || []).map(resolveProjectImage).filter(Boolean);
+  .map(([filePath, raw]) => {
+    const folderPath = filePath.substring(0, filePath.lastIndexOf("/"));
+    const primaryImg = resolveProjectImage(raw.image, folderPath);
+    const galleryImgs = (raw.gallery || [])
+      .map((img) => resolveProjectImage(img, folderPath))
+      .filter(Boolean);
     const secondaryImg = galleryImgs[1] || galleryImgs[0] || primaryImg;
     const defaultName = raw.pt?.name || raw.en?.name || raw.id;
 
@@ -216,6 +255,7 @@ export const projects: Project[] = Object.entries(projectYamlModules)
       accent: "from-neutral-800/40 to-neutral-950/40",
       image: primaryImg,
       gallery: galleryImgs.length > 0 ? galleryImgs : [primaryImg],
+      folderPath,
       scenes: defaultScenes(defaultName, raw.tags || [], primaryImg, secondaryImg),
       i18n: {
         pt: raw.pt,

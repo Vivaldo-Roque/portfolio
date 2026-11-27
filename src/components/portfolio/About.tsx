@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowUpRight, Cpu, Globe2, Rocket, Terminal, type LucideIcon } from "lucide-react";
+import { ArrowDown, ArrowUpRight, type LucideIcon } from "lucide-react";
 import portrait from "@/assets/vivaldo-portrait.jpg";
+import portraitCutout from "@/assets/vivaldo-portrait.png";
+import meWelcomeVideo from "@/assets/me_welcome.mp4";
 import { useLanguage } from "@/context/language-context";
 import { ABOUT_STOPS_CONFIG } from "@/config/about-data";
 import { PROFILE } from "@/config/profile";
 import { ScrambleText, useScrambleSection } from "./ScrambleText";
-import AboutGlobe from "./AboutGlobe";
+import { HologramComms } from "./HologramComms";
 
 type Stop = {
   id: string;
@@ -212,156 +214,19 @@ export default function About() {
     >
       <div className="pointer-events-none fixed inset-0 bg-grid opacity-35" aria-hidden />
 
-      {/* Mobile & Tablet Sticky Globe HUD (< lg) */}
-      <div className="sticky top-0 z-30 border-b border-border bg-black/90 px-4 pt-14 pb-3 backdrop-blur-md lg:hidden">
-        <div className="mx-auto flex max-w-xl items-center gap-3">
-          <div className="relative h-24 w-28 shrink-0 overflow-hidden rounded-xl border border-input bg-black sm:h-28 sm:w-32">
-            <AboutGlobe activeStop={activeStop} />
-          </div>
-
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2">
-              <img
-                src={portrait}
-                alt={PROFILE.fullName}
-                className="h-7 w-7 shrink-0 rounded-full border border-input object-cover object-[50%_20%]"
-                style={{ filter: "grayscale(0.3) contrast(1.08)" }}
-              />
-              <p className="font-mono-code truncate text-[10px] uppercase tracking-widest text-moss">
-                {current.num} / 04 · {current.tag}
-              </p>
-            </div>
-            <p className="font-display mt-1 truncate text-sm font-bold text-white">
-              {current.title}
-            </p>
-            <div className="mt-2 flex items-center gap-1.5">
-              {stops.map((s, idx) => {
-                const isAct = idx === activeStop;
-                return (
-                  <button
-                    key={s.id}
-                    type="button"
-                    onClick={() => scrollToStop(s.id)}
-                    className={`font-mono-code flex-1 rounded-md py-1 text-[10px] uppercase tracking-wider transition ${
-                      isAct
-                        ? "bg-white font-semibold text-black"
-                        : "border border-border bg-surface text-muted-foreground"
-                    }`}
-                  >
-                    {s.num}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+      {/* Featured Hologram Comms Intro (visible on desktop & mobile) */}
+      <div className="relative z-10 mx-auto max-w-2xl px-4 pt-20 pb-4 sm:pt-24">
+        <HologramComms
+          idleVideoSrc={meWelcomeVideo}
+          fallbackImage={portraitCutout}
+          alt={PROFILE.fullName}
+        />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-          {/* Desktop Left Sticky Expedition Passport & 3D Globe */}
-          <aside className="hidden lg:col-span-4 lg:block">
-            <div className="lg:sticky lg:top-20 lg:flex lg:h-[calc(100vh-5rem)] lg:flex-col lg:justify-between lg:py-4">
-              <div className="overflow-hidden rounded-2xl border border-input bg-surface/90 p-3.5 backdrop-blur-md">
-                <div className="mb-3 flex items-center gap-3 rounded-xl border border-border bg-black/60 p-2.5">
-                  <img
-                    src={portrait}
-                    alt={PROFILE.fullName}
-                    className="h-12 w-12 shrink-0 rounded-lg border border-input object-cover object-[50%_20%]"
-                    style={{ filter: "grayscale(0.3) contrast(1.08)" }}
-                  />
-                  <div className="min-w-0 flex-1">
-                    <p className="font-mono-code flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] text-moss">
-                      <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-moss" />
-                      {PROFILE.locationShort.toUpperCase()}
-                    </p>
-                    <h1 className="font-display truncate text-sm font-bold text-white">
-                      {PROFILE.fullName}
-                    </h1>
-                    <p className="truncate text-[11px] text-muted-foreground">
-                      {t("about_globe_hint")}
-                    </p>
-                  </div>
-                </div>
-
-                {/* 3D Planet Stage */}
-                <div className="relative aspect-[4/3.6] w-full overflow-hidden rounded-xl border border-border bg-black">
-                  <AboutGlobe
-                    activeStop={activeStop}
-                    onSelectStop={(idx) => scrollToStop(stops[idx]?.id || "roots")}
-                  />
-
-                  <span className="font-mono-code pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-2.5 py-1 text-[9px] uppercase tracking-widest text-white backdrop-blur">
-                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-                    {current.num} · {current.tag}
-                  </span>
-                </div>
-
-                {/* Expedition Progress Rail */}
-                <div className="mt-3 space-y-1">
-                  {stops.map((s, idx) => {
-                    const isAct = idx === activeStop;
-                    return (
-                      <button
-                        key={s.id}
-                        type="button"
-                        onClick={() => scrollToStop(s.id)}
-                        className={`group flex w-full items-center justify-between rounded-lg px-3 py-1.5 text-left transition ${
-                          isAct
-                            ? "bg-white text-black"
-                            : "text-muted-foreground hover:bg-white/5 hover:text-white"
-                        }`}
-                      >
-                        <span className="flex items-center gap-2.5">
-                          <span
-                            className={`inline-block h-1.5 w-1.5 rounded-full ${
-                              isAct
-                                ? "bg-moss"
-                                : "bg-muted-foreground/40 group-hover:bg-moss"
-                            }`}
-                          />
-                          <span className="font-mono-code text-[10px] uppercase tracking-[0.18em]">
-                            {s.num} · {s.tag}
-                          </span>
-                        </span>
-                        <span
-                          className={`font-mono-code text-[9px] ${
-                            isAct
-                              ? "font-semibold text-black/70"
-                              : "text-muted-foreground/70"
-                          }`}
-                        >
-                          {s.year.split(" ")[0]}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Bottom quick actions */}
-              <div className="mt-3 flex items-center justify-between gap-2">
-                <Link
-                  to="/chapter/$chapterId"
-                  params={{ chapterId: "work" }}
-                  className="font-mono-code inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-white px-4 py-2.5 text-[10px] font-semibold uppercase tracking-widest text-black transition hover:bg-white/90"
-                >
-                  {t("about_btn_see_projects")}
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </Link>
-                <a
-                  href="/#contact"
-                  className="font-mono-code inline-flex items-center justify-center rounded-full border border-input px-4 py-2.5 text-[10px] uppercase tracking-widest text-foreground transition hover:border-moss hover:text-moss"
-                >
-                  {t("btn_contact_me")}
-                </a>
-              </div>
-            </div>
-          </aside>
-
-          {/* Right Narrative Expedition */}
-          <div className="lg:col-span-8">
-            <div className="flex min-h-[60vh] flex-col justify-center pb-10 pt-8 sm:pt-16 lg:min-h-[72vh] lg:pt-28">
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6">
+        {/* Centered Single-Column Narrative Expedition */}
+        <div>
+            <div className="flex min-h-[50vh] flex-col justify-center pb-10 pt-4 sm:pt-8">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
                 <img
                   src={portrait}
@@ -383,39 +248,7 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Quick summary stats bar */}
-              <div className="mt-8 grid max-w-2xl grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
-                {[
-                  {
-                    k: t("about_stat_degree_label"),
-                    v: t("about_stat_degree_val"),
-                    I: Globe2,
-                  },
-                  { k: t("about_stat_net_label"), v: t("about_stat_net_val"), I: Cpu },
-                  {
-                    k: t("about_stat_prog_label"),
-                    v: t("about_stat_prog_val"),
-                    I: Terminal,
-                  },
-                  {
-                    k: t("about_stat_focus_label"),
-                    v: t("about_stat_focus_val"),
-                    I: Rocket,
-                  },
-                ].map(({ k, v, I }) => (
-                  <div key={k} className="rounded-xl border border-border bg-surface/60 p-3">
-                    <div className="flex items-center justify-between text-muted-foreground">
-                      <span className="font-mono-code text-[10px] uppercase tracking-widest">
-                        {k}
-                      </span>
-                      <I className="h-3.5 w-3.5 text-moss" />
-                    </div>
-                    <p className="font-display mt-1.5 text-xs font-semibold text-white sm:text-sm">
-                      {v}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              {/* Quick summary stats bar — removed */}
 
               <button
                 type="button"
@@ -466,7 +299,6 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }

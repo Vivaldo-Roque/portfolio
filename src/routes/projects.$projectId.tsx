@@ -45,7 +45,9 @@ function ProjectRoute() {
               tags: rawProject.tags.join(", "),
             }),
           accent: scene.accent,
-          image: customScene?.image ? resolveProjectImage(customScene.image) : scene.image,
+          image: customScene?.image
+            ? resolveProjectImage(customScene.image, rawProject.folderPath)
+            : scene.image,
           caption: customScene?.caption || scene.caption,
         };
       }),
