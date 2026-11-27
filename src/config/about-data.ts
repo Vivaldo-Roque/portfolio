@@ -25,7 +25,7 @@ export const ABOUT_STOPS_CONFIG: AboutStopConfig[] = [
     num: "01",
     prefix: "about_stop1",
     paragraphCount: 3,
-    chipCount: 4,
+    chipCount: 3,
     Icon: Compass,
   },
   {
@@ -52,7 +52,7 @@ export const ABOUT_STOPS_CONFIG: AboutStopConfig[] = [
     prefix: "about_stop4",
     paragraphCount: 2,
     hasHighlight: true,
-    chipCount: 7,
+    chipCount: 4,
     Icon: Rocket,
   },
 ];

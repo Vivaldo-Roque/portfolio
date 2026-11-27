@@ -9,7 +9,7 @@ about_chapter: "chapter_04"
 about_title_gradient: "Raízes"
 about_title_pre: "As"
 about_me_p1: |-
-  Sou Vivaldo Cristóvão Roque, licenciado em Engenharia Informática, baseado em Sequele, Ícolo e Bengo, Angola.
+  Licenciado em Engenharia Informática, baseado em Sequele, Ícolo e Bengo, Angola.
 about_me_p2: |-
   Atualmente, estou no estágio final do curso de Engenharia Informática no Instituto Superior Politécnico Kangonjo, onde venho consolidando conhecimentos de sistemas, redes e desenvolvimento de software. Minha trajetória começou no ensino médio na Escola Nº 4073 – Padre Inácio Tambu (formado entre 2016 e 2018, com destaque em Ciências Físicas e Biológicas), e desde então venho buscando ampliar continuamente minha formação.
   
@@ -54,7 +54,7 @@ about_stop1_p1: |-
 about_stop1_p2: |-
   Durante a licenciatura consolidei conhecimentos sólidos em sistemas, redes e engenharia de software.
 about_stop1_p3: |-
-  Minha trajetória começou no ensino médio na Escola Nº 4073 – Padre Inácio Tambu (formado entre 2016 e 2018, com destaque em Ciências Físicas e Biológicas), e desde então venho buscando ampliar continuamente minha formação.
+  Tudo começou na 11.ª classe, no curso de Ciências Físicas e Biológicas na Escola Nº 4073 – Padre Inácio Tambu (2016–2018), quando pedi emprestado a um colega o livro “Linguagem C” de Luís Damas — cujo pai havia estudado programação em Portugal. Entre leituras e exercícios práticos ao longo de algumas semanas, descobri o gosto pela programação.
 about_stop1_m1_label: "Ensino Médio"
 about_stop1_m1_val: "Ciências Físicas e Biológicas"
 about_stop1_m2_label: "Ensino Superior"
@@ -64,40 +64,39 @@ about_stop1_m3_val: "Sequele, Ícolo e Bengo, Angola"
 about_stop1_chip1: "Sistemas"
 about_stop1_chip2: "Redes"
 about_stop1_chip3: "Desenvolvimento de Software"
-about_stop1_chip4: "Ciências Físicas e Biológicas"
-about_stop2_year: "ITEL & HARVARD"
+about_stop2_year: "ITEL & HARVARDX"
 about_stop2_tag: "REDES & CIÊNCIA DA COMPUTAÇÃO"
-about_stop2_place: "Centro de Formação do ITEL · Harvard Online"
-about_stop2_title: "Treinamentos Práticos em Redes & Fundamentos em Harvard"
+about_stop2_place: "Centro de Formação do ITEL · HarvardX (edX.org)"
+about_stop2_title: "Treinamentos Práticos em Redes & Fundamentos em HarvardX"
 about_stop2_p1: "No Centro de Formação do ITEL, realizei treinamentos práticos como:"
 about_stop2_b1: "CCNA: Introduction to Network"
 about_stop2_b2: "CCNA: SRWE (Switching, Routing, and Wireless Essentials)"
 about_stop2_after: |-
-  Além disso, concluí o curso “Introduction to Computer Science” pela Harvard Online, o que consolidou meus fundamentos em ciência da computação.
+  Além disso, concluí o curso “HarvardX: CS50's Introduction to Computer Science” pela Harvard Online via edX.org, consolidando os meus fundamentos em ciência da computação.
 about_stop2_m1_label: "Centro ITEL"
 about_stop2_m1_val: "Cisco CCNA & SRWE"
-about_stop2_m2_label: "Harvard Online"
-about_stop2_m2_val: "Intro to Computer Science"
+about_stop2_m2_label: "HarvardX (edX.org)"
+about_stop2_m2_val: "CS50's Intro to Computer Science"
 about_stop2_m3_label: "Foco"
 about_stop2_m3_val: "Desenvolvimento de Apps Mobile"
 about_stop2_chip1: "CCNA: Introduction to Network"
 about_stop2_chip2: "CCNA: SRWE"
-about_stop2_chip3: "Harvard CS50"
+about_stop2_chip3: "HarvardX CS50 (edX)"
 about_stop2_chip4: "Fundamentos de Computação"
 about_stop3_year: "42 LUANDA"
-about_stop3_tag: "PISCINE & CADETE"
+about_stop3_tag: "PISCINE · CADETE · TRANSCENDER"
 about_stop3_place: "42 Luanda · Aprendizagem Peer-to-Peer"
-about_stop3_title: "Da Piscine a Cadete na 42 Luanda"
+about_stop3_title: "De Pisciner a Transcender na 42 Luanda"
 about_stop3_p1: |-
-  Também tive uma experiência enriquecedora participando da piscina da 42Luanda, que me estimulou a pensar de forma inovadora e colaborativa.
+  A minha jornada na 42 Luanda começou com a Piscine — uma imersão intensa que me desafiou a pensar de forma inovadora, autónoma e colaborativa.
 about_stop3_p2: |-
-  Atualmente, sou cadete na 42 Luanda, um programa intensivo de engenharia de software. Já concluí o Common Core (tronco comum) e encontro-me agora na fase avançada (42 Advanced).
+  Fui aprovado como Cadete, concluí o Common Core (tronco comum) e hoje sigo como Transcender na fase avançada (42 Advanced).
 about_stop3_p3: |-
-  Este ambiente de aprendizagem peer-to-peer tem me desafiado a desenvolver habilidades de resolução de problemas, trabalho em equipe e domínio de conceitos de programação de baixo nível.
+  Este ambiente de aprendizagem peer-to-peer consolidou a minha capacidade de resolução de problemas, trabalho em equipa e domínio de programação de baixo nível.
 about_stop3_m1_label: "Etapa Inicial"
 about_stop3_m1_val: "Piscine 42 Luanda"
 about_stop3_m2_label: "Posição Atual"
-about_stop3_m2_val: "Cadete · 42 Advanced"
+about_stop3_m2_val: "Transcender · 42 Advanced"
 about_stop3_m3_label: "Metodologia"
 about_stop3_m3_val: "Peer-to-Peer & Baixo Nível"
 about_stop3_chip1: "42 Luanda"
@@ -126,6 +125,3 @@ about_stop4_chip1: "Flutter"
 about_stop4_chip2: "Dart"
 about_stop4_chip3: "Apps Mobile"
 about_stop4_chip4: "Engenharia Informática"
-about_stop4_chip5: ""
-about_stop4_chip6: ""
-about_stop4_chip7: ""
