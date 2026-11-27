@@ -6,6 +6,7 @@ import yaml from "@rollup/plugin-yaml";
 import path from "path";
 
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === "true" ? "/Portfolio/" : "/",
   plugins: [
     // TanStack Router file-based route generation (must be before react)
     TanStackRouterVite({
