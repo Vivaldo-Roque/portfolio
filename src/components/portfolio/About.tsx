@@ -171,6 +171,13 @@ export default function About() {
   const { t } = useLanguage();
   const [activeStop, setActiveStop] = useState(0);
 
+  // Enable forced slide-by-slide scroll-snap while viewing About
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.add("snap-scroll");
+    return () => root.classList.remove("snap-scroll");
+  }, []);
+
   // Build localized stops dynamically from ABOUT_STOPS_CONFIG + src/locales/{pt,en}/about.yaml
   const stops: Stop[] = ABOUT_STOPS_CONFIG.map((cfg) => {
     const p = cfg.prefix;
@@ -215,7 +222,7 @@ export default function About() {
       <div className="pointer-events-none fixed inset-0 bg-grid opacity-35" aria-hidden />
 
       {/* Featured Hologram Comms Intro (visible on desktop & mobile) */}
-      <div className="relative z-10 mx-auto max-w-2xl px-4 pt-20 pb-4 sm:pt-24">
+      <div className="snap-target relative z-10 mx-auto max-w-2xl px-4 pt-20 pb-12 sm:pt-24 sm:pb-16">
         <HologramComms
           idleVideoSrc={meWelcomeVideo}
           fallbackImage={portraitCutout}
@@ -226,7 +233,7 @@ export default function About() {
       <div className="relative mx-auto max-w-4xl px-4 sm:px-6">
         {/* Centered Single-Column Narrative Expedition */}
         <div>
-            <div className="flex min-h-[50vh] flex-col justify-center pb-10 pt-4 sm:pt-8">
+            <div className="snap-target flex min-h-[60vh] flex-col justify-center pb-12 pt-10 sm:pt-14">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
                 <img
                   src={portrait}
