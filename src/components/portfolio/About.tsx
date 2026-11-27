@@ -62,7 +62,7 @@ function JourneyStop({
     <section
       ref={ref}
       id={`stop-${stop.id}`}
-      className="snap-target relative flex min-h-[75vh] items-center border-t border-border/70 py-14 sm:py-20 lg:min-h-screen lg:py-24"
+      className="relative flex min-h-[75vh] items-center border-t border-border/70 py-14 sm:py-20 lg:min-h-screen lg:py-24"
     >
       {/* Giant watermark stage number */}
       <span
@@ -171,11 +171,39 @@ export default function About() {
   const { t } = useLanguage();
   const [activeStop, setActiveStop] = useState(0);
 
-  // Enable forced slide-by-slide scroll-snap while viewing About
+  // Enable forced slide scroll-snap ONLY while viewing the hologram;
+  // once scrolled down to the narrative content, switch to normal scrolling (like Home).
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.add("snap-scroll");
-    return () => root.classList.remove("snap-scroll");
+    let snapEnabled = true;
+
+    const update = () => {
+      const vh = window.innerHeight || 1;
+      const stopEl = document.querySelector<HTMLElement>("[data-about-snap-stop]");
+      if (stopEl) {
+        const low = Math.max(24, vh * 0.04);
+        const high = Math.max(96, vh * 0.14);
+        const top = stopEl.getBoundingClientRect().top;
+        if (snapEnabled && top <= low) {
+          snapEnabled = false;
+        } else if (!snapEnabled && top > high) {
+          snapEnabled = true;
+        }
+      } else {
+        snapEnabled = false;
+      }
+      root.classList.toggle("snap-scroll", snapEnabled);
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+      root.classList.remove("snap-scroll");
+    };
   }, []);
 
   // Build localized stops dynamically from ABOUT_STOPS_CONFIG + src/locales/{pt,en}/about.yaml
@@ -221,19 +249,22 @@ export default function About() {
     >
       <div className="pointer-events-none fixed inset-0 bg-grid opacity-35" aria-hidden />
 
-      {/* Featured Hologram Comms Intro (visible on desktop & mobile) */}
-      <div className="snap-target relative z-10 mx-auto max-w-2xl px-4 pt-20 pb-12 sm:pt-24 sm:pb-16">
-        <HologramComms
-          idleVideoSrc={meWelcomeVideo}
-          fallbackImage={portraitCutout}
-          alt={PROFILE.fullName}
-        />
+      {/* Slide 1: Centered Full-Screen Hologram Comms */}
+      <div className="snap-target relative z-10 flex min-h-screen items-center justify-center px-4 py-20">
+        <div className="w-full max-w-2xl">
+          <HologramComms
+            idleVideoSrc={meWelcomeVideo}
+            fallbackImage={portraitCutout}
+            alt={PROFILE.fullName}
+          />
+        </div>
       </div>
 
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6">
+      {/* Normal scrolling resumes from here */}
+      <div data-about-snap-stop="true" className="snap-target relative mx-auto max-w-4xl px-4 sm:px-6">
         {/* Centered Single-Column Narrative Expedition */}
         <div>
-            <div className="snap-target flex min-h-[60vh] flex-col justify-center pb-12 pt-10 sm:pt-14">
+            <div className="flex min-h-[60vh] flex-col justify-center pb-12 pt-10 sm:pt-14">
               <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
                 <img
                   src={portrait}
