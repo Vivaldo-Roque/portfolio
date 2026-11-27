@@ -12,7 +12,7 @@ edu1_period: "Jun 2025 - Aug 2027"
 edu2_name: "ISKA - Instituto Superior Kangonjo de Angola"
 edu2_degree: "Bachelor's Degree, Computer Engineering"
 edu2_period: "Feb 2019 - Jul 2023"
-edu2_note: "Finalist. No expected date for bachelor's degree defense."
+edu2_note: "Bachelor's degree in Computer Engineering completed."
 edu3_name: "School Nº4073 - Padre Inácio Tambu"
 edu3_degree: "General Education, Biological and Physical Sciences"
 edu3_period: "2016 - 2018"
@@ -41,9 +41,9 @@ academic_1_place: "ISKA — Instituto Superior Kangonjo de Angola"
 academic_1_body: |-
   Bachelor's Degree in Computer Engineering. Four years turning curiosity into method: data structures, networks, databases, and the first projects that actually worked off the paper.
 academic_2_title: "The Global Perspective"
-academic_2_place: "Harvard CS50 — Introduction to Computer Science"
+academic_2_place: "HarvardX: CS50's Introduction to Computer Science · edX.org"
 academic_2_body: |-
-  Returned to the basics with Harvard's lens. Consolidated intuition into solid principles — abstraction, recursion, complexity — and gained vocabulary to talk to any engineer in the world.
+  Returned to the basics with Harvard Online (HarvardX via edX.org). Consolidated intuition into solid principles — abstraction, recursion, complexity — and gained vocabulary to talk to any engineer in the world.
 academic_3_title: "Wiring the World"
 academic_3_place: "Cisco — CCNA Networking Academy"
 academic_3_body: |-
@@ -51,7 +51,7 @@ academic_3_body: |-
 academic_4_title: "Level Up"
 academic_4_place: "42 Luanda — Software Engineering Program"
 academic_4_body: |-
-  Currently in the intensive program at 42. No teachers, no classes — just peer-learning, demanding projects in C, systems, and architecture. Here you learn how to learn.
+  After the Piscine, I was accepted as a Cadet, completed the Common Core, and now continue as a Transcender in the advanced phase (42 Advanced). No teachers, no classes — just peer-learning, demanding projects in C, systems, and architecture.
 experience_0_title: "The Deep End"
 experience_0_place: "42 Luanda Piscine"
 experience_0_body: |-
@@ -64,8 +64,8 @@ experience_2_title: "Freelance & Collaborations"
 experience_2_place: "Remote · Angola"
 experience_2_body: |-
   Available for product, mobile, and web collaborations. Working with small teams that value clean code, honest communication, and consistent deliveries.
-certifications_0_title: "CS50x — Introduction to Computer Science"
-certifications_0_place: "Harvard University · edX"
+certifications_0_title: "HarvardX: CS50's Introduction to Computer Science"
+certifications_0_place: "HarvardX · edX.org"
 certifications_0_body: |-
   Computer science course that consolidates fundamentals — abstraction, algorithms, data structures, memory, web — with projects assessed from start to finish.
 certifications_1_title: "CCNA — Networking Essentials"

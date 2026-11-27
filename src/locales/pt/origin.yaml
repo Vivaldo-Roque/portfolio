@@ -12,7 +12,7 @@ edu1_period: "Jun 2025 - Ago 2027"
 edu2_name: "ISKA - Instituto Superior Kangonjo de Angola"
 edu2_degree: "Licenciatura, Engenharia de Computação"
 edu2_period: "Fev 2019 - Jul 2023"
-edu2_note: "Finalist. Sem data prevista para defesa do título de licenciado."
+edu2_note: "Licenciado em Engenharia Informática."
 edu3_name: "Escola Nº4073 - Padre Inácio Tambu"
 edu3_degree: "Ensino Geral, Ciências Biológicas e Físicas"
 edu3_period: "2016 - 2018"
@@ -41,9 +41,9 @@ academic_1_place: "ISKA — Instituto Superior Kangonjo de Angola"
 academic_1_body: |-
   Licenciatura em Engenharia Informática. Quatro anos a transformar curiosidade em método: estruturas de dados, redes, bases de dados, e os primeiros projetos que realmente funcionavam fora do papel.
 academic_2_title: "A Perspetiva Global"
-academic_2_place: "Harvard CS50 — Introduction to Computer Science"
+academic_2_place: "HarvardX: CS50's Introduction to Computer Science · edX.org"
 academic_2_body: |-
-  Voltei aos fundamentos com a lente de Harvard. Consolidei o que era intuição em princípios sólidos — abstração, recursão, complexidade — e ganhei vocabulário para conversar com qualquer engenheiro do mundo.
+  Voltei aos fundamentos com a Harvard Online (HarvardX via edX.org). Consolidei o que era intuição em princípios sólidos — abstração, recursão, complexidade — e ganhei vocabulário para conversar com qualquer engenheiro do mundo.
 academic_3_title: "Conectando o Mundo"
 academic_3_place: "Cisco — CCNA Networking Academy"
 academic_3_body: |-
@@ -51,7 +51,7 @@ academic_3_body: |-
 academic_4_title: "Aceleração"
 academic_4_place: "42 Luanda — Software Engineering Program"
 academic_4_body: |-
-  Atualmente no programa intensivo da 42. Sem professores, sem aulas — apenas peer-learning, projetos exigentes em C, sistemas e arquitetura. Aqui aprende-se a aprender.
+  Após a Piscine, fui aprovado como Cadete, concluí o Common Core e sigo agora como Transcender na fase avançada (42 Advanced). Sem professores, sem aulas — apenas peer-learning, projetos exigentes em C, sistemas e arquitetura.
 experience_0_title: "Mergulho Profundo"
 experience_0_place: "42 Luanda Piscine"
 experience_0_body: |-
@@ -64,8 +64,8 @@ experience_2_title: "Freelance & Colaborações"
 experience_2_place: "Remoto · Angola"
 experience_2_body: |-
   Disponível para colaborações em produto, mobile e web. Trabalho com equipas pequenas que valorizam código limpo, comunicação honesta e entregas consistentes.
-certifications_0_title: "CS50x — Introduction to Computer Science"
-certifications_0_place: "Harvard University · edX"
+certifications_0_title: "HarvardX: CS50's Introduction to Computer Science"
+certifications_0_place: "HarvardX · edX.org"
 certifications_0_body: |-
   Curso de ciência da computação que consolida fundamentos — abstração, algoritmos, estruturas de dados, memória, web — com projetos avaliados de ponta a ponta.
 certifications_1_title: "CCNA — Networking Essentials"
