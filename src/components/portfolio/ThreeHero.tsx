@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import portrait from "@/assets/vivaldo-portrait.jpg";
+import graduation from "@/assets/me_graduation_ceremony.jpg";
+import workstation from "@/assets/work_station.jpg";
+import cadet from "@/assets/me_42cadet.jpg";
 import { useLanguage } from "@/context/language-context";
 import {
   buildPhotoAccurateLowPoly,
@@ -13,11 +16,12 @@ export type StageMode = "tech";
 
 type Card = { tag: string; title: string; subtitle: string; image: string; badge: string };
 
+/** Chapter index → photo. Edit here or in YAML (three_card_N_*) to update slides. */
 const CARD_IMAGES: Record<number, string | undefined> = {
-  1: portrait,
-  2: "/img/works/vivacubesolver.jpg",
-  3: "/img/works/cfoptrainer.png",
-  4: "/img/works/flutter_web_ecommerce_1.png",
+  1: portrait,          // About — retrato
+  2: graduation,        // Origin — cerimónia de formatura
+  3: workstation,       // Work — estação de trabalho
+  4: cadet,             // Skills — 42 Luanda cadete
 };
 
 export default function ThreeHero({ activeChapter = 0 }: { activeChapter?: number }) {

@@ -20,25 +20,25 @@ export type TimelineItemConfig = {
 
 export const ACADEMIC_TIMELINE: TimelineItemConfig[] = [
   {
-    periodLiteral: "2016 – 2018",
+    periodKey: "academic_0_period",
     titleKey: "academic_0_title",
     placeKey: "academic_0_place",
     bodyKey: "academic_0_body",
   },
   {
-    periodLiteral: "2019 – 2023",
+    periodKey: "academic_1_period",
     titleKey: "academic_1_title",
     placeKey: "academic_1_place",
     bodyKey: "academic_1_body",
   },
   {
-    periodLiteral: "2024",
+    periodKey: "academic_2_period",
     titleKey: "academic_2_title",
     placeKey: "academic_2_place",
     bodyKey: "academic_2_body",
   },
   {
-    periodLiteral: "2024",
+    periodKey: "academic_3_period",
     titleKey: "academic_3_title",
     placeKey: "academic_3_place",
     bodyKey: "academic_3_body",
@@ -74,13 +74,13 @@ export const EXPERIENCE_TIMELINE: TimelineItemConfig[] = [
 
 export const CERTIFICATIONS_TIMELINE: TimelineItemConfig[] = [
   {
-    periodLiteral: "2024",
+    periodKey: "certifications_0_period",
     titleKey: "certifications_0_title",
     placeKey: "certifications_0_place",
     bodyKey: "certifications_0_body",
   },
   {
-    periodLiteral: "2024",
+    periodKey: "certifications_1_period",
     titleKey: "certifications_1_title",
     placeKey: "certifications_1_place",
     bodyKey: "certifications_1_body",
