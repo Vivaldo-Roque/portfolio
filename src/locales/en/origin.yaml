@@ -8,7 +8,7 @@ experience_title: "EXPERIENCE"
 education_title: "EDUCATION"
 edu1_name: "42 Luanda"
 edu1_degree: "Intensive coding program"
-edu1_period: "Jun 2025 - Aug 2027"
+edu1_period: "Jun 2025 - Nov 2026"
 edu2_name: "ISKA - Instituto Superior Kangonjo de Angola"
 edu2_degree: "Bachelor's Degree, Computer Engineering"
 edu2_period: "Feb 2019 - Jul 2023"
@@ -48,6 +48,7 @@ academic_3_title: "Wiring the World"
 academic_3_place: "Cisco — CCNA Networking Academy"
 academic_3_body: |-
   Introduction to Networks + Switching, Routing & Wireless Essentials. Learned to think in packets, subnets, and topologies — the invisible fabric behind every web application.
+academic_4_period: "Jun 2025 – Present"
 academic_4_title: "Level Up"
 academic_4_place: "42 Luanda — Software Engineering Program"
 academic_4_body: |-
@@ -72,11 +73,7 @@ certifications_1_title: "CCNA — Networking Essentials"
 certifications_1_place: "Cisco Networking Academy"
 certifications_1_body: |-
   Introduction to Networks + Switching, Routing & Wireless Essentials. Solid foundation in IP networks, OSI/TCP-IP models, and network equipment configuration.
-certifications_2_title: "42 Luanda Piscine — Completed"
-certifications_2_place: "42 Network"
+certifications_2_title: "More on the way…"
+certifications_2_place: "Continuous learning"
 certifications_2_body: |-
-  4-week immersion in C and Unix, peer-assessed. Approved for the main program of 42 Luanda.
-certifications_3_title: "More on the way…"
-certifications_3_place: "Continuous learning"
-certifications_3_body: |-
   Active study in software architecture, distributed systems, and cloud. New certifications arrive along the way.

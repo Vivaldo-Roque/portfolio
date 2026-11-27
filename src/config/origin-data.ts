@@ -44,7 +44,7 @@ export const ACADEMIC_TIMELINE: TimelineItemConfig[] = [
     bodyKey: "academic_3_body",
   },
   {
-    periodLiteral: "2025 – 2027",
+    periodKey: "academic_4_period",
     titleKey: "academic_4_title",
     placeKey: "academic_4_place",
     bodyKey: "academic_4_body",
@@ -86,16 +86,10 @@ export const CERTIFICATIONS_TIMELINE: TimelineItemConfig[] = [
     bodyKey: "certifications_1_body",
   },
   {
-    periodLiteral: "2023",
+    periodKey: "origin_period_ongoing",
     titleKey: "certifications_2_title",
     placeKey: "certifications_2_place",
     bodyKey: "certifications_2_body",
-  },
-  {
-    periodKey: "origin_period_ongoing",
-    titleKey: "certifications_3_title",
-    placeKey: "certifications_3_place",
-    bodyKey: "certifications_3_body",
   },
 ];
 
