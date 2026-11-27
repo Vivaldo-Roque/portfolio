@@ -14,7 +14,6 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 export const getRouter = () => {
   return createRouter({
     routeTree,
-    basepath: import.meta.env.BASE_URL,
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     rewrite: {
