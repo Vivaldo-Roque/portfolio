@@ -35,12 +35,14 @@ export const SOCIAL_LINKS = [
   { label: "Twitter", href: PROFILE.twitterUrl, Icon: Twitter },
 ] as const;
 
+const BASE = import.meta.env.BASE_URL;
+
 export const PRELOAD_IMAGES = [
-  "/img/header.jpg",
-  "/img/works/cfoptrainer.png",
-  "/img/works/vivacubesolver.jpg",
-  "/img/works/bancoviva.png",
-  "/img/works/flutter_web_ecommerce_1.png",
+  `${BASE}img/header.jpg`,
+  `${BASE}img/works/cfoptrainer.png`,
+  `${BASE}img/works/vivacubesolver.jpg`,
+  `${BASE}img/works/bancoviva.png`,
+  `${BASE}img/works/flutter_web_ecommerce_1.png`,
 ] as const;
 
 export const PRELOAD_FONTS = [

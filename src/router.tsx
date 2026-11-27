@@ -9,6 +9,8 @@ const getActiveLang = (): "pt" | "en" => {
   return raw === "pt" ? "pt" : "en";
 };
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 export const getRouter = () => {
   return createRouter({
     routeTree,
@@ -16,24 +18,28 @@ export const getRouter = () => {
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
     rewrite: {
-      // Strip leading /pt or /en before TanStack Router matches routes (e.g. /pt/chapter/work -> /chapter/work)
+      // Strip leading /pt or /en (after optional BASE) before TanStack Router matches routes
       input: ({ url }) => {
-        const match = url.pathname.match(/^\/(pt|en)(\/.*|$)/i);
+        const prefix = BASE && url.pathname.startsWith(BASE) ? BASE : "";
+        const rest = url.pathname.slice(prefix.length) || "/";
+        const match = rest.match(/^\/(pt|en)(\/.*|$)/i);
         if (match) {
           const detected = match[1].toLowerCase();
           if (i18n.language?.slice(0, 2).toLowerCase() !== detected) {
             i18n.changeLanguage(detected);
           }
-          url.pathname = match[2] || "/";
+          url.pathname = `${prefix}${match[2] || "/"}`;
         }
         return url;
       },
-      // Prepend active language (/pt or /en) to every generated link & navigation URL
+      // Prepend active language (/pt or /en) after BASE to every generated link & navigation URL
       output: ({ url }) => {
         const lang = getActiveLang();
-        if (!/^\/(pt|en)(\/|$)/i.test(url.pathname)) {
+        const prefix = BASE && url.pathname.startsWith(BASE) ? BASE : "";
+        const rest = url.pathname.slice(prefix.length) || "/";
+        if (!/^\/(pt|en)(\/|$)/i.test(rest)) {
           url.pathname =
-            url.pathname === "/" ? `/${lang}` : `/${lang}${url.pathname}`;
+            rest === "/" ? `${prefix}/${lang}` : `${prefix}/${lang}${rest}`;
         }
         return url;
       },

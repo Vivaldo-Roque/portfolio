@@ -53,7 +53,7 @@ export default function ThreeHero({ activeChapter = 0 }: { activeChapter?: numbe
 
     // Photo-sampled low-poly Serra da Leba
     const texLoader = new THREE.TextureLoader();
-    const lebaTex = texLoader.load("/img/header.jpg", (tex) => {
+    const lebaTex = texLoader.load(`${import.meta.env.BASE_URL}img/header.jpg`, (tex) => {
       if (tex.image) scene.add(buildPhotoAccurateLowPoly(tex.image as HTMLImageElement));
     });
     lebaTex.colorSpace = THREE.SRGBColorSpace;
