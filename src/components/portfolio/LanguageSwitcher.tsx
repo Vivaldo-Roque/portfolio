@@ -1,11 +1,28 @@
 import { useLanguage } from "@/context/language-context";
+import { useNavigate, useParams } from "@tanstack/react-router";
 
 /**
  * Reusable PT | EN Language Switcher Pill used across FloatingNav,
  * ChapterDetail, and ProjectShowcase.
+ * When inside a /$lang route, also updates the URL to reflect the new language.
  */
 export function LanguageSwitcher({ className = "" }: { className?: string }) {
   const { language, setLanguage } = useLanguage();
+  const navigate = useNavigate();
+  // useParams returns {} if we're not inside a $lang route — safe to call unconditionally
+  const params = useParams({ strict: false }) as { lang?: string };
+
+  const handleSwitch = (lang: "pt" | "en") => {
+    setLanguage(lang);
+    // If the current URL has a $lang segment, replace it
+    if (params.lang && params.lang !== lang) {
+      navigate({
+        // Replace only the lang param; keep the rest of the path intact
+        params: (prev) => ({ ...prev, lang }),
+        replace: true,
+      });
+    }
+  };
 
   return (
     <div
@@ -19,7 +36,7 @@ export function LanguageSwitcher({ className = "" }: { className?: string }) {
           <button
             key={lang}
             type="button"
-            onClick={() => setLanguage(lang)}
+            onClick={() => handleSwitch(lang)}
             aria-pressed={isActive}
             className={`rounded-full px-2.5 py-1 transition ${
               isActive

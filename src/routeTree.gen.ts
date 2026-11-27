@@ -9,14 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LangRouteImport } from './routes/$lang'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LangIndexRouteImport } from './routes/$lang.index'
 import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
 import { Route as ChapterChapterIdRouteImport } from './routes/chapter.$chapterId'
+import { Route as LangProjectsProjectIdRouteImport } from './routes/$lang.projects.$projectId'
+import { Route as LangChapterChapterIdRouteImport } from './routes/$lang.chapter.$chapterId'
 
+const LangRoute = LangRouteImport.update({
+  id: '/$lang',
+  path: '/$lang',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LangIndexRoute = LangIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangRoute,
 } as any)
 const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
   id: '/projects/$projectId',
@@ -28,45 +42,102 @@ const ChapterChapterIdRoute = ChapterChapterIdRouteImport.update({
   path: '/chapter/$chapterId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangProjectsProjectIdRoute = LangProjectsProjectIdRouteImport.update({
+  id: '/projects/$projectId',
+  path: '/projects/$projectId',
+  getParentRoute: () => LangRoute,
+} as any)
+const LangChapterChapterIdRoute = LangChapterChapterIdRouteImport.update({
+  id: '/chapter/$chapterId',
+  path: '/chapter/$chapterId',
+  getParentRoute: () => LangRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteWithChildren
   '/chapter/$chapterId': typeof ChapterChapterIdRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/chapter/$chapterId': typeof LangChapterChapterIdRoute
+  '/$lang/projects/$projectId': typeof LangProjectsProjectIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chapter/$chapterId': typeof ChapterChapterIdRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/$lang': typeof LangIndexRoute
+  '/$lang/chapter/$chapterId': typeof LangChapterChapterIdRoute
+  '/$lang/projects/$projectId': typeof LangProjectsProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$lang': typeof LangRouteWithChildren
   '/chapter/$chapterId': typeof ChapterChapterIdRoute
   '/projects/$projectId': typeof ProjectsProjectIdRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/chapter/$chapterId': typeof LangChapterChapterIdRoute
+  '/$lang/projects/$projectId': typeof LangProjectsProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chapter/$chapterId' | '/projects/$projectId'
+  fullPaths:
+    | '/'
+    | '/$lang'
+    | '/chapter/$chapterId'
+    | '/projects/$projectId'
+    | '/$lang/'
+    | '/$lang/chapter/$chapterId'
+    | '/$lang/projects/$projectId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chapter/$chapterId' | '/projects/$projectId'
-  id: '__root__' | '/' | '/chapter/$chapterId' | '/projects/$projectId'
+  to:
+    | '/'
+    | '/chapter/$chapterId'
+    | '/projects/$projectId'
+    | '/$lang'
+    | '/$lang/chapter/$chapterId'
+    | '/$lang/projects/$projectId'
+  id:
+    | '__root__'
+    | '/'
+    | '/$lang'
+    | '/chapter/$chapterId'
+    | '/projects/$projectId'
+    | '/$lang/'
+    | '/$lang/chapter/$chapterId'
+    | '/$lang/projects/$projectId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LangRoute: typeof LangRouteWithChildren
   ChapterChapterIdRoute: typeof ChapterChapterIdRoute
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/$lang': {
+      id: '/$lang'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexRouteImport
+      parentRoute: typeof LangRoute
     }
     '/projects/$projectId': {
       id: '/projects/$projectId'
@@ -82,11 +153,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChapterChapterIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang/projects/$projectId': {
+      id: '/$lang/projects/$projectId'
+      path: '/projects/$projectId'
+      fullPath: '/$lang/projects/$projectId'
+      preLoaderRoute: typeof LangProjectsProjectIdRouteImport
+      parentRoute: typeof LangRoute
+    }
+    '/$lang/chapter/$chapterId': {
+      id: '/$lang/chapter/$chapterId'
+      path: '/chapter/$chapterId'
+      fullPath: '/$lang/chapter/$chapterId'
+      preLoaderRoute: typeof LangChapterChapterIdRouteImport
+      parentRoute: typeof LangRoute
+    }
   }
 }
 
+interface LangRouteChildren {
+  LangIndexRoute: typeof LangIndexRoute
+  LangChapterChapterIdRoute: typeof LangChapterChapterIdRoute
+  LangProjectsProjectIdRoute: typeof LangProjectsProjectIdRoute
+}
+
+const LangRouteChildren: LangRouteChildren = {
+  LangIndexRoute: LangIndexRoute,
+  LangChapterChapterIdRoute: LangChapterChapterIdRoute,
+  LangProjectsProjectIdRoute: LangProjectsProjectIdRoute,
+}
+
+const LangRouteWithChildren = LangRoute._addFileChildren(LangRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LangRoute: LangRouteWithChildren,
   ChapterChapterIdRoute: ChapterChapterIdRoute,
   ProjectsProjectIdRoute: ProjectsProjectIdRoute,
 }

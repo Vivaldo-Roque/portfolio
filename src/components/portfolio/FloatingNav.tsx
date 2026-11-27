@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, Volume2, VolumeX, X } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
 import { useSound } from "@/context/sound-context";
-import { SUSPEND_SNAP_EVENT } from "@/routes/index";
+import { SUSPEND_SNAP_EVENT } from "@/lib/events";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export default function FloatingNav() {
